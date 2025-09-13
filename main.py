@@ -87,9 +87,9 @@ if __name__ == "__main__":
     parser.add_argument('--mode', choices=['run', 'kill'], default='run', help='Chế độ: run hoặc kill')
     args = parser.parse_args()
 
-    update_selected_instances_all(range(1 , 11), [1])
-    update_selected_instances_all(range(11 , 21), [1])
-    update_selected_instances_all(range(21 , 31), [1])
+    update_selected_instances_all(range(1 , 11), range(41 , 50))
+    update_selected_instances_all(range(11 , 21), range(50 , 58))
+    update_selected_instances_all(range(21 , 31), range(58 , 65))
     
 
     if args.mode == 'run':

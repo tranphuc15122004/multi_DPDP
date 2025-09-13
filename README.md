@@ -1,30 +1,34 @@
-### Hướng dẫn sử dụng chương trình
+# multi_thread_DPDP
 
------
+## Cấu trúc thư mục
+- `main.py`: Chạy và quản lý các instance DPDP.
+- `DPDP1/` đến `DPDP30/`: Mỗi thư mục chứa một instance DPDP riêng biệt.
+    - `main.py`: File chính của từng instance.
+    - `algorithm/`, `benchmark/`, `simpy/`, `src/`: Các module/phần phụ trợ cho từng instance.
+- `benchmark/`: Chứa dữ liệu đầu vào (csv, instance).
+- `venv/`: Môi trường ảo Python.
 
-### 1\. Cấu hình số lượng test case
+## Hướng dẫn sử dụng
+### 1. Cài đặt môi trường
+```bash
+source venv/bin/activate
+```
 
-Mở file **`main.py`** và điều chỉnh số lượng test case mà muốn chạy.
+### 2. Chạy tất cả các instance DPDP
 
-1.  Mở file `main.py` .
-2.  Tìm hàm `update_selected_instances_all()`.
-3.  Thay đổi giá trị của hàm  **`update_selected_instances_all`** thành số lượng test case muốn chạy.
-    ```python
-    update_selected_instances_all([41])
-        ...
-    ```
-    
-    ```python
-    update_selected_instances_all([41 , 42 , 43])
-        ...
-    ```
-### 2\. Chạy chương trình
+Chạy toàn bộ các simulator:
+```bash
+python main.py --mode run
+```
 
-Sau khi đã cấu hình xong, chạy chương trình bằng cách thực thi file `main.py`.
+### 3. Cập nhật selected_instances cho các instance
+Hàm `update_selected_instances_all` sẽ tự động cập nhật cấu hình cho các instance trong khoảng bạn chọn.
 
-  * Mở Terminal hoặc Command Prompt.
-  * Điều hướng đến thư mục chứa file `main.py`.
-  * Gõ lệnh sau và nhấn Enter:
-    ```sh
-    python main.py
-    ```
+### 4. Kill các tiến trình DPDP
+
+Kill các tiến trình Python chạy file main.py trong các thư mục DPDP bạn chọn.
+
+Hoặc kill toàn bộ các tiến trình 
+```bash
+python main.py --mode kill 
+```
