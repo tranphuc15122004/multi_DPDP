@@ -1,0 +1,15 @@
+[
+    {
+        "id": "1529120030-1",
+        "type": "PALLET",
+        "order_id": "1529120030",
+        "demand": 1,
+        "pickup_factory_id": "2445d4bd004c457d95957d6ecf77f759",
+        "delivery_factory_id": "5e2e9efa5ade4984bb18af66028bc0c8",
+        "creation_time": 1757690952,
+        "committed_completion_time": 1757705352,
+        "load_time": 240,
+        "unload_time": 240,
+        "delivery_state": 2
+    }
+]

@@ -1,0 +1,1901 @@
+2025-09-12 18:35:03,905 [main.py         | 48] INFO: Start to run instance_1
+2025-09-12 18:35:03,905 [simulate_api.py | 60] INFO: Start time of the simulator: 2025-09-12 00:00:00, time interval:  600.00
+2025-09-12 18:35:03,947 [input_utils.py  | 48] INFO: Get 154 factories
+2025-09-12 18:35:12,918 [input_utils.py  | 52] INFO: Get 23562 routes
+2025-09-12 18:35:13,099 [input_utils.py  | 57] INFO: Get 5 vehicles
+2025-09-12 18:35:13,168 [input_utils.py  | 61] INFO: Get 50 orders
+2025-09-12 18:35:13,168 [simulate_api.py | 87] INFO: Initial position of V_1 is e2d5093fbe36431f8986ddb0e1c586be
+2025-09-12 18:35:13,168 [simulate_api.py | 87] INFO: Initial position of V_2 is 7fe14b93f0f04ee7a994ef5b2c1fdb72
+2025-09-12 18:35:13,168 [simulate_api.py | 87] INFO: Initial position of V_3 is fa366fc87a124d32926daa5bb093129f
+2025-09-12 18:35:13,168 [simulate_api.py | 87] INFO: Initial position of V_4 is e47399648fa842b2b8f80094343d8091
+2025-09-12 18:35:13,168 [simulate_api.py | 87] INFO: Initial position of V_5 is becb4f85393540b287e7329758b8d832
+2025-09-12 18:35:13,169 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:35:13,169 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 00:10:00, pre time: 2025-09-12 00:00:00
+2025-09-12 18:35:13,169 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 00:10:00
+2025-09-12 18:35:13,170 [simulate_environment.py | 167] INFO: Get 1 unallocated order items, 0 ongoing order items, 0 completed order items
+2025-09-12 18:35:21,091 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0003480001-1 d1_0003480001-1]
+The fitness value before EA: 3.08
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0003480001-1 d1_0003480001-1]
+The fitness value after EA: 3.08
+
+Thoi gian thuc hien thuat toan:  5.143222093582153
+SUCCESS
+
+2025-09-12 18:35:21,092 [simulate_environment.py | 254] INFO: 2025-09-12 00:10:00, Item 0003480001-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:35:21,092 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:35:21,092 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 00:20:00, pre time: 2025-09-12 00:10:00
+2025-09-12 18:35:21,094 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 00:20:00
+2025-09-12 18:35:21,102 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 0 ongoing order items, 0 completed order items
+2025-09-12 18:35:40,890 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 1.80, Worst = 5.56, Avg = 2.10, Diversity = 0.289, FitDiv = 0.443 , Time: 0.03300595283508301
+Generation 2: Best = 1.80, Worst = 1.80, Avg = 1.80, Diversity = 0.000, FitDiv = 0.000 , Time: 0.01444554328918457
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 1.80, Worst = 1.80, Avg = 1.80, Diversity = 0.000, FitDiv = 0.000 , Time: 2.812847137451172
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 1.80, Worst = 1.80, Avg = 1.80, Diversity = 0.000, FitDiv = 0.000 , Time: 3.35036563873291
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 1.80, Worst = 1.80, Avg = 1.80, Diversity = 0.000, FitDiv = 0.000 , Time: 4.3241283893585205
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 1.80, Worst = 5.44, Avg = 2.68, Diversity = 0.437, FitDiv = 0.535 , Time: 3.517033100128174
+Generation 7: Best = 1.80, Worst = 1.80, Avg = 1.80, Diversity = 0.000, FitDiv = 0.000 , Time: 0.057099103927612305
+Stopping early due to lack of improvement.
+Total runtime: 18.46s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0003480001-1 p1_0012230002-1 d1_0012230002-1 d1_0003480001-1 p1_0013570003-1 d1_0013570003-1]
+The fitness value before EA: 1.8
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0003480001-1 p1_0012230002-1 d1_0012230002-1 d1_0003480001-1 p1_0013570003-1 d1_0013570003-1]
+The fitness value after EA: 1.8
+
+Thoi gian thuc hien thuat toan:  18.468193531036377
+SUCCESS
+
+2025-09-12 18:35:40,891 [simulate_environment.py | 254] INFO: 2025-09-12 00:20:00, Item 0003480001-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:35:40,892 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:35:40,892 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 00:30:00, pre time: 2025-09-12 00:20:00
+2025-09-12 18:35:40,892 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 00:30:00
+2025-09-12 18:35:40,894 [simulate_environment.py | 167] INFO: Get 1 unallocated order items, 2 ongoing order items, 0 completed order items
+2025-09-12 18:35:49,670 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0012230002-1 d1_0003480001-1 p1_0013570003-1 d1_0013570003-1]
+The fitness value before EA: 1.8
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0012230002-1 d1_0003480001-1 p1_0013570003-1 d1_0013570003-1]
+The fitness value after EA: 1.8
+
+Thoi gian thuc hien thuat toan:  7.119032382965088
+SUCCESS
+
+2025-09-12 18:35:49,671 [simulate_environment.py | 254] INFO: 2025-09-12 00:30:00, Item 0013570003-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:35:49,671 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:35:49,672 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 00:40:00, pre time: 2025-09-12 00:30:00
+2025-09-12 18:35:49,672 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 00:40:00
+2025-09-12 18:35:49,673 [simulate_environment.py | 167] INFO: Get 7 unallocated order items, 2 ongoing order items, 0 completed order items
+2025-09-12 18:36:10,846 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 7.98, Worst = 15.38, Avg = 9.03, Diversity = 0.476, FitDiv = 0.270 , Time: 0.382474422454834
+Generation 2: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.000, FitDiv = 0.000 , Time: 0.09108567237854004
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 7.98, Worst = 15.52, Avg = 9.66, Diversity = 0.308, FitDiv = 0.308 , Time: 2.644899606704712
+Generation 4: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.000, FitDiv = 0.000 , Time: 0.08421683311462402
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 7.98, Worst = 5308.26, Avg = 362.37, Diversity = 0.356, FitDiv = 3.648 , Time: 3.6724343299865723
+Generation 6: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.000, FitDiv = 0.000 , Time: 0.1149892807006836
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 7.98, Worst = 8.50, Avg = 8.03, Diversity = 0.129, FitDiv = 0.017 , Time: 3.4547948837280273
+Low diversity detected, applying diversity maintenance...
+Generation 8: Best = 7.98, Worst = 10.98, Avg = 8.25, Diversity = 0.311, FitDiv = 0.090 , Time: 3.533637046813965
+Stopping early due to lack of improvement.
+Total runtime: 19.07s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[d1_0012230002-1 p3_0033520004-1 d3_0033520004-3 d1_0003480001-1 p1_0013570003-1 d1_0013570003-1]
+The fitness value before EA: 8.120000000000001
+V_1:[] V_2:[] V_3:[p1_0013570003-1 d1_0013570003-1 p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[d1_0012230002-1 p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value after EA: 7.980000000000001
+
+Thoi gian thuc hien thuat toan:  19.087798595428467
+SUCCESS
+
+2025-09-12 18:36:10,848 [simulate_environment.py | 254] INFO: 2025-09-12 00:40:00, Item 0013570003-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:36:10,848 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:36:10,848 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 00:50:00, pre time: 2025-09-12 00:40:00
+2025-09-12 18:36:10,848 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 00:50:00
+2025-09-12 18:36:10,850 [simulate_environment.py | 167] INFO: Get 6 unallocated order items, 3 ongoing order items, 0 completed order items
+2025-09-12 18:36:38,603 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 7.70, Worst = 10.12, Avg = 7.90, Diversity = 0.183, FitDiv = 0.076 , Time: 0.023442983627319336
+Generation 2: Best = 7.70, Worst = 7.70, Avg = 7.70, Diversity = 0.000, FitDiv = 0.000 , Time: 0.0207669734954834
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 7.70, Worst = 7.70, Avg = 7.70, Diversity = 0.000, FitDiv = 0.000 , Time: 7.077735424041748
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 7.70, Worst = 7.70, Avg = 7.70, Diversity = 0.000, FitDiv = 0.000 , Time: 3.721390724182129
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 7.70, Worst = 7.70, Avg = 7.70, Diversity = 0.000, FitDiv = 0.000 , Time: 4.321964740753174
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 7.70, Worst = 7.70, Avg = 7.70, Diversity = 0.000, FitDiv = 0.000 , Time: 4.159017324447632
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 7.70, Worst = 8.60, Avg = 7.89, Diversity = 0.293, FitDiv = 0.040 , Time: 3.086026668548584
+Stopping early due to lack of improvement.
+Total runtime: 26.61s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0013570003-1 p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[d1_0012230002-1 p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value before EA: 7.7
+V_1:[] V_2:[] V_3:[d1_0013570003-1 p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[d1_0012230002-1 p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value after EA: 7.7
+
+Thoi gian thuc hien thuat toan:  26.648437023162842
+SUCCESS
+
+2025-09-12 18:36:38,604 [simulate_environment.py | 254] INFO: 2025-09-12 00:50:00, Item 0033520004-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:36:38,604 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:36:38,605 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 01:00:00, pre time: 2025-09-12 00:50:00
+2025-09-12 18:36:38,605 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 01:00:00
+2025-09-12 18:36:38,606 [simulate_environment.py | 167] INFO: Get 6 unallocated order items, 3 ongoing order items, 0 completed order items
+2025-09-12 18:37:05,432 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 7.70, Worst = 10.12, Avg = 7.90, Diversity = 0.215, FitDiv = 0.077 , Time: 0.10296273231506348
+Generation 2: Best = 7.70, Worst = 7.70, Avg = 7.70, Diversity = 0.000, FitDiv = 0.000 , Time: 0.04119300842285156
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 7.70, Worst = 7.90, Avg = 7.71, Diversity = 0.057, FitDiv = 0.006 , Time: 3.3810884952545166
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 7.70, Worst = 7.70, Avg = 7.70, Diversity = 0.000, FitDiv = 0.000 , Time: 4.0220842361450195
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 7.70, Worst = 7.70, Avg = 7.70, Diversity = 0.000, FitDiv = 0.000 , Time: 5.860925674438477
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 7.70, Worst = 7.90, Avg = 7.71, Diversity = 0.057, FitDiv = 0.006 , Time: 4.538341760635376
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 7.70, Worst = 15.24, Avg = 8.75, Diversity = 0.248, FitDiv = 0.287 , Time: 2.9231128692626953
+Stopping early due to lack of improvement.
+Total runtime: 25.44s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0013570003-1 p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[d1_0012230002-1 p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value before EA: 7.7
+V_1:[] V_2:[] V_3:[d1_0013570003-1 p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[d1_0012230002-1 p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value after EA: 7.7
+
+Thoi gian thuc hien thuat toan:  25.46040391921997
+SUCCESS
+
+2025-09-12 18:37:05,433 [simulate_environment.py | 254] INFO: 2025-09-12 01:00:00, Item 0033520004-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:37:05,434 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:37:05,434 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 01:10:00, pre time: 2025-09-12 01:00:00
+2025-09-12 18:37:05,434 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 01:10:00
+2025-09-12 18:37:05,436 [simulate_environment.py | 167] INFO: Get 6 unallocated order items, 3 ongoing order items, 0 completed order items
+2025-09-12 18:37:25,212 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 6.22, Worst = 8.64, Avg = 6.44, Diversity = 0.253, FitDiv = 0.094 , Time: 0.0573725700378418
+Generation 2: Best = 6.22, Worst = 6.22, Avg = 6.22, Diversity = 0.000, FitDiv = 0.000 , Time: 0.05901908874511719
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 6.22, Worst = 6.22, Avg = 6.22, Diversity = 0.000, FitDiv = 0.000 , Time: 3.6035244464874268
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 6.22, Worst = 24575.99, Avg = 1644.85, Diversity = 0.360, FitDiv = 3.726 , Time: 3.007413148880005
+Generation 5: Best = 6.22, Worst = 6.22, Avg = 6.22, Diversity = 0.000, FitDiv = 0.000 , Time: 0.04918670654296875
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 6.22, Worst = 7.12, Avg = 6.28, Diversity = 0.074, FitDiv = 0.036 , Time: 3.381056308746338
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 6.22, Worst = 7.12, Avg = 6.29, Diversity = 0.126, FitDiv = 0.036 , Time: 3.540200710296631
+Stopping early due to lack of improvement.
+Total runtime: 18.26s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0013570003-1 p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[d1_0012230002-1 p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value before EA: 6.22
+V_1:[] V_2:[] V_3:[d1_0013570003-1 p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[d1_0012230002-1 p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value after EA: 6.22
+
+Thoi gian thuc hien thuat toan:  18.269997358322144
+SUCCESS
+
+2025-09-12 18:37:25,213 [simulate_environment.py | 254] INFO: 2025-09-12 01:10:00, Item 0033520004-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:37:25,213 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:37:25,214 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 01:20:00, pre time: 2025-09-12 01:10:00
+2025-09-12 18:37:25,214 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 01:20:00
+2025-09-12 18:37:25,215 [simulate_environment.py | 167] INFO: Get 6 unallocated order items, 1 ongoing order items, 2 completed order items
+2025-09-12 18:37:35,025 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value before EA: 6.1
+V_1:[] V_2:[] V_3:[p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value after EA: 6.1
+
+Thoi gian thuc hien thuat toan:  8.22338342666626
+SUCCESS
+
+2025-09-12 18:37:35,026 [simulate_environment.py | 254] INFO: 2025-09-12 01:20:00, Item 0033520004-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:37:35,026 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:37:35,026 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 01:30:00, pre time: 2025-09-12 01:20:00
+2025-09-12 18:37:35,027 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 01:30:00
+2025-09-12 18:37:35,028 [simulate_environment.py | 167] INFO: Get 6 unallocated order items, 1 ongoing order items, 2 completed order items
+2025-09-12 18:37:41,286 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value before EA: 6.1
+V_1:[] V_2:[] V_3:[p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value after EA: 6.1
+
+Thoi gian thuc hien thuat toan:  4.527472019195557
+SUCCESS
+
+2025-09-12 18:37:41,287 [simulate_environment.py | 254] INFO: 2025-09-12 01:30:00, Item 0033520004-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:37:41,287 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:37:41,288 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 01:40:00, pre time: 2025-09-12 01:30:00
+2025-09-12 18:37:41,288 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 01:40:00
+2025-09-12 18:37:41,289 [simulate_environment.py | 167] INFO: Get 6 unallocated order items, 1 ongoing order items, 2 completed order items
+2025-09-12 18:37:48,260 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value before EA: 6.1
+V_1:[] V_2:[] V_3:[p3_0038220005-1 d3_0038220005-3] V_4:[] V_5:[p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value after EA: 6.1
+
+Thoi gian thuc hien thuat toan:  5.1044700145721436
+SUCCESS
+
+2025-09-12 18:37:48,261 [simulate_environment.py | 254] INFO: 2025-09-12 01:40:00, Item 0033520004-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:37:48,262 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:37:48,262 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 01:50:00, pre time: 2025-09-12 01:40:00
+2025-09-12 18:37:48,262 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 01:50:00
+2025-09-12 18:37:48,264 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 4 ongoing order items, 2 completed order items
+2025-09-12 18:37:54,526 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d3_0038220005-3] V_4:[] V_5:[p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value before EA: 6.04
+V_1:[] V_2:[] V_3:[d3_0038220005-3] V_4:[] V_5:[p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value after EA: 6.04
+
+Thoi gian thuc hien thuat toan:  4.687469959259033
+SUCCESS
+
+2025-09-12 18:37:54,528 [simulate_environment.py | 254] INFO: 2025-09-12 01:50:00, Item 0033520004-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:37:54,529 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:37:54,529 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 02:00:00, pre time: 2025-09-12 01:50:00
+2025-09-12 18:37:54,530 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 02:00:00
+2025-09-12 18:37:54,532 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 4 ongoing order items, 2 completed order items
+2025-09-12 18:38:02,174 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d3_0038220005-3] V_4:[] V_5:[p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value before EA: 4.5600000000000005
+V_1:[] V_2:[] V_3:[d3_0038220005-3] V_4:[] V_5:[p3_0033520004-1 d3_0033520004-3 d1_0003480001-1]
+The fitness value after EA: 4.5600000000000005
+
+Thoi gian thuc hien thuat toan:  5.697797060012817
+SUCCESS
+
+2025-09-12 18:38:02,176 [simulate_environment.py | 254] INFO: 2025-09-12 02:00:00, Item 0033520004-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:38:02,176 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:38:02,176 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 02:10:00, pre time: 2025-09-12 02:00:00
+2025-09-12 18:38:02,177 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 02:10:00
+2025-09-12 18:38:02,178 [simulate_environment.py | 167] INFO: Get 1 unallocated order items, 7 ongoing order items, 2 completed order items
+2025-09-12 18:38:10,922 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d3_0038220005-3] V_4:[] V_5:[d3_0033520004-3 d1_0003480001-1 p1_0209340006-1 d1_0209340006-1]
+The fitness value before EA: 7.58
+V_1:[] V_2:[] V_3:[d3_0038220005-3] V_4:[] V_5:[d3_0033520004-3 d1_0003480001-1 p1_0209340006-1 d1_0209340006-1]
+The fitness value after EA: 7.58
+
+Thoi gian thuc hien thuat toan:  7.604899883270264
+SUCCESS
+
+2025-09-12 18:38:10,924 [simulate_environment.py | 254] INFO: 2025-09-12 02:10:00, Item 0209340006-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:38:10,925 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:38:10,925 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 02:20:00, pre time: 2025-09-12 02:10:00
+2025-09-12 18:38:10,925 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 02:20:00
+2025-09-12 18:38:10,926 [simulate_environment.py | 167] INFO: Get 1 unallocated order items, 7 ongoing order items, 2 completed order items
+2025-09-12 18:38:16,937 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d3_0038220005-3] V_4:[] V_5:[d3_0033520004-3 d1_0003480001-1 p1_0209340006-1 d1_0209340006-1]
+The fitness value before EA: 4.5600000000000005
+V_1:[] V_2:[] V_3:[d3_0038220005-3] V_4:[] V_5:[d3_0033520004-3 d1_0003480001-1 p1_0209340006-1 d1_0209340006-1]
+The fitness value after EA: 4.5600000000000005
+
+Thoi gian thuc hien thuat toan:  4.928221702575684
+SUCCESS
+
+2025-09-12 18:38:16,938 [simulate_environment.py | 254] INFO: 2025-09-12 02:20:00, Item 0209340006-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:38:16,940 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:38:16,940 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 02:30:00, pre time: 2025-09-12 02:20:00
+2025-09-12 18:38:16,940 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 02:30:00
+2025-09-12 18:38:16,941 [simulate_environment.py | 167] INFO: Get 1 unallocated order items, 7 ongoing order items, 2 completed order items
+2025-09-12 18:38:22,816 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d3_0038220005-3] V_4:[] V_5:[d3_0033520004-3 d1_0003480001-1 p1_0209340006-1 d1_0209340006-1]
+The fitness value before EA: 4.5600000000000005
+V_1:[] V_2:[] V_3:[d3_0038220005-3] V_4:[] V_5:[d3_0033520004-3 d1_0003480001-1 p1_0209340006-1 d1_0209340006-1]
+The fitness value after EA: 4.5600000000000005
+
+Thoi gian thuc hien thuat toan:  4.467616081237793
+SUCCESS
+
+2025-09-12 18:38:22,818 [simulate_environment.py | 254] INFO: 2025-09-12 02:30:00, Item 0209340006-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:38:22,819 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:38:22,819 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 02:40:00, pre time: 2025-09-12 02:30:00
+2025-09-12 18:38:22,819 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 02:40:00
+2025-09-12 18:38:22,821 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 7 ongoing order items, 2 completed order items
+2025-09-12 18:38:29,032 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 4.56, Worst = 8.64, Avg = 6.08, Diversity = 0.555, FitDiv = 0.272 , Time: 0.03913450241088867
+Generation 2: Best = 4.56, Worst = 4.70, Avg = 4.57, Diversity = 0.342, FitDiv = 0.008 , Time: 0.03324532508850098
+Generation 3: Best = 4.56, Worst = 4.56, Avg = 4.56, Diversity = 0.239, FitDiv = 0.000 , Time: 0.033960819244384766
+Generation 4: Best = 4.56, Worst = 4.56, Avg = 4.56, Diversity = 0.294, FitDiv = 0.000 , Time: 0.03532814979553223
+Generation 5: Best = 4.56, Worst = 4.56, Avg = 4.56, Diversity = 0.294, FitDiv = 0.000 , Time: 0.035706281661987305
+Generation 6: Best = 4.56, Worst = 4.56, Avg = 4.56, Diversity = 0.305, FitDiv = 0.000 , Time: 0.04348587989807129
+Generation 7: Best = 4.56, Worst = 4.56, Avg = 4.56, Diversity = 0.239, FitDiv = 0.000 , Time: 0.05961203575134277
+Stopping early due to lack of improvement.
+Total runtime: 4.67s (0.1 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d3_0038220005-3] V_4:[] V_5:[d3_0033520004-3 d1_0003480001-1 p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value before EA: 4.5600000000000005
+V_1:[] V_2:[] V_3:[d3_0038220005-3] V_4:[] V_5:[d3_0033520004-3 d1_0003480001-1 p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value after EA: 4.5600000000000005
+
+Thoi gian thuc hien thuat toan:  4.66720724105835
+SUCCESS
+
+2025-09-12 18:38:29,033 [simulate_environment.py | 254] INFO: 2025-09-12 02:40:00, Item 0209340006-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:38:29,033 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:38:29,033 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 02:50:00, pre time: 2025-09-12 02:40:00
+2025-09-12 18:38:29,034 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 02:50:00
+2025-09-12 18:38:29,035 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 4 ongoing order items, 5 completed order items
+2025-09-12 18:38:38,547 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 3.02, Worst = 13.38, Avg = 4.34, Diversity = 0.355, FitDiv = 0.627 , Time: 0.0330204963684082
+Generation 2: Best = 3.02, Worst = 3.02, Avg = 3.02, Diversity = 0.165, FitDiv = 0.000 , Time: 0.04266500473022461
+Generation 3: Best = 3.02, Worst = 3.02, Avg = 3.02, Diversity = 0.279, FitDiv = 0.000 , Time: 0.03210639953613281
+Generation 4: Best = 3.02, Worst = 3.02, Avg = 3.02, Diversity = 0.229, FitDiv = 0.000 , Time: 0.03502297401428223
+Generation 5: Best = 3.02, Worst = 3.02, Avg = 3.02, Diversity = 0.229, FitDiv = 0.000 , Time: 0.032392024993896484
+Generation 6: Best = 3.02, Worst = 3.02, Avg = 3.02, Diversity = 0.000, FitDiv = 0.000 , Time: 0.05489635467529297
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 3.02, Worst = 7.10, Avg = 4.20, Diversity = 0.327, FitDiv = 0.400 , Time: 2.8285865783691406
+Stopping early due to lack of improvement.
+Total runtime: 8.03s (0.1 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d3_0033520004-3 d1_0003480001-1 p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value before EA: 3.0200000000000005
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d3_0033520004-3 d1_0003480001-1 p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value after EA: 3.0200000000000005
+
+Thoi gian thuc hien thuat toan:  8.048790216445923
+SUCCESS
+
+2025-09-12 18:38:38,549 [simulate_environment.py | 254] INFO: 2025-09-12 02:50:00, Item 0209340006-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:38:38,549 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:38:38,549 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 03:00:00, pre time: 2025-09-12 02:50:00
+2025-09-12 18:38:38,550 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 03:00:00
+2025-09-12 18:38:38,551 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 0 ongoing order items, 9 completed order items
+2025-09-12 18:38:48,894 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value before EA: 3.0200000000000005
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value after EA: 3.0200000000000005
+
+Thoi gian thuc hien thuat toan:  8.832188606262207
+SUCCESS
+
+2025-09-12 18:38:48,895 [simulate_environment.py | 254] INFO: 2025-09-12 03:00:00, Item 0209340006-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:38:48,896 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:38:48,896 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 03:10:00, pre time: 2025-09-12 03:00:00
+2025-09-12 18:38:48,896 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 03:10:00
+2025-09-12 18:38:48,959 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 0 ongoing order items, 9 completed order items
+2025-09-12 18:38:55,580 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value before EA: 3.0200000000000005
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value after EA: 3.0200000000000005
+
+Thoi gian thuc hien thuat toan:  4.836344003677368
+SUCCESS
+
+2025-09-12 18:38:55,582 [simulate_environment.py | 254] INFO: 2025-09-12 03:10:00, Item 0209340006-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:38:55,582 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:38:55,583 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 03:20:00, pre time: 2025-09-12 03:10:00
+2025-09-12 18:38:55,583 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 03:20:00
+2025-09-12 18:38:55,584 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 0 ongoing order items, 9 completed order items
+2025-09-12 18:39:02,963 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value before EA: 3.0200000000000005
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value after EA: 3.0200000000000005
+
+Thoi gian thuc hien thuat toan:  5.393582582473755
+SUCCESS
+
+2025-09-12 18:39:02,964 [simulate_environment.py | 254] INFO: 2025-09-12 03:20:00, Item 0209340006-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:39:02,964 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:39:02,964 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 03:30:00, pre time: 2025-09-12 03:20:00
+2025-09-12 18:39:02,965 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 03:30:00
+2025-09-12 18:39:02,966 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 0 ongoing order items, 9 completed order items
+2025-09-12 18:39:09,854 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value before EA: 3.0200000000000005
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value after EA: 3.0200000000000005
+
+Thoi gian thuc hien thuat toan:  5.1082603931427
+SUCCESS
+
+2025-09-12 18:39:09,854 [simulate_environment.py | 254] INFO: 2025-09-12 03:30:00, Item 0209340006-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:39:09,855 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:39:09,855 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 03:40:00, pre time: 2025-09-12 03:30:00
+2025-09-12 18:39:09,856 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 03:40:00
+2025-09-12 18:39:09,857 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 0 ongoing order items, 9 completed order items
+2025-09-12 18:39:19,653 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value before EA: 1.48
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0209340006-1 p1_0236480007-1 d1_0236480007-1 d1_0209340006-1]
+The fitness value after EA: 1.48
+
+Thoi gian thuc hien thuat toan:  4.877445459365845
+SUCCESS
+
+2025-09-12 18:39:19,654 [simulate_environment.py | 254] INFO: 2025-09-12 03:40:00, Item 0209340006-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:39:19,655 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:39:19,655 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 03:50:00, pre time: 2025-09-12 03:40:00
+2025-09-12 18:39:19,656 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 03:50:00
+2025-09-12 18:39:19,657 [simulate_environment.py | 167] INFO: Get 0 unallocated order items, 2 ongoing order items, 9 completed order items
+2025-09-12 18:39:26,056 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0236480007-1 d1_0209340006-1]
+The fitness value before EA: 1.48
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0236480007-1 d1_0209340006-1]
+The fitness value after EA: 1.48
+
+Thoi gian thuc hien thuat toan:  4.712995290756226
+SUCCESS
+
+2025-09-12 18:39:26,057 [simulate_environment.py | 254] INFO: 2025-09-12 03:50:00, Item 0517240008-1: state = 0 < 2, we can not finish the simulation
+2025-09-12 18:39:26,058 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:39:26,058 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 04:00:00, pre time: 2025-09-12 03:50:00
+2025-09-12 18:39:26,058 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 04:00:00
+2025-09-12 18:39:26,059 [simulate_environment.py | 167] INFO: Get 0 unallocated order items, 2 ongoing order items, 9 completed order items
+2025-09-12 18:39:32,563 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0236480007-1 d1_0209340006-1]
+The fitness value before EA: 1.48
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0236480007-1 d1_0209340006-1]
+The fitness value after EA: 1.48
+
+Thoi gian thuc hien thuat toan:  4.815770149230957
+SUCCESS
+
+2025-09-12 18:39:32,564 [simulate_environment.py | 254] INFO: 2025-09-12 04:00:00, Item 0517240008-1: state = 0 < 2, we can not finish the simulation
+2025-09-12 18:39:32,565 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:39:32,565 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 04:10:00, pre time: 2025-09-12 04:00:00
+2025-09-12 18:39:32,565 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 04:10:00
+2025-09-12 18:39:32,566 [simulate_environment.py | 167] INFO: Get 0 unallocated order items, 2 ongoing order items, 9 completed order items
+2025-09-12 18:39:38,682 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0236480007-1 d1_0209340006-1]
+The fitness value before EA: 1.48
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0236480007-1 d1_0209340006-1]
+The fitness value after EA: 1.48
+
+Thoi gian thuc hien thuat toan:  4.529101371765137
+SUCCESS
+
+2025-09-12 18:39:38,683 [simulate_environment.py | 254] INFO: 2025-09-12 04:10:00, Item 0517240008-1: state = 0 < 2, we can not finish the simulation
+2025-09-12 18:39:38,683 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:39:38,683 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 04:20:00, pre time: 2025-09-12 04:10:00
+2025-09-12 18:39:38,683 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 04:20:00
+2025-09-12 18:39:38,684 [simulate_environment.py | 167] INFO: Get 0 unallocated order items, 2 ongoing order items, 9 completed order items
+2025-09-12 18:39:45,541 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0236480007-1 d1_0209340006-1]
+The fitness value before EA: 1.48
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0236480007-1 d1_0209340006-1]
+The fitness value after EA: 1.48
+
+Thoi gian thuc hien thuat toan:  5.123642206192017
+SUCCESS
+
+2025-09-12 18:39:45,542 [simulate_environment.py | 254] INFO: 2025-09-12 04:20:00, Item 0517240008-1: state = 0 < 2, we can not finish the simulation
+2025-09-12 18:39:45,542 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:39:45,543 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 04:30:00, pre time: 2025-09-12 04:20:00
+2025-09-12 18:39:45,543 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 04:30:00
+2025-09-12 18:39:45,544 [simulate_environment.py | 167] INFO: Get 0 unallocated order items, 2 ongoing order items, 9 completed order items
+2025-09-12 18:39:51,543 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0236480007-1 d1_0209340006-1]
+The fitness value before EA: 0.0
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0236480007-1 d1_0209340006-1]
+The fitness value after EA: 0.0
+
+Thoi gian thuc hien thuat toan:  4.370532989501953
+SUCCESS
+
+2025-09-12 18:39:51,544 [simulate_environment.py | 254] INFO: 2025-09-12 04:30:00, Item 0517240008-1: state = 0 < 2, we can not finish the simulation
+2025-09-12 18:39:51,545 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:39:51,545 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 04:40:00, pre time: 2025-09-12 04:30:00
+2025-09-12 18:39:51,545 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 04:40:00
+2025-09-12 18:39:51,547 [simulate_environment.py | 167] INFO: Get 0 unallocated order items, 0 ongoing order items, 11 completed order items
+2025-09-12 18:40:01,267 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[]
+The fitness value before EA: 0.0
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[]
+The fitness value after EA: 0.0
+
+Thoi gian thuc hien thuat toan:  4.84645676612854
+SUCCESS
+
+2025-09-12 18:40:01,269 [simulate_environment.py | 254] INFO: 2025-09-12 04:40:00, Item 0517240008-1: state = 0 < 2, we can not finish the simulation
+2025-09-12 18:40:01,269 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:40:01,270 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 04:50:00, pre time: 2025-09-12 04:40:00
+2025-09-12 18:40:01,270 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 04:50:00
+2025-09-12 18:40:01,272 [simulate_environment.py | 167] INFO: Get 0 unallocated order items, 0 ongoing order items, 11 completed order items
+2025-09-12 18:40:08,331 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[]
+The fitness value before EA: 0.0
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[]
+The fitness value after EA: 0.0
+
+Thoi gian thuc hien thuat toan:  4.7285706996917725
+SUCCESS
+
+2025-09-12 18:40:08,332 [simulate_environment.py | 254] INFO: 2025-09-12 04:50:00, Item 0517240008-1: state = 0 < 2, we can not finish the simulation
+2025-09-12 18:40:08,332 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:40:08,332 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 05:00:00, pre time: 2025-09-12 04:50:00
+2025-09-12 18:40:08,332 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 05:00:00
+2025-09-12 18:40:08,333 [simulate_environment.py | 167] INFO: Get 0 unallocated order items, 0 ongoing order items, 11 completed order items
+2025-09-12 18:40:14,217 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[]
+The fitness value before EA: 0.0
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[]
+The fitness value after EA: 0.0
+
+Thoi gian thuc hien thuat toan:  4.475198268890381
+SUCCESS
+
+2025-09-12 18:40:14,218 [simulate_environment.py | 254] INFO: 2025-09-12 05:00:00, Item 0517240008-1: state = 0 < 2, we can not finish the simulation
+2025-09-12 18:40:14,218 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:40:14,219 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 05:10:00, pre time: 2025-09-12 05:00:00
+2025-09-12 18:40:14,219 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 05:10:00
+2025-09-12 18:40:14,220 [simulate_environment.py | 167] INFO: Get 0 unallocated order items, 0 ongoing order items, 11 completed order items
+2025-09-12 18:40:19,773 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[]
+The fitness value before EA: 0.0
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[]
+The fitness value after EA: 0.0
+
+Thoi gian thuc hien thuat toan:  4.116663694381714
+SUCCESS
+
+2025-09-12 18:40:19,773 [simulate_environment.py | 254] INFO: 2025-09-12 05:10:00, Item 0517240008-1: state = 0 < 2, we can not finish the simulation
+2025-09-12 18:40:19,774 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:40:19,774 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 05:20:00, pre time: 2025-09-12 05:10:00
+2025-09-12 18:40:19,774 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 05:20:00
+2025-09-12 18:40:19,775 [simulate_environment.py | 167] INFO: Get 1 unallocated order items, 0 ongoing order items, 11 completed order items
+2025-09-12 18:40:26,441 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0517240008-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value before EA: 7.0
+V_1:[] V_2:[] V_3:[p1_0517240008-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value after EA: 7.0
+
+Thoi gian thuc hien thuat toan:  4.970234394073486
+SUCCESS
+
+2025-09-12 18:40:26,442 [simulate_environment.py | 254] INFO: 2025-09-12 05:20:00, Item 0517240008-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:40:26,443 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:40:26,443 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 05:30:00, pre time: 2025-09-12 05:20:00
+2025-09-12 18:40:26,443 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 05:30:00
+2025-09-12 18:40:26,444 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 0 ongoing order items, 11 completed order items
+2025-09-12 18:40:36,600 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0517240008-1 p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value before EA: 6.18
+V_1:[] V_2:[] V_3:[p1_0517240008-1 p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value after EA: 6.18
+
+Thoi gian thuc hien thuat toan:  4.947617053985596
+SUCCESS
+
+2025-09-12 18:40:36,601 [simulate_environment.py | 254] INFO: 2025-09-12 05:30:00, Item 0517240008-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:40:36,601 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:40:36,602 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 05:40:00, pre time: 2025-09-12 05:30:00
+2025-09-12 18:40:36,602 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 05:40:00
+2025-09-12 18:40:36,603 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 0 ongoing order items, 11 completed order items
+2025-09-12 18:40:42,635 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0517240008-1 p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value before EA: 6.18
+V_1:[] V_2:[] V_3:[p1_0517240008-1 p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value after EA: 6.18
+
+Thoi gian thuc hien thuat toan:  4.429347038269043
+SUCCESS
+
+2025-09-12 18:40:42,636 [simulate_environment.py | 254] INFO: 2025-09-12 05:40:00, Item 0517240008-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:40:42,636 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:40:42,637 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 05:50:00, pre time: 2025-09-12 05:40:00
+2025-09-12 18:40:42,637 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 05:50:00
+2025-09-12 18:40:42,638 [simulate_environment.py | 167] INFO: Get 1 unallocated order items, 1 ongoing order items, 11 completed order items
+2025-09-12 18:40:48,897 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value before EA: 6.18
+V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value after EA: 6.18
+
+Thoi gian thuc hien thuat toan:  4.758596897125244
+SUCCESS
+
+2025-09-12 18:40:48,898 [simulate_environment.py | 254] INFO: 2025-09-12 05:50:00, Item 0529360009-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:40:48,898 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:40:48,898 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 06:00:00, pre time: 2025-09-12 05:50:00
+2025-09-12 18:40:48,898 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 06:00:00
+2025-09-12 18:40:48,900 [simulate_environment.py | 167] INFO: Get 1 unallocated order items, 1 ongoing order items, 11 completed order items
+2025-09-12 18:40:55,319 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value before EA: 6.18
+V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value after EA: 6.18
+
+Thoi gian thuc hien thuat toan:  5.0445396900177
+SUCCESS
+
+2025-09-12 18:40:55,320 [simulate_environment.py | 254] INFO: 2025-09-12 06:00:00, Item 0529360009-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:40:55,320 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:40:55,321 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 06:10:00, pre time: 2025-09-12 06:00:00
+2025-09-12 18:40:55,321 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 06:10:00
+2025-09-12 18:40:55,322 [simulate_environment.py | 167] INFO: Get 1 unallocated order items, 1 ongoing order items, 11 completed order items
+2025-09-12 18:41:02,117 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value before EA: 6.18
+V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value after EA: 6.18
+
+Thoi gian thuc hien thuat toan:  5.172351837158203
+SUCCESS
+
+2025-09-12 18:41:02,118 [simulate_environment.py | 254] INFO: 2025-09-12 06:10:00, Item 0529360009-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:41:02,118 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:41:02,118 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 06:20:00, pre time: 2025-09-12 06:10:00
+2025-09-12 18:41:02,118 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 06:20:00
+2025-09-12 18:41:02,119 [simulate_environment.py | 167] INFO: Get 1 unallocated order items, 1 ongoing order items, 11 completed order items
+2025-09-12 18:41:12,282 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value before EA: 2.12
+V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]
+The fitness value after EA: 2.12
+
+Thoi gian thuc hien thuat toan:  5.468284368515015
+SUCCESS
+
+2025-09-12 18:41:12,283 [simulate_environment.py | 254] INFO: 2025-09-12 06:20:00, Item 0529360009-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:41:12,283 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:41:12,284 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 06:30:00, pre time: 2025-09-12 06:20:00
+2025-09-12 18:41:12,284 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 06:30:00
+2025-09-12 18:41:12,285 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 1 ongoing order items, 11 completed order items
+2025-09-12 18:41:19,096 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1 p1_0625250010-1 d1_0625250010-1] V_4:[] V_5:[]
+The fitness value before EA: 2.38
+V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1 p1_0625250010-1 d1_0625250010-1] V_4:[] V_5:[]
+The fitness value after EA: 2.38
+
+Thoi gian thuc hien thuat toan:  4.961347579956055
+SUCCESS
+
+2025-09-12 18:41:19,097 [simulate_environment.py | 254] INFO: 2025-09-12 06:30:00, Item 0529360009-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:41:19,098 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:41:19,098 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 06:40:00, pre time: 2025-09-12 06:30:00
+2025-09-12 18:41:19,098 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 06:40:00
+2025-09-12 18:41:19,099 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 1 ongoing order items, 11 completed order items
+2025-09-12 18:41:36,812 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 2.84, Worst = 3.42, Avg = 2.91, Diversity = 0.313, FitDiv = 0.057 , Time: 0.10442352294921875
+Generation 2: Best = 2.84, Worst = 2.84, Avg = 2.84, Diversity = 0.000, FitDiv = 0.000 , Time: 0.040305376052856445
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 2.84, Worst = 3.42, Avg = 2.88, Diversity = 0.114, FitDiv = 0.050 , Time: 4.435374975204468
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 2.84, Worst = 10.10, Avg = 3.37, Diversity = 0.237, FitDiv = 0.534 , Time: 3.2345099449157715
+Generation 5: Best = 2.84, Worst = 2.84, Avg = 2.84, Diversity = 0.000, FitDiv = 0.000 , Time: 0.058440208435058594
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 2.84, Worst = 3967.19, Avg = 267.68, Diversity = 0.293, FitDiv = 3.694 , Time: 2.849977493286133
+Generation 7: Best = 2.84, Worst = 2.84, Avg = 2.84, Diversity = 0.000, FitDiv = 0.000 , Time: 0.03626084327697754
+Stopping early due to lack of improvement.
+Total runtime: 15.80s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1 p1_0625250010-1 d1_0625250010-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[]
+The fitness value before EA: 2.84
+V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1 p1_0625250010-1 d1_0625250010-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[]
+The fitness value after EA: 2.84
+
+Thoi gian thuc hien thuat toan:  15.817918062210083
+SUCCESS
+
+2025-09-12 18:41:36,813 [simulate_environment.py | 254] INFO: 2025-09-12 06:40:00, Item 0529360009-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:41:36,813 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:41:36,814 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 06:50:00, pre time: 2025-09-12 06:40:00
+2025-09-12 18:41:36,814 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 06:50:00
+2025-09-12 18:41:36,815 [simulate_environment.py | 167] INFO: Get 6 unallocated order items, 1 ongoing order items, 11 completed order items
+2025-09-12 18:42:01,234 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 13.54, Worst = 33.98, Avg = 19.07, Diversity = 0.660, FitDiv = 0.285 , Time: 0.15487241744995117
+Generation 2: Best = 13.34, Worst = 16.04, Avg = 14.06, Diversity = 0.508, FitDiv = 0.058 , Time: 0.41206836700439453
+Generation 3: Best = 13.06, Worst = 14.62, Avg = 13.54, Diversity = 0.474, FitDiv = 0.023 , Time: 0.4945075511932373
+Generation 4: Best = 13.02, Worst = 2218.52, Avg = 160.84, Diversity = 0.552, FitDiv = 3.419 , Time: 0.5778908729553223
+Generation 5: Best = 13.02, Worst = 16.60, Avg = 13.47, Diversity = 0.375, FitDiv = 0.063 , Time: 0.19933128356933594
+Generation 6: Best = 12.92, Worst = 22.68, Avg = 14.23, Diversity = 0.406, FitDiv = 0.206 , Time: 0.6219239234924316
+Generation 7: Best = 12.92, Worst = 13.02, Avg = 13.01, Diversity = 0.041, FitDiv = 0.002 , Time: 0.23815441131591797
+Low diversity detected, applying diversity maintenance...
+Generation 8: Best = 12.92, Worst = 9488.37, Avg = 644.70, Diversity = 0.138, FitDiv = 3.666 , Time: 3.1904256343841553
+Low diversity detected, applying diversity maintenance...
+Generation 9: Best = 12.92, Worst = 13.02, Avg = 13.00, Diversity = 0.105, FitDiv = 0.003 , Time: 3.3391342163085938
+Low diversity detected, applying diversity maintenance...
+Generation 10: Best = 12.92, Worst = 16.28, Avg = 13.18, Diversity = 0.202, FitDiv = 0.063 , Time: 3.040572166442871
+Generation 11: Best = 12.92, Worst = 13.02, Avg = 12.93, Diversity = 0.076, FitDiv = 0.003 , Time: 0.23086929321289062
+Low diversity detected, applying diversity maintenance...
+Generation 12: Best = 12.92, Worst = 25.72, Avg = 14.48, Diversity = 0.152, FitDiv = 0.276 , Time: 2.8536789417266846
+Generation 13: Best = 12.92, Worst = 12.92, Avg = 12.92, Diversity = 0.000, FitDiv = 0.000 , Time: 0.20511507987976074
+Stopping early due to lack of improvement.
+Total runtime: 19.95s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1 p1_0625250010-1 d1_0625250010-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0643100012-1 p1_0643520013-1 p1_0644000014-1 d1_0644000014-1 d1_0643520013-1 d1_0643100012-1]
+The fitness value before EA: 13.540000000000001
+V_1:[] V_2:[] V_3:[p1_0644000014-1 p1_0529360009-1 d1_0529360009-1 d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0643520013-1 p1_0643100012-1 d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value after EA: 12.919999999999998
+
+Thoi gian thuc hien thuat toan:  19.953600645065308
+SUCCESS
+
+2025-09-12 18:42:01,235 [simulate_environment.py | 254] INFO: 2025-09-12 06:50:00, Item 0529360009-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:42:01,236 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:42:01,236 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 07:00:00, pre time: 2025-09-12 06:50:00
+2025-09-12 18:42:01,236 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 07:00:00
+2025-09-12 18:42:01,239 [simulate_environment.py | 167] INFO: Get 4 unallocated order items, 3 ongoing order items, 11 completed order items
+2025-09-12 18:42:28,028 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 7.98, Worst = 19.26, Avg = 8.89, Diversity = 0.109, FitDiv = 0.319 , Time: 0.09412980079650879
+Low diversity detected, applying diversity maintenance...
+Generation 2: Best = 7.98, Worst = 10.32, Avg = 8.14, Diversity = 0.041, FitDiv = 0.072 , Time: 3.2963664531707764
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 7.98, Worst = 8.50, Avg = 8.01, Diversity = 0.041, FitDiv = 0.016 , Time: 5.76439905166626
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.000, FitDiv = 0.000 , Time: 4.065386772155762
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 7.98, Worst = 19.26, Avg = 9.52, Diversity = 0.172, FitDiv = 0.402 , Time: 3.9756522178649902
+Generation 6: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.000, FitDiv = 0.000 , Time: 0.08565115928649902
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 7.98, Worst = 24.84, Avg = 10.44, Diversity = 0.203, FitDiv = 0.470 , Time: 3.3144261837005615
+Stopping early due to lack of improvement.
+Total runtime: 25.18s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0529360009-1 d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0643520013-1 p1_0643100012-1 d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value before EA: 7.979999999999999
+V_1:[] V_2:[] V_3:[d1_0529360009-1 d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0643520013-1 p1_0643100012-1 d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value after EA: 7.979999999999999
+
+Thoi gian thuc hien thuat toan:  25.182011365890503
+SUCCESS
+
+2025-09-12 18:42:28,029 [simulate_environment.py | 254] INFO: 2025-09-12 07:00:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:42:28,030 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:42:28,030 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 07:10:00, pre time: 2025-09-12 07:00:00
+2025-09-12 18:42:28,030 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 07:10:00
+2025-09-12 18:42:28,031 [simulate_environment.py | 167] INFO: Get 4 unallocated order items, 3 ongoing order items, 11 completed order items
+2025-09-12 18:42:51,507 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 7.98, Worst = 10.32, Avg = 8.18, Diversity = 0.126, FitDiv = 0.072 , Time: 0.055394887924194336
+Low diversity detected, applying diversity maintenance...
+Generation 2: Best = 7.98, Worst = 24.84, Avg = 10.50, Diversity = 0.202, FitDiv = 0.476 , Time: 2.8781545162200928
+Generation 3: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.000, FitDiv = 0.000 , Time: 0.0806584358215332
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 7.98, Worst = 18.44, Avg = 8.70, Diversity = 0.109, FitDiv = 0.299 , Time: 4.011243581771851
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 7.98, Worst = 10.32, Avg = 8.14, Diversity = 0.041, FitDiv = 0.072 , Time: 3.6915435791015625
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 7.98, Worst = 17927.84, Avg = 1203.79, Diversity = 0.176, FitDiv = 3.713 , Time: 5.882397413253784
+Generation 7: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.000, FitDiv = 0.000 , Time: 0.11383891105651855
+Stopping early due to lack of improvement.
+Total runtime: 21.84s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0529360009-1 d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0643520013-1 p1_0643100012-1 d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value before EA: 7.979999999999999
+V_1:[] V_2:[] V_3:[d1_0529360009-1 d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0643520013-1 p1_0643100012-1 d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value after EA: 7.979999999999999
+
+Thoi gian thuc hien thuat toan:  21.841509580612183
+SUCCESS
+
+2025-09-12 18:42:51,508 [simulate_environment.py | 254] INFO: 2025-09-12 07:10:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:42:51,509 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:42:51,509 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 07:20:00, pre time: 2025-09-12 07:10:00
+2025-09-12 18:42:51,509 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 07:20:00
+2025-09-12 18:42:51,511 [simulate_environment.py | 167] INFO: Get 4 unallocated order items, 3 ongoing order items, 11 completed order items
+2025-09-12 18:43:09,099 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 7.98, Worst = 19.64, Avg = 10.39, Diversity = 0.409, FitDiv = 0.385 , Time: 0.10331177711486816
+Generation 2: Best = 7.98, Worst = 2213.48, Avg = 155.03, Diversity = 0.256, FitDiv = 3.549 , Time: 0.09961771965026855
+Generation 3: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.090, FitDiv = 0.000 , Time: 0.11064767837524414
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.090, FitDiv = 0.000 , Time: 3.727130889892578
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 7.98, Worst = 18.44, Avg = 9.33, Diversity = 0.260, FitDiv = 0.329 , Time: 3.9799487590789795
+Generation 6: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.090, FitDiv = 0.000 , Time: 0.07574820518493652
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.048, FitDiv = 0.000 , Time: 3.172368049621582
+Stopping early due to lack of improvement.
+Total runtime: 16.01s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0529360009-1 d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0643520013-1 p1_0643100012-1 d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value before EA: 7.979999999999999
+V_1:[] V_2:[] V_3:[d1_0529360009-1 d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0643520013-1 p1_0643100012-1 d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value after EA: 7.979999999999999
+
+Thoi gian thuc hien thuat toan:  16.032237768173218
+SUCCESS
+
+2025-09-12 18:43:09,100 [simulate_environment.py | 254] INFO: 2025-09-12 07:20:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:43:09,101 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:43:09,101 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 07:30:00, pre time: 2025-09-12 07:20:00
+2025-09-12 18:43:09,101 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 07:30:00
+2025-09-12 18:43:09,103 [simulate_environment.py | 167] INFO: Get 4 unallocated order items, 3 ongoing order items, 11 completed order items
+2025-09-12 18:43:27,745 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 7.98, Worst = 19.26, Avg = 9.36, Diversity = 0.350, FitDiv = 0.341 , Time: 0.09911918640136719
+Generation 2: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.090, FitDiv = 0.000 , Time: 0.1316063404083252
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 7.98, Worst = 19.26, Avg = 9.43, Diversity = 0.178, FitDiv = 0.392 , Time: 3.9418833255767822
+Generation 4: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.090, FitDiv = 0.000 , Time: 0.12941455841064453
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 7.98, Worst = 10.40, Avg = 8.17, Diversity = 0.203, FitDiv = 0.074 , Time: 2.524048089981079
+Generation 6: Best = 7.98, Worst = 7.98, Avg = 7.98, Diversity = 0.125, FitDiv = 0.000 , Time: 0.09650492668151855
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 7.98, Worst = 1597.06, Avg = 114.08, Diversity = 0.194, FitDiv = 3.474 , Time: 6.162076711654663
+Stopping early due to lack of improvement.
+Total runtime: 17.51s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0529360009-1 d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0643520013-1 p1_0643100012-1 d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value before EA: 7.979999999999999
+V_1:[] V_2:[] V_3:[d1_0529360009-1 d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0643520013-1 p1_0643100012-1 d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value after EA: 7.979999999999999
+
+Thoi gian thuc hien thuat toan:  17.539705753326416
+SUCCESS
+
+2025-09-12 18:43:27,746 [simulate_environment.py | 254] INFO: 2025-09-12 07:30:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:43:27,747 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:43:27,747 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 07:40:00, pre time: 2025-09-12 07:30:00
+2025-09-12 18:43:27,747 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 07:40:00
+2025-09-12 18:43:27,748 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 5 ongoing order items, 11 completed order items
+2025-09-12 18:43:45,345 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 6.24, Worst = 6.62, Avg = 6.31, Diversity = 0.189, FitDiv = 0.022 , Time: 0.06702184677124023
+Generation 2: Best = 6.24, Worst = 6.24, Avg = 6.24, Diversity = 0.000, FitDiv = 0.000 , Time: 0.08308959007263184
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 6.24, Worst = 14078.54, Avg = 1879.77, Diversity = 0.309, FitDiv = 2.424 , Time: 3.471781015396118
+Generation 4: Best = 6.24, Worst = 6.24, Avg = 6.24, Diversity = 0.000, FitDiv = 0.000 , Time: 0.08553028106689453
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 6.24, Worst = 1178.46, Avg = 85.19, Diversity = 0.200, FitDiv = 3.430 , Time: 3.4389326572418213
+Generation 6: Best = 6.24, Worst = 6.24, Avg = 6.24, Diversity = 0.000, FitDiv = 0.000 , Time: 0.10269522666931152
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 6.24, Worst = 6.24, Avg = 6.24, Diversity = 0.000, FitDiv = 0.000 , Time: 2.940549373626709
+Stopping early due to lack of improvement.
+Total runtime: 16.06s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0529360009-1 d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value before EA: 6.24
+V_1:[] V_2:[] V_3:[d1_0529360009-1 d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value after EA: 6.24
+
+Thoi gian thuc hien thuat toan:  16.069539308547974
+SUCCESS
+
+2025-09-12 18:43:45,346 [simulate_environment.py | 254] INFO: 2025-09-12 07:40:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:43:45,346 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:43:45,347 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 07:50:00, pre time: 2025-09-12 07:40:00
+2025-09-12 18:43:45,347 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 07:50:00
+2025-09-12 18:43:45,348 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 4 ongoing order items, 12 completed order items
+2025-09-12 18:44:07,786 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 6.24, Worst = 9.04, Avg = 7.05, Diversity = 0.420, FitDiv = 0.143 , Time: 0.07606720924377441
+Generation 2: Best = 6.24, Worst = 6.62, Avg = 6.27, Diversity = 0.053, FitDiv = 0.015 , Time: 0.07402515411376953
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 6.24, Worst = 8.58, Avg = 6.40, Diversity = 0.053, FitDiv = 0.091 , Time: 3.6368327140808105
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 6.24, Worst = 13.50, Avg = 7.55, Diversity = 0.221, FitDiv = 0.326 , Time: 2.757704019546509
+Generation 5: Best = 6.24, Worst = 6.24, Avg = 6.24, Diversity = 0.000, FitDiv = 0.000 , Time: 0.06473278999328613
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 6.24, Worst = 6.24, Avg = 6.24, Diversity = 0.000, FitDiv = 0.000 , Time: 6.238861083984375
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 6.24, Worst = 6.24, Avg = 6.24, Diversity = 0.000, FitDiv = 0.000 , Time: 3.4189372062683105
+Stopping early due to lack of improvement.
+Total runtime: 20.91s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value before EA: 6.24
+V_1:[] V_2:[] V_3:[d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value after EA: 6.24
+
+Thoi gian thuc hien thuat toan:  20.94068956375122
+SUCCESS
+
+2025-09-12 18:44:07,788 [simulate_environment.py | 254] INFO: 2025-09-12 07:50:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:44:07,788 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:44:07,788 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 08:00:00, pre time: 2025-09-12 07:50:00
+2025-09-12 18:44:07,788 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 08:00:00
+2025-09-12 18:44:07,789 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 4 ongoing order items, 12 completed order items
+2025-09-12 18:44:24,116 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 6.24, Worst = 13.56, Avg = 7.44, Diversity = 0.333, FitDiv = 0.322 , Time: 0.04732966423034668
+Generation 2: Best = 6.24, Worst = 8.66, Avg = 6.51, Diversity = 0.226, FitDiv = 0.095 , Time: 0.1040959358215332
+Generation 3: Best = 6.24, Worst = 6.24, Avg = 6.24, Diversity = 0.000, FitDiv = 0.000 , Time: 0.06820821762084961
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 6.24, Worst = 4706.56, Avg = 320.48, Diversity = 0.296, FitDiv = 3.658 , Time: 2.658745527267456
+Generation 5: Best = 6.24, Worst = 6.62, Avg = 6.27, Diversity = 0.053, FitDiv = 0.015 , Time: 0.06456947326660156
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 6.24, Worst = 6.24, Avg = 6.24, Diversity = 0.000, FitDiv = 0.000 , Time: 3.5085620880126953
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 6.24, Worst = 4706.56, Avg = 398.09, Diversity = 0.249, FitDiv = 2.984 , Time: 3.0389277935028076
+Stopping early due to lack of improvement.
+Total runtime: 14.55s (0.2 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value before EA: 6.24
+V_1:[] V_2:[] V_3:[d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value after EA: 6.24
+
+Thoi gian thuc hien thuat toan:  14.552480936050415
+SUCCESS
+
+2025-09-12 18:44:24,118 [simulate_environment.py | 254] INFO: 2025-09-12 08:00:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:44:24,118 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:44:24,118 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 08:10:00, pre time: 2025-09-12 08:00:00
+2025-09-12 18:44:24,119 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 08:10:00
+2025-09-12 18:44:24,120 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 4 ongoing order items, 12 completed order items
+2025-09-12 18:44:47,550 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 6.24, Worst = 8.52, Avg = 6.62, Diversity = 0.414, FitDiv = 0.084 , Time: 0.04217386245727539
+Generation 2: Best = 6.24, Worst = 6.24, Avg = 6.24, Diversity = 0.000, FitDiv = 0.000 , Time: 0.04722166061401367
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 6.24, Worst = 6.24, Avg = 6.24, Diversity = 0.000, FitDiv = 0.000 , Time: 5.988969326019287
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 6.24, Worst = 13.50, Avg = 7.04, Diversity = 0.153, FitDiv = 0.270 , Time: 4.548710346221924
+Generation 5: Best = 6.24, Worst = 6.24, Avg = 6.24, Diversity = 0.000, FitDiv = 0.000 , Time: 0.057865142822265625
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 6.24, Worst = 161.98, Avg = 16.81, Diversity = 0.137, FitDiv = 2.308 , Time: 3.2851321697235107
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 6.24, Worst = 6.62, Avg = 6.27, Diversity = 0.053, FitDiv = 0.015 , Time: 2.532844305038452
+Stopping early due to lack of improvement.
+Total runtime: 21.88s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value before EA: 6.24
+V_1:[] V_2:[] V_3:[d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1]
+The fitness value after EA: 6.24
+
+Thoi gian thuc hien thuat toan:  21.886919736862183
+SUCCESS
+
+2025-09-12 18:44:47,551 [simulate_environment.py | 254] INFO: 2025-09-12 08:10:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:44:47,552 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:44:47,552 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 08:20:00, pre time: 2025-09-12 08:10:00
+2025-09-12 18:44:47,552 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 08:20:00
+2025-09-12 18:44:47,553 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 4 ongoing order items, 12 completed order items
+2025-09-12 18:45:15,674 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 4.44, Worst = 11.72, Avg = 5.28, Diversity = 0.431, FitDiv = 0.342 , Time: 0.04106402397155762
+Generation 2: Best = 4.44, Worst = 4.60, Avg = 4.46, Diversity = 0.083, FitDiv = 0.012 , Time: 0.09793853759765625
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 4.44, Worst = 4.44, Avg = 4.44, Diversity = 0.000, FitDiv = 0.000 , Time: 3.8647429943084717
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 4.44, Worst = 4.44, Avg = 4.44, Diversity = 0.000, FitDiv = 0.000 , Time: 4.017556190490723
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 4.44, Worst = 4.44, Avg = 4.44, Diversity = 0.000, FitDiv = 0.000 , Time: 3.9400980472564697
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 4.44, Worst = 5.16, Avg = 4.49, Diversity = 0.044, FitDiv = 0.040 , Time: 6.585952281951904
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 4.44, Worst = 12110.30, Avg = 1529.66, Diversity = 0.216, FitDiv = 2.547 , Time: 3.107663154602051
+Stopping early due to lack of improvement.
+Total runtime: 26.53s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value before EA: 4.4399999999999995
+V_1:[] V_2:[] V_3:[d1_0644000014-1 d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value after EA: 4.4399999999999995
+
+Thoi gian thuc hien thuat toan:  26.530515432357788
+SUCCESS
+
+2025-09-12 18:45:15,676 [simulate_environment.py | 254] INFO: 2025-09-12 08:20:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:45:15,676 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:45:15,677 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 08:30:00, pre time: 2025-09-12 08:20:00
+2025-09-12 18:45:15,677 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 08:30:00
+2025-09-12 18:45:15,678 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 3 ongoing order items, 13 completed order items
+2025-09-12 18:45:32,744 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 4.04, Worst = 6.46, Avg = 4.53, Diversity = 0.460, FitDiv = 0.168 , Time: 0.037461280822753906
+Generation 2: Best = 4.04, Worst = 11.32, Avg = 4.55, Diversity = 0.156, FitDiv = 0.398 , Time: 0.12982439994812012
+Generation 3: Best = 4.04, Worst = 4.04, Avg = 4.04, Diversity = 0.000, FitDiv = 0.000 , Time: 0.10058021545410156
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 4.04, Worst = 4.04, Avg = 4.04, Diversity = 0.000, FitDiv = 0.000 , Time: 3.390993118286133
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 4.04, Worst = 11.40, Avg = 4.74, Diversity = 0.139, FitDiv = 0.397 , Time: 3.066091299057007
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 4.04, Worst = 20985.00, Avg = 2374.25, Diversity = 0.218, FitDiv = 2.592 , Time: 4.1645355224609375
+Generation 7: Best = 4.04, Worst = 4.56, Avg = 4.07, Diversity = 0.082, FitDiv = 0.032 , Time: 0.19599366188049316
+Stopping early due to lack of improvement.
+Total runtime: 15.41s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value before EA: 4.04
+V_1:[] V_2:[] V_3:[d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value after EA: 4.04
+
+Thoi gian thuc hien thuat toan:  15.412503719329834
+SUCCESS
+
+2025-09-12 18:45:32,745 [simulate_environment.py | 254] INFO: 2025-09-12 08:30:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:45:32,745 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:45:32,745 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 08:40:00, pre time: 2025-09-12 08:30:00
+2025-09-12 18:45:32,745 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 08:40:00
+2025-09-12 18:45:32,747 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 3 ongoing order items, 13 completed order items
+2025-09-12 18:45:58,716 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 4.04, Worst = 6.46, Avg = 4.25, Diversity = 0.199, FitDiv = 0.141 , Time: 0.057997703552246094
+Generation 2: Best = 4.04, Worst = 4.04, Avg = 4.04, Diversity = 0.000, FitDiv = 0.000 , Time: 0.06888151168823242
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 4.04, Worst = 1176.28, Avg = 82.27, Diversity = 0.263, FitDiv = 3.554 , Time: 7.696068048477173
+Generation 4: Best = 4.04, Worst = 4.04, Avg = 4.04, Diversity = 0.000, FitDiv = 0.000 , Time: 0.09250259399414062
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 4.04, Worst = 11.36, Avg = 5.06, Diversity = 0.136, FitDiv = 0.489 , Time: 2.809893846511841
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 4.04, Worst = 9468.23, Avg = 635.00, Diversity = 0.118, FitDiv = 3.718 , Time: 4.459697723388672
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 4.04, Worst = 25190.41, Avg = 3333.17, Diversity = 0.253, FitDiv = 2.546 , Time: 3.5921378135681152
+Stopping early due to lack of improvement.
+Total runtime: 23.81s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value before EA: 4.04
+V_1:[] V_2:[] V_3:[d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value after EA: 4.04
+
+Thoi gian thuc hien thuat toan:  23.872281551361084
+SUCCESS
+
+2025-09-12 18:45:58,718 [simulate_environment.py | 254] INFO: 2025-09-12 08:40:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:45:58,718 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:45:58,718 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 08:50:00, pre time: 2025-09-12 08:40:00
+2025-09-12 18:45:58,718 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 08:50:00
+2025-09-12 18:45:58,720 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 3 ongoing order items, 13 completed order items
+2025-09-12 18:46:27,096 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 4.04, Worst = 516.92, Avg = 38.35, Diversity = 0.297, FitDiv = 3.335 , Time: 0.048956871032714844
+Generation 2: Best = 4.04, Worst = 4.04, Avg = 4.04, Diversity = 0.000, FitDiv = 0.000 , Time: 0.09148812294006348
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 4.04, Worst = 4.04, Avg = 4.04, Diversity = 0.000, FitDiv = 0.000 , Time: 4.1377973556518555
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 4.04, Worst = 4.04, Avg = 4.04, Diversity = 0.000, FitDiv = 0.000 , Time: 3.595292091369629
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 4.04, Worst = 4.04, Avg = 4.04, Diversity = 0.000, FitDiv = 0.000 , Time: 3.8992056846618652
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 4.04, Worst = 4.04, Avg = 4.04, Diversity = 0.000, FitDiv = 0.000 , Time: 5.530502080917358
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 4.04, Worst = 4.04, Avg = 4.04, Diversity = 0.000, FitDiv = 0.000 , Time: 3.4790141582489014
+Stopping early due to lack of improvement.
+Total runtime: 26.31s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value before EA: 4.04
+V_1:[] V_2:[] V_3:[d1_0517240008-1 p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value after EA: 4.04
+
+Thoi gian thuc hien thuat toan:  26.328316688537598
+SUCCESS
+
+2025-09-12 18:46:27,098 [simulate_environment.py | 254] INFO: 2025-09-12 08:50:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:46:27,099 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:46:27,099 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 09:00:00, pre time: 2025-09-12 08:50:00
+2025-09-12 18:46:27,100 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 09:00:00
+2025-09-12 18:46:27,101 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 2 ongoing order items, 14 completed order items
+2025-09-12 18:46:44,975 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 3.98, Worst = 11.34, Avg = 4.73, Diversity = 0.308, FitDiv = 0.394 , Time: 0.06340694427490234
+Generation 2: Best = 3.98, Worst = 3.98, Avg = 3.98, Diversity = 0.000, FitDiv = 0.000 , Time: 0.055814504623413086
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 3.98, Worst = 9468.17, Avg = 635.48, Diversity = 0.216, FitDiv = 3.715 , Time: 3.614563226699829
+Generation 4: Best = 3.98, Worst = 3.98, Avg = 3.98, Diversity = 0.000, FitDiv = 0.000 , Time: 0.07006478309631348
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 3.98, Worst = 11.34, Avg = 4.96, Diversity = 0.099, FitDiv = 0.504 , Time: 3.9521536827087402
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 3.98, Worst = 25190.35, Avg = 3801.68, Diversity = 0.320, FitDiv = 1.892 , Time: 3.151362895965576
+Generation 7: Best = 3.98, Worst = 4.14, Avg = 3.99, Diversity = 0.053, FitDiv = 0.010 , Time: 0.0945901870727539
+Stopping early due to lack of improvement.
+Total runtime: 16.15s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value before EA: 3.9799999999999995
+V_1:[] V_2:[] V_3:[p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[d1_0643100012-1 d1_0643520013-1 p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value after EA: 3.9799999999999995
+
+Thoi gian thuc hien thuat toan:  16.16992449760437
+SUCCESS
+
+2025-09-12 18:46:44,977 [simulate_environment.py | 254] INFO: 2025-09-12 09:00:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:46:44,977 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:46:44,978 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 09:10:00, pre time: 2025-09-12 09:00:00
+2025-09-12 18:46:44,980 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 09:10:00
+2025-09-12 18:46:44,981 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 0 ongoing order items, 16 completed order items
+2025-09-12 18:46:52,764 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value before EA: 3.9799999999999995
+V_1:[] V_2:[] V_3:[p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value after EA: 3.9799999999999995
+
+Thoi gian thuc hien thuat toan:  5.8118884563446045
+SUCCESS
+
+2025-09-12 18:46:52,765 [simulate_environment.py | 254] INFO: 2025-09-12 09:10:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:46:52,765 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:46:52,766 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 09:20:00, pre time: 2025-09-12 09:10:00
+2025-09-12 18:46:52,766 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 09:20:00
+2025-09-12 18:46:52,767 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 0 ongoing order items, 16 completed order items
+2025-09-12 18:47:02,455 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value before EA: 3.9799999999999995
+V_1:[] V_2:[] V_3:[p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value after EA: 3.9799999999999995
+
+Thoi gian thuc hien thuat toan:  5.114630937576294
+SUCCESS
+
+2025-09-12 18:47:02,456 [simulate_environment.py | 254] INFO: 2025-09-12 09:20:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:47:02,456 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:47:02,456 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 09:30:00, pre time: 2025-09-12 09:20:00
+2025-09-12 18:47:02,457 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 09:30:00
+2025-09-12 18:47:02,458 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 0 ongoing order items, 16 completed order items
+2025-09-12 18:47:09,435 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value before EA: 3.9799999999999995
+V_1:[] V_2:[] V_3:[p1_0639220011-1 d1_0639220011-1] V_4:[] V_5:[p1_0625250010-1 d1_0625250010-1 p1_0816560015-1 d1_0816560015-1]
+The fitness value after EA: 3.9799999999999995
+
+Thoi gian thuc hien thuat toan:  5.054070234298706
+SUCCESS
+
+2025-09-12 18:47:09,436 [simulate_environment.py | 254] INFO: 2025-09-12 09:30:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:47:09,436 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:47:09,436 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 09:40:00, pre time: 2025-09-12 09:30:00
+2025-09-12 18:47:09,437 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 09:40:00
+2025-09-12 18:47:09,438 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 1 ongoing order items, 16 completed order items
+2025-09-12 18:47:28,545 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 4.32, Worst = 14.32, Avg = 6.86, Diversity = 0.437, FitDiv = 0.341 , Time: 0.0665290355682373
+Generation 2: Best = 4.26, Worst = 14.32, Avg = 6.60, Diversity = 0.454, FitDiv = 0.498 , Time: 0.3644986152648926
+Generation 3: Best = 4.26, Worst = 4.48, Avg = 4.32, Diversity = 0.321, FitDiv = 0.011 , Time: 0.03780770301818848
+Generation 4: Best = 4.26, Worst = 7.36, Avg = 4.51, Diversity = 0.321, FitDiv = 0.171 , Time: 0.03884315490722656
+Generation 5: Best = 4.26, Worst = 4.26, Avg = 4.26, Diversity = 0.000, FitDiv = 0.000 , Time: 0.03504514694213867
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 4.26, Worst = 7.36, Avg = 4.47, Diversity = 0.074, FitDiv = 0.173 , Time: 3.7673518657684326
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 4.26, Worst = 1284.90, Avg = 90.51, Diversity = 0.266, FitDiv = 3.527 , Time: 3.116849422454834
+Generation 8: Best = 4.26, Worst = 4.26, Avg = 4.26, Diversity = 0.000, FitDiv = 0.000 , Time: 0.05701088905334473
+Low diversity detected, applying diversity maintenance...
+Generation 9: Best = 4.26, Worst = 7.84, Avg = 4.71, Diversity = 0.144, FitDiv = 0.242 , Time: 3.881181001663208
+Stopping early due to lack of improvement.
+Total runtime: 17.00s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[d1_0639220011-1] V_4:[] V_5:[p1_0625250010-1 d1_0625250010-1 p1_0934570016-1 p1_0816560015-1 d1_0816560015-1 d1_0934570016-1]
+The fitness value before EA: 4.319999999999999
+V_1:[] V_2:[p1_0816560015-1 p1_0934570016-1 d1_0934570016-1 d1_0816560015-1] V_3:[d1_0639220011-1] V_4:[] V_5:[p1_0625250010-1 d1_0625250010-1]
+The fitness value after EA: 4.26
+
+Thoi gian thuc hien thuat toan:  17.02095913887024
+SUCCESS
+
+2025-09-12 18:47:28,546 [simulate_environment.py | 254] INFO: 2025-09-12 09:40:00, Item 0625250010-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:47:28,547 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:47:28,547 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 09:50:00, pre time: 2025-09-12 09:40:00
+2025-09-12 18:47:28,547 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 09:50:00
+2025-09-12 18:47:28,549 [simulate_environment.py | 167] INFO: Get 4 unallocated order items, 2 ongoing order items, 16 completed order items
+2025-09-12 18:47:50,261 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 5.44, Worst = 9.14, Avg = 5.74, Diversity = 0.417, FitDiv = 0.159 , Time: 0.030138492584228516
+Generation 2: Best = 5.44, Worst = 5.50, Avg = 5.44, Diversity = 0.078, FitDiv = 0.003 , Time: 0.04752182960510254
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 5.44, Worst = 9.18, Avg = 6.17, Diversity = 0.288, FitDiv = 0.232 , Time: 3.5040814876556396
+Generation 4: Best = 5.44, Worst = 5.44, Avg = 5.44, Diversity = 0.000, FitDiv = 0.000 , Time: 0.06955480575561523
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 5.44, Worst = 5.44, Avg = 5.44, Diversity = 0.000, FitDiv = 0.000 , Time: 4.147496223449707
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 5.44, Worst = 1583.46, Avg = 111.56, Diversity = 0.226, FitDiv = 3.526 , Time: 3.1980371475219727
+Generation 7: Best = 5.44, Worst = 5.44, Avg = 5.44, Diversity = 0.000, FitDiv = 0.000 , Time: 0.09173297882080078
+Stopping early due to lack of improvement.
+Total runtime: 16.65s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[p1_0816560015-1 p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 d1_0934570016-1 d1_0816560015-1] V_3:[d1_0639220011-1] V_4:[] V_5:[d1_0625250010-1 p1_0949450018-1 d1_0949450018-1]
+The fitness value before EA: 5.6
+V_1:[] V_2:[p1_0816560015-1 p1_0949450018-1 d1_0949450018-1 d1_0816560015-1] V_3:[d1_0639220011-1] V_4:[] V_5:[d1_0625250010-1 p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 d1_0934570016-1]
+The fitness value after EA: 5.4399999999999995
+
+Thoi gian thuc hien thuat toan:  16.653578519821167
+SUCCESS
+
+2025-09-12 18:47:50,262 [simulate_environment.py | 254] INFO: 2025-09-12 09:50:00, Item 0816560015-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:47:50,262 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:47:50,262 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 10:00:00, pre time: 2025-09-12 09:50:00
+2025-09-12 18:47:50,263 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 10:00:00
+2025-09-12 18:47:50,265 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 4 ongoing order items, 16 completed order items
+2025-09-12 18:48:15,152 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 5.58, Worst = 15.92, Avg = 7.78, Diversity = 0.383, FitDiv = 0.339 , Time: 0.08371710777282715
+Generation 2: Best = 5.58, Worst = 8.52, Avg = 5.86, Diversity = 0.095, FitDiv = 0.125 , Time: 0.10403299331665039
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 5.58, Worst = 13.08, Avg = 6.51, Diversity = 0.160, FitDiv = 0.317 , Time: 3.8927135467529297
+Generation 4: Best = 5.58, Worst = 5.58, Avg = 5.58, Diversity = 0.000, FitDiv = 0.000 , Time: 0.07885241508483887
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 5.58, Worst = 5.58, Avg = 5.58, Diversity = 0.000, FitDiv = 0.000 , Time: 6.177386045455933
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 5.58, Worst = 5.58, Avg = 5.58, Diversity = 0.000, FitDiv = 0.000 , Time: 3.0798404216766357
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 5.58, Worst = 5.58, Avg = 5.58, Diversity = 0.000, FitDiv = 0.000 , Time: 3.207902431488037
+Stopping early due to lack of improvement.
+Total runtime: 22.77s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[d1_0949450018-1 p1_0950150019-1 d1_0950150019-1 d1_0816560015-1] V_3:[d1_0639220011-1] V_4:[] V_5:[d1_0625250010-1 p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 d1_0934570016-1]
+The fitness value before EA: 5.579999999999999
+V_1:[] V_2:[d1_0949450018-1 p1_0950150019-1 d1_0950150019-1 d1_0816560015-1] V_3:[d1_0639220011-1] V_4:[] V_5:[d1_0625250010-1 p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 d1_0934570016-1]
+The fitness value after EA: 5.579999999999999
+
+Thoi gian thuc hien thuat toan:  22.77589511871338
+SUCCESS
+
+2025-09-12 18:48:15,153 [simulate_environment.py | 254] INFO: 2025-09-12 10:00:00, Item 0934570016-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:48:15,154 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:48:15,154 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 10:10:00, pre time: 2025-09-12 10:00:00
+2025-09-12 18:48:15,154 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 10:10:00
+2025-09-12 18:48:15,155 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 4 ongoing order items, 16 completed order items
+2025-09-12 18:48:36,352 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 5.12, Worst = 8.82, Avg = 5.45, Diversity = 0.201, FitDiv = 0.168 , Time: 0.11842679977416992
+Generation 2: Best = 5.12, Worst = 5.12, Avg = 5.12, Diversity = 0.000, FitDiv = 0.000 , Time: 0.09292197227478027
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 5.12, Worst = 5.58, Avg = 5.15, Diversity = 0.056, FitDiv = 0.022 , Time: 3.221592664718628
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 5.12, Worst = 8.82, Avg = 5.61, Diversity = 0.103, FitDiv = 0.224 , Time: 3.860625982284546
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 5.12, Worst = 13519.77, Avg = 906.81, Diversity = 0.230, FitDiv = 3.717 , Time: 4.440514802932739
+Generation 6: Best = 5.12, Worst = 5.12, Avg = 5.12, Diversity = 0.000, FitDiv = 0.000 , Time: 0.10811114311218262
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 5.12, Worst = 8.34, Avg = 5.37, Diversity = 0.110, FitDiv = 0.150 , Time: 3.240452766418457
+Stopping early due to lack of improvement.
+Total runtime: 19.82s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[d1_0949450018-1 p1_0950150019-1 d1_0950150019-1 d1_0816560015-1] V_3:[d1_0639220011-1] V_4:[] V_5:[d1_0625250010-1 p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 d1_0934570016-1]
+The fitness value before EA: 5.119999999999999
+V_1:[] V_2:[d1_0949450018-1 p1_0950150019-1 d1_0950150019-1 d1_0816560015-1] V_3:[d1_0639220011-1] V_4:[] V_5:[d1_0625250010-1 p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 d1_0934570016-1]
+The fitness value after EA: 5.119999999999999
+
+Thoi gian thuc hien thuat toan:  19.82542109489441
+SUCCESS
+
+2025-09-12 18:48:36,354 [simulate_environment.py | 254] INFO: 2025-09-12 10:10:00, Item 0934570016-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:48:36,354 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:48:36,355 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 10:20:00, pre time: 2025-09-12 10:10:00
+2025-09-12 18:48:36,355 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 10:20:00
+2025-09-12 18:48:36,356 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 2 ongoing order items, 18 completed order items
+2025-09-12 18:48:56,219 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 4.98, Worst = 7.48, Avg = 5.24, Diversity = 0.221, FitDiv = 0.120 , Time: 0.026787281036376953
+Generation 2: Best = 4.98, Worst = 4.98, Avg = 4.98, Diversity = 0.000, FitDiv = 0.000 , Time: 0.044350624084472656
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 4.98, Worst = 4.98, Avg = 4.98, Diversity = 0.000, FitDiv = 0.000 , Time: 3.919597864151001
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 4.98, Worst = 15.32, Avg = 6.60, Diversity = 0.244, FitDiv = 0.471 , Time: 4.010939121246338
+Generation 5: Best = 4.98, Worst = 4.98, Avg = 4.98, Diversity = 0.000, FitDiv = 0.000 , Time: 0.09696626663208008
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 4.98, Worst = 12119.23, Avg = 814.50, Diversity = 0.382, FitDiv = 3.709 , Time: 3.2156972885131836
+Generation 7: Best = 4.98, Worst = 4.98, Avg = 4.98, Diversity = 0.000, FitDiv = 0.000 , Time: 0.10328006744384766
+Stopping early due to lack of improvement.
+Total runtime: 18.21s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[d1_0949450018-1 p1_0950150019-1 d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 d1_0934570016-1]
+The fitness value before EA: 4.98
+V_1:[] V_2:[d1_0949450018-1 p1_0950150019-1 d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 d1_0934570016-1]
+The fitness value after EA: 4.98
+
+Thoi gian thuc hien thuat toan:  18.21424889564514
+SUCCESS
+
+2025-09-12 18:48:56,220 [simulate_environment.py | 254] INFO: 2025-09-12 10:20:00, Item 0934570016-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:48:56,221 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:48:56,221 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 10:30:00, pre time: 2025-09-12 10:20:00
+2025-09-12 18:48:56,221 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 10:30:00
+2025-09-12 18:48:56,223 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 2 ongoing order items, 18 completed order items
+2025-09-12 18:49:21,680 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 4.98, Worst = 8.98, Avg = 5.72, Diversity = 0.348, FitDiv = 0.226 , Time: 0.05366635322570801
+Generation 2: Best = 4.98, Worst = 4.98, Avg = 4.98, Diversity = 0.000, FitDiv = 0.000 , Time: 0.07955288887023926
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 4.98, Worst = 8.20, Avg = 5.23, Diversity = 0.131, FitDiv = 0.154 , Time: 4.302462100982666
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 4.98, Worst = 5.38, Avg = 5.01, Diversity = 0.033, FitDiv = 0.020 , Time: 3.4401464462280273
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 4.98, Worst = 8.68, Avg = 5.67, Diversity = 0.274, FitDiv = 0.222 , Time: 3.4541521072387695
+Generation 6: Best = 4.98, Worst = 4.98, Avg = 4.98, Diversity = 0.000, FitDiv = 0.000 , Time: 0.06403565406799316
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 4.98, Worst = 8.68, Avg = 5.45, Diversity = 0.130, FitDiv = 0.209 , Time: 7.008765459060669
+Stopping early due to lack of improvement.
+Total runtime: 24.16s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[d1_0949450018-1 p1_0950150019-1 d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 d1_0934570016-1]
+The fitness value before EA: 4.98
+V_1:[] V_2:[d1_0949450018-1 p1_0950150019-1 d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 d1_0934570016-1]
+The fitness value after EA: 4.98
+
+Thoi gian thuc hien thuat toan:  24.168636560440063
+SUCCESS
+
+2025-09-12 18:49:21,681 [simulate_environment.py | 254] INFO: 2025-09-12 10:30:00, Item 0934570016-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:49:21,681 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:49:21,682 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 10:40:00, pre time: 2025-09-12 10:30:00
+2025-09-12 18:49:21,682 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 10:40:00
+2025-09-12 18:49:21,683 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 2 ongoing order items, 18 completed order items
+2025-09-12 18:49:40,620 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 3.44, Worst = 7.14, Avg = 3.69, Diversity = 0.067, FitDiv = 0.250 , Time: 0.05177664756774902
+Low diversity detected, applying diversity maintenance...
+Generation 2: Best = 3.44, Worst = 12117.69, Avg = 812.37, Diversity = 0.366, FitDiv = 3.719 , Time: 2.792151689529419
+Generation 3: Best = 3.44, Worst = 3.44, Avg = 3.44, Diversity = 0.000, FitDiv = 0.000 , Time: 0.06465673446655273
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 3.44, Worst = 3.44, Avg = 3.44, Diversity = 0.000, FitDiv = 0.000 , Time: 3.2709579467773438
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 3.44, Worst = 7.14, Avg = 4.17, Diversity = 0.334, FitDiv = 0.298 , Time: 2.5235538482666016
+Generation 6: Best = 3.44, Worst = 3.44, Avg = 3.44, Diversity = 0.000, FitDiv = 0.000 , Time: 0.032227516174316406
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 3.44, Worst = 3.44, Avg = 3.44, Diversity = 0.000, FitDiv = 0.000 , Time: 3.761622905731201
+Stopping early due to lack of improvement.
+Total runtime: 17.35s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[d1_0949450018-1 p1_0950150019-1 d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 d1_0934570016-1]
+The fitness value before EA: 3.44
+V_1:[] V_2:[d1_0949450018-1 p1_0950150019-1 d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 d1_0934570016-1]
+The fitness value after EA: 3.44
+
+Thoi gian thuc hien thuat toan:  17.37230348587036
+SUCCESS
+
+2025-09-12 18:49:40,621 [simulate_environment.py | 254] INFO: 2025-09-12 10:40:00, Item 0934570016-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:49:40,622 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:49:40,622 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 10:50:00, pre time: 2025-09-12 10:40:00
+2025-09-12 18:49:40,622 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 10:50:00
+2025-09-12 18:49:40,623 [simulate_environment.py | 167] INFO: Get 4 unallocated order items, 2 ongoing order items, 19 completed order items
+2025-09-12 18:50:01,331 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 2.18, Worst = 4.44, Avg = 2.55, Diversity = 0.346, FitDiv = 0.292 , Time: 0.03477811813354492
+Generation 2: Best = 2.18, Worst = 9.44, Avg = 2.67, Diversity = 0.157, FitDiv = 0.677 , Time: 0.041855573654174805
+Generation 3: Best = 2.18, Worst = 2.18, Avg = 2.18, Diversity = 0.000, FitDiv = 0.000 , Time: 0.04324150085449219
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 2.18, Worst = 2.18, Avg = 2.18, Diversity = 0.000, FitDiv = 0.000 , Time: 3.9074292182922363
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 2.18, Worst = 12750.08, Avg = 853.10, Diversity = 0.357, FitDiv = 3.727 , Time: 7.219480991363525
+Generation 6: Best = 2.18, Worst = 2.18, Avg = 2.18, Diversity = 0.000, FitDiv = 0.000 , Time: 0.04864311218261719
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 2.18, Worst = 2.18, Avg = 2.18, Diversity = 0.000, FitDiv = 0.000 , Time: 3.067188262939453
+Stopping early due to lack of improvement.
+Total runtime: 19.07s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 p2_1048480020-1 d2_1048480020-2 d1_0934570016-1]
+The fitness value before EA: 2.18
+V_1:[] V_2:[d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[p1_0934570016-1 p1_0946040017-1 d1_0946040017-1 p2_1048480020-1 d2_1048480020-2 d1_0934570016-1]
+The fitness value after EA: 2.18
+
+Thoi gian thuc hien thuat toan:  19.078060150146484
+SUCCESS
+
+2025-09-12 18:50:01,332 [simulate_environment.py | 254] INFO: 2025-09-12 10:50:00, Item 0934570016-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:50:01,333 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:50:01,333 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 11:00:00, pre time: 2025-09-12 10:50:00
+2025-09-12 18:50:01,333 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 11:00:00
+2025-09-12 18:50:01,334 [simulate_environment.py | 167] INFO: Get 4 unallocated order items, 4 ongoing order items, 19 completed order items
+2025-09-12 18:50:16,635 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 2.18, Worst = 4.70, Avg = 2.86, Diversity = 0.505, FitDiv = 0.363 , Time: 0.0449986457824707
+Generation 2: Best = 2.18, Worst = 2.18, Avg = 2.18, Diversity = 0.171, FitDiv = 0.000 , Time: 0.08171439170837402
+Generation 3: Best = 2.18, Worst = 2.18, Avg = 2.18, Diversity = 0.171, FitDiv = 0.000 , Time: 0.05304527282714844
+Generation 4: Best = 2.18, Worst = 2.18, Avg = 2.18, Diversity = 0.124, FitDiv = 0.000 , Time: 0.04083967208862305
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 2.18, Worst = 9.70, Avg = 3.61, Diversity = 0.449, FitDiv = 0.701 , Time: 3.0134308338165283
+Generation 6: Best = 2.18, Worst = 2.18, Avg = 2.18, Diversity = 0.124, FitDiv = 0.000 , Time: 0.07116413116455078
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 2.18, Worst = 4.70, Avg = 2.35, Diversity = 0.196, FitDiv = 0.268 , Time: 4.2880470752716064
+Stopping early due to lack of improvement.
+Total runtime: 13.89s (0.2 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[d1_0946040017-1 p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1]
+The fitness value before EA: 2.18
+V_1:[] V_2:[d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[d1_0946040017-1 p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1]
+The fitness value after EA: 2.18
+
+Thoi gian thuc hien thuat toan:  13.918983936309814
+SUCCESS
+
+2025-09-12 18:50:16,637 [simulate_environment.py | 254] INFO: 2025-09-12 11:00:00, Item 1048480020-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:50:16,638 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:50:16,638 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 11:10:00, pre time: 2025-09-12 11:00:00
+2025-09-12 18:50:16,638 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 11:10:00
+2025-09-12 18:50:16,639 [simulate_environment.py | 167] INFO: Get 4 unallocated order items, 4 ongoing order items, 19 completed order items
+2025-09-12 18:50:23,145 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 2.18, Worst = 4.86, Avg = 2.59, Diversity = 0.484, FitDiv = 0.337 , Time: 0.03298759460449219
+Generation 2: Best = 2.18, Worst = 2.60, Avg = 2.22, Diversity = 0.380, FitDiv = 0.049 , Time: 0.03997349739074707
+Generation 3: Best = 2.18, Worst = 2.18, Avg = 2.18, Diversity = 0.267, FitDiv = 0.000 , Time: 0.08724570274353027
+Generation 4: Best = 2.18, Worst = 2.18, Avg = 2.18, Diversity = 0.257, FitDiv = 0.000 , Time: 0.0659644603729248
+Generation 5: Best = 2.18, Worst = 2.18, Avg = 2.18, Diversity = 0.238, FitDiv = 0.000 , Time: 0.08967471122741699
+Generation 6: Best = 2.18, Worst = 2.18, Avg = 2.18, Diversity = 0.257, FitDiv = 0.000 , Time: 0.08480501174926758
+Generation 7: Best = 2.18, Worst = 2.18, Avg = 2.18, Diversity = 0.238, FitDiv = 0.000 , Time: 0.09201312065124512
+Stopping early due to lack of improvement.
+Total runtime: 5.09s (0.1 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[d1_0946040017-1 p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1]
+The fitness value before EA: 2.18
+V_1:[] V_2:[d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[d1_0946040017-1 p2_1050360021-1 p2_1048480020-1 d2_1048480020-2 d2_1050360021-2 d1_0934570016-1]
+The fitness value after EA: 2.18
+
+Thoi gian thuc hien thuat toan:  5.095054626464844
+SUCCESS
+
+2025-09-12 18:50:23,146 [simulate_environment.py | 254] INFO: 2025-09-12 11:10:00, Item 1048480020-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:50:23,146 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:50:23,146 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 11:20:00, pre time: 2025-09-12 11:10:00
+2025-09-12 18:50:23,147 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 11:20:00
+2025-09-12 18:50:23,148 [simulate_environment.py | 167] INFO: Get 4 unallocated order items, 4 ongoing order items, 19 completed order items
+2025-09-12 18:50:44,708 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 1.88, Worst = 9.40, Avg = 3.58, Diversity = 0.511, FitDiv = 0.809 , Time: 0.044989824295043945
+Generation 2: Best = 1.88, Worst = 2.10, Avg = 1.91, Diversity = 0.192, FitDiv = 0.034 , Time: 0.11399006843566895
+Generation 3: Best = 1.88, Worst = 1.88, Avg = 1.88, Diversity = 0.000, FitDiv = 0.000 , Time: 0.05506300926208496
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 1.88, Worst = 9.40, Avg = 2.38, Diversity = 0.080, FitDiv = 0.788 , Time: 3.9961984157562256
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 1.88, Worst = 4.40, Avg = 2.08, Diversity = 0.167, FitDiv = 0.303 , Time: 4.153383731842041
+Generation 6: Best = 1.88, Worst = 1.88, Avg = 1.88, Diversity = 0.000, FitDiv = 0.000 , Time: 0.0862112045288086
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 1.88, Worst = 4.40, Avg = 2.08, Diversity = 0.177, FitDiv = 0.303 , Time: 3.656722068786621
+Stopping early due to lack of improvement.
+Total runtime: 19.93s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[d1_0946040017-1 p2_1050360021-1 p2_1048480020-1 d2_1048480020-2 d2_1050360021-2 d1_0934570016-1]
+The fitness value before EA: 1.8800000000000001
+V_1:[] V_2:[d1_0950150019-1 d1_0816560015-1] V_3:[] V_4:[] V_5:[d1_0946040017-1 p2_1050360021-1 p2_1048480020-1 d2_1048480020-2 d2_1050360021-2 d1_0934570016-1]
+The fitness value after EA: 1.8800000000000001
+
+Thoi gian thuc hien thuat toan:  19.933568239212036
+SUCCESS
+
+2025-09-12 18:50:44,709 [simulate_environment.py | 254] INFO: 2025-09-12 11:20:00, Item 1048480020-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:50:44,709 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:50:44,710 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 11:30:00, pre time: 2025-09-12 11:20:00
+2025-09-12 18:50:44,710 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 11:30:00
+2025-09-12 18:50:44,711 [simulate_environment.py | 167] INFO: Get 5 unallocated order items, 3 ongoing order items, 20 completed order items
+2025-09-12 18:50:51,868 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 2.34, Worst = 4.60, Avg = 2.60, Diversity = 0.586, FitDiv = 0.215 , Time: 0.10063934326171875
+Generation 2: Best = 2.34, Worst = 2.56, Avg = 2.35, Diversity = 0.316, FitDiv = 0.023 , Time: 0.1280689239501953
+Generation 3: Best = 2.34, Worst = 2.34, Avg = 2.34, Diversity = 0.237, FitDiv = 0.000 , Time: 0.11702275276184082
+Generation 4: Best = 2.34, Worst = 2.34, Avg = 2.34, Diversity = 0.186, FitDiv = 0.000 , Time: 0.14208364486694336
+Generation 5: Best = 2.34, Worst = 2.34, Avg = 2.34, Diversity = 0.152, FitDiv = 0.000 , Time: 0.0809776782989502
+Generation 6: Best = 2.34, Worst = 2.34, Avg = 2.34, Diversity = 0.186, FitDiv = 0.000 , Time: 0.11645150184631348
+Generation 7: Best = 2.34, Worst = 2.34, Avg = 2.34, Diversity = 0.186, FitDiv = 0.000 , Time: 0.06368112564086914
+Stopping early due to lack of improvement.
+Total runtime: 5.45s (0.1 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[d1_0816560015-1] V_3:[] V_4:[] V_5:[d1_0946040017-1 p2_1050360021-1 p2_1048480020-1 d2_1048480020-2 d2_1050360021-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value before EA: 2.34
+V_1:[] V_2:[d1_0816560015-1] V_3:[] V_4:[] V_5:[d1_0946040017-1 p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value after EA: 2.34
+
+Thoi gian thuc hien thuat toan:  5.447810888290405
+SUCCESS
+
+2025-09-12 18:50:51,869 [simulate_environment.py | 254] INFO: 2025-09-12 11:30:00, Item 1048480020-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:50:51,870 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:50:51,870 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 11:40:00, pre time: 2025-09-12 11:30:00
+2025-09-12 18:50:51,870 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 11:40:00
+2025-09-12 18:50:51,871 [simulate_environment.py | 167] INFO: Get 5 unallocated order items, 3 ongoing order items, 20 completed order items
+2025-09-12 18:50:58,748 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 0.86, Worst = 8.38, Avg = 1.97, Diversity = 0.555, FitDiv = 0.991 , Time: 0.08092045783996582
+Generation 2: Best = 0.86, Worst = 1.28, Avg = 0.92, Diversity = 0.370, FitDiv = 0.156 , Time: 0.08617663383483887
+Generation 3: Best = 0.86, Worst = 0.86, Avg = 0.86, Diversity = 0.237, FitDiv = 0.000 , Time: 0.08626246452331543
+Generation 4: Best = 0.86, Worst = 0.86, Avg = 0.86, Diversity = 0.237, FitDiv = 0.000 , Time: 0.06258225440979004
+Generation 5: Best = 0.86, Worst = 0.86, Avg = 0.86, Diversity = 0.152, FitDiv = 0.000 , Time: 0.07129287719726562
+Generation 6: Best = 0.86, Worst = 0.86, Avg = 0.86, Diversity = 0.186, FitDiv = 0.000 , Time: 0.06312894821166992
+Generation 7: Best = 0.86, Worst = 0.86, Avg = 0.86, Diversity = 0.212, FitDiv = 0.000 , Time: 0.1082770824432373
+Stopping early due to lack of improvement.
+Total runtime: 5.13s (0.1 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[d1_0816560015-1] V_3:[] V_4:[] V_5:[d1_0946040017-1 p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value before EA: 0.86
+V_1:[] V_2:[d1_0816560015-1] V_3:[] V_4:[] V_5:[d1_0946040017-1 p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value after EA: 0.86
+
+Thoi gian thuc hien thuat toan:  5.1280035972595215
+SUCCESS
+
+2025-09-12 18:50:58,749 [simulate_environment.py | 254] INFO: 2025-09-12 11:40:00, Item 1048480020-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:50:58,749 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:50:58,749 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 11:50:00, pre time: 2025-09-12 11:40:00
+2025-09-12 18:50:58,749 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 11:50:00
+2025-09-12 18:50:58,750 [simulate_environment.py | 167] INFO: Get 6 unallocated order items, 2 ongoing order items, 21 completed order items
+2025-09-12 18:51:29,176 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 17.96, Worst = 5326.65, Avg = 372.53, Diversity = 0.291, FitDiv = 3.554 , Time: 0.13452482223510742
+Generation 2: Best = 17.96, Worst = 17.96, Avg = 17.96, Diversity = 0.000, FitDiv = 0.000 , Time: 0.0925753116607666
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 17.96, Worst = 20.44, Avg = 18.13, Diversity = 0.044, FitDiv = 0.034 , Time: 2.9587607383728027
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 17.96, Worst = 17.96, Avg = 17.96, Diversity = 0.000, FitDiv = 0.000 , Time: 4.6604533195495605
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 17.96, Worst = 17.96, Avg = 17.96, Diversity = 0.000, FitDiv = 0.000 , Time: 4.706589698791504
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 17.96, Worst = 18.38, Avg = 18.01, Diversity = 0.130, FitDiv = 0.008 , Time: 4.3702073097229
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 17.96, Worst = 17.96, Avg = 17.96, Diversity = 0.000, FitDiv = 0.000 , Time: 3.477104425430298
+Stopping early due to lack of improvement.
+Total runtime: 28.55s (0.5 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[d1_0816560015-1] V_3:[p1_1142590023-1 d1_1142590023-1] V_4:[] V_5:[p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value before EA: 17.96
+V_1:[] V_2:[d1_0816560015-1] V_3:[p1_1142590023-1 d1_1142590023-1] V_4:[] V_5:[p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value after EA: 17.96
+
+Thoi gian thuc hien thuat toan:  28.576650142669678
+SUCCESS
+
+2025-09-12 18:51:29,177 [simulate_environment.py | 254] INFO: 2025-09-12 11:50:00, Item 1048480020-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:51:29,177 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:51:29,177 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 12:00:00, pre time: 2025-09-12 11:50:00
+2025-09-12 18:51:29,177 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 12:00:00
+2025-09-12 18:51:29,178 [simulate_environment.py | 167] INFO: Get 7 unallocated order items, 1 ongoing order items, 22 completed order items
+2025-09-12 18:51:56,362 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 15.74, Worst = 7352.25, Avg = 967.26, Diversity = 0.376, FitDiv = 2.509 , Time: 0.10762763023376465
+Generation 2: Best = 15.74, Worst = 15.74, Avg = 15.74, Diversity = 0.048, FitDiv = 0.000 , Time: 0.09109807014465332
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 15.74, Worst = 15.74, Avg = 15.74, Diversity = 0.000, FitDiv = 0.000 , Time: 6.848306894302368
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 15.74, Worst = 15.74, Avg = 15.74, Diversity = 0.000, FitDiv = 0.000 , Time: 3.7756571769714355
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 15.74, Worst = 15.74, Avg = 15.74, Diversity = 0.000, FitDiv = 0.000 , Time: 2.68571400642395
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 15.74, Worst = 15.74, Avg = 15.74, Diversity = 0.000, FitDiv = 0.000 , Time: 3.400991678237915
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 15.74, Worst = 22.88, Avg = 16.24, Diversity = 0.122, FitDiv = 0.109 , Time: 3.755378484725952
+Stopping early due to lack of improvement.
+Total runtime: 25.34s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[p1_1153080024-1 d1_1153080024-1] V_3:[p1_1142590023-1 d1_1142590023-1] V_4:[] V_5:[p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value before EA: 15.74
+V_1:[] V_2:[p1_1153080024-1 d1_1153080024-1] V_3:[p1_1142590023-1 d1_1142590023-1] V_4:[] V_5:[p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value after EA: 15.74
+
+Thoi gian thuc hien thuat toan:  25.34677481651306
+SUCCESS
+
+2025-09-12 18:51:56,363 [simulate_environment.py | 254] INFO: 2025-09-12 12:00:00, Item 1048480020-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:51:56,363 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:51:56,363 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 12:10:00, pre time: 2025-09-12 12:00:00
+2025-09-12 18:51:56,363 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 12:10:00
+2025-09-12 18:51:56,365 [simulate_environment.py | 167] INFO: Get 7 unallocated order items, 1 ongoing order items, 22 completed order items
+2025-09-12 18:52:24,418 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 15.74, Worst = 15.80, Avg = 15.75, Diversity = 0.105, FitDiv = 0.002 , Time: 0.042160749435424805
+Low diversity detected, applying diversity maintenance...
+Generation 2: Best = 15.74, Worst = 15.74, Avg = 15.74, Diversity = 0.000, FitDiv = 0.000 , Time: 3.175041913986206
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 15.74, Worst = 6951.55, Avg = 832.57, Diversity = 0.203, FitDiv = 2.525 , Time: 3.517223596572876
+Generation 4: Best = 15.74, Worst = 15.74, Avg = 15.74, Diversity = 0.000, FitDiv = 0.000 , Time: 0.07645344734191895
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 15.74, Worst = 7924.53, Avg = 543.48, Diversity = 0.088, FitDiv = 3.630 , Time: 3.2192564010620117
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 15.74, Worst = 15.74, Avg = 15.74, Diversity = 0.000, FitDiv = 0.000 , Time: 8.095654726028442
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 15.74, Worst = 21819.86, Avg = 1958.48, Diversity = 0.175, FitDiv = 2.866 , Time: 3.999727964401245
+Stopping early due to lack of improvement.
+Total runtime: 26.31s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[p1_1153080024-1 d1_1153080024-1] V_3:[p1_1142590023-1 d1_1142590023-1] V_4:[] V_5:[p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value before EA: 15.74
+V_1:[] V_2:[p1_1153080024-1 d1_1153080024-1] V_3:[p1_1142590023-1 d1_1142590023-1] V_4:[] V_5:[p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value after EA: 15.74
+
+Thoi gian thuc hien thuat toan:  26.336485862731934
+SUCCESS
+
+2025-09-12 18:52:24,419 [simulate_environment.py | 254] INFO: 2025-09-12 12:10:00, Item 1048480020-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:52:24,419 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:52:24,420 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 12:20:00, pre time: 2025-09-12 12:10:00
+2025-09-12 18:52:24,420 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 12:20:00
+2025-09-12 18:52:24,421 [simulate_environment.py | 167] INFO: Get 10 unallocated order items, 1 ongoing order items, 22 completed order items
+2025-09-12 18:52:51,331 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 20.74, Worst = 24.00, Avg = 21.56, Diversity = 0.319, FitDiv = 0.054 , Time: 0.15636944770812988
+Generation 2: Best = 20.74, Worst = 20.74, Avg = 20.74, Diversity = 0.000, FitDiv = 0.000 , Time: 0.12901067733764648
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 20.74, Worst = 20.74, Avg = 20.74, Diversity = 0.000, FitDiv = 0.000 , Time: 3.7637734413146973
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 20.74, Worst = 20.74, Avg = 20.74, Diversity = 0.000, FitDiv = 0.000 , Time: 4.273089647293091
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 20.74, Worst = 14553.22, Avg = 991.49, Diversity = 0.287, FitDiv = 3.656 , Time: 3.787661552429199
+Generation 6: Best = 20.74, Worst = 20.74, Avg = 20.74, Diversity = 0.000, FitDiv = 0.000 , Time: 0.11748242378234863
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 20.74, Worst = 28.12, Avg = 21.40, Diversity = 0.104, FitDiv = 0.089 , Time: 7.739508867263794
+Stopping early due to lack of improvement.
+Total runtime: 24.92s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[p1_1153080024-1 p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[p1_1142590023-1 d1_1142590023-1] V_4:[] V_5:[p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value before EA: 20.740000000000002
+V_1:[] V_2:[p1_1153080024-1 p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[p1_1142590023-1 d1_1142590023-1] V_4:[] V_5:[p2_1048480020-1 p2_1050360021-1 d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value after EA: 20.740000000000002
+
+Thoi gian thuc hien thuat toan:  24.926066875457764
+SUCCESS
+
+2025-09-12 18:52:51,332 [simulate_environment.py | 254] INFO: 2025-09-12 12:20:00, Item 1048480020-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:52:51,333 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:52:51,333 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 12:30:00, pre time: 2025-09-12 12:20:00
+2025-09-12 18:52:51,333 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 12:30:00
+2025-09-12 18:52:51,335 [simulate_environment.py | 167] INFO: Get 6 unallocated order items, 5 ongoing order items, 22 completed order items
+2025-09-12 18:53:20,973 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 18.86, Worst = 22.12, Avg = 19.29, Diversity = 0.095, FitDiv = 0.057 , Time: 0.08906078338623047
+Low diversity detected, applying diversity maintenance...
+Generation 2: Best = 18.86, Worst = 18.86, Avg = 18.86, Diversity = 0.000, FitDiv = 0.000 , Time: 3.849724531173706
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 18.86, Worst = 26.24, Avg = 19.94, Diversity = 0.112, FitDiv = 0.125 , Time: 4.119718551635742
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 18.86, Worst = 22.12, Avg = 19.08, Diversity = 0.051, FitDiv = 0.043 , Time: 3.021620988845825
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 18.86, Worst = 9916.98, Avg = 678.73, Diversity = 0.062, FitDiv = 3.638 , Time: 3.9674429893493652
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 18.86, Worst = 21.34, Avg = 19.03, Diversity = 0.041, FitDiv = 0.033 , Time: 3.5668857097625732
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 18.86, Worst = 8260.99, Avg = 568.60, Diversity = 0.100, FitDiv = 3.616 , Time: 3.758589744567871
+Stopping early due to lack of improvement.
+Total runtime: 27.46s (0.5 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[p1_1153080024-1 p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[p1_1142590023-1 d1_1142590023-1] V_4:[] V_5:[d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value before EA: 18.86
+V_1:[] V_2:[p1_1153080024-1 p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[p1_1142590023-1 d1_1142590023-1] V_4:[] V_5:[d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value after EA: 18.86
+
+Thoi gian thuc hien thuat toan:  27.4618182182312
+SUCCESS
+
+2025-09-12 18:53:20,974 [simulate_environment.py | 254] INFO: 2025-09-12 12:30:00, Item 1125490022-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:53:20,975 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:53:20,975 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 12:40:00, pre time: 2025-09-12 12:30:00
+2025-09-12 18:53:20,975 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 12:40:00
+2025-09-12 18:53:20,976 [simulate_environment.py | 167] INFO: Get 6 unallocated order items, 5 ongoing order items, 22 completed order items
+2025-09-12 18:54:01,515 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 18.86, Worst = 16813.74, Avg = 3158.52, Diversity = 0.403, FitDiv = 1.574 , Time: 0.07603025436401367
+Generation 2: Best = 18.86, Worst = 26.24, Avg = 19.35, Diversity = 0.041, FitDiv = 0.095 , Time: 0.06126546859741211
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 18.86, Worst = 18.86, Avg = 18.86, Diversity = 0.000, FitDiv = 0.000 , Time: 6.421906471252441
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 18.86, Worst = 18.86, Avg = 18.86, Diversity = 0.000, FitDiv = 0.000 , Time: 6.757259368896484
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 18.86, Worst = 18.86, Avg = 18.86, Diversity = 0.000, FitDiv = 0.000 , Time: 3.538105010986328
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 18.86, Worst = 18.86, Avg = 18.86, Diversity = 0.000, FitDiv = 0.000 , Time: 4.045687913894653
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 18.86, Worst = 22.12, Avg = 19.29, Diversity = 0.095, FitDiv = 0.057 , Time: 7.118311643600464
+Stopping early due to lack of improvement.
+Total runtime: 35.33s (0.6 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[p1_1153080024-1 p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[p1_1142590023-1 d1_1142590023-1] V_4:[] V_5:[d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value before EA: 18.86
+V_1:[] V_2:[p1_1153080024-1 p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[p1_1142590023-1 d1_1142590023-1] V_4:[] V_5:[d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value after EA: 18.86
+
+Thoi gian thuc hien thuat toan:  35.35682654380798
+SUCCESS
+
+2025-09-12 18:54:01,516 [simulate_environment.py | 254] INFO: 2025-09-12 12:40:00, Item 1125490022-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:54:01,517 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:54:01,517 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 12:50:00, pre time: 2025-09-12 12:40:00
+2025-09-12 18:54:01,517 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 12:50:00
+2025-09-12 18:54:01,519 [simulate_environment.py | 167] INFO: Get 4 unallocated order items, 7 ongoing order items, 22 completed order items
+2025-09-12 18:54:08,226 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[d1_1142590023-1] V_4:[] V_5:[d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value before EA: 18.860000000000003
+V_1:[] V_2:[p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[d1_1142590023-1] V_4:[] V_5:[d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value after EA: 18.860000000000003
+
+Thoi gian thuc hien thuat toan:  4.890773773193359
+SUCCESS
+
+2025-09-12 18:54:08,228 [simulate_environment.py | 254] INFO: 2025-09-12 12:50:00, Item 1125490022-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:54:08,229 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:54:08,229 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 13:00:00, pre time: 2025-09-12 12:50:00
+2025-09-12 18:54:08,229 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 13:00:00
+2025-09-12 18:54:08,231 [simulate_environment.py | 167] INFO: Get 4 unallocated order items, 7 ongoing order items, 22 completed order items
+2025-09-12 18:54:14,715 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[d1_1142590023-1] V_4:[] V_5:[d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value before EA: 18.68
+V_1:[] V_2:[p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[d1_1142590023-1] V_4:[] V_5:[d2_1050360021-2 d2_1048480020-2 d1_0934570016-1 p1_1125490022-1 d1_1125490022-1]
+The fitness value after EA: 18.68
+
+Thoi gian thuc hien thuat toan:  4.460519075393677
+SUCCESS
+
+2025-09-12 18:54:14,717 [simulate_environment.py | 254] INFO: 2025-09-12 13:00:00, Item 1125490022-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:54:14,718 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:54:14,718 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 13:10:00, pre time: 2025-09-12 13:00:00
+2025-09-12 18:54:14,718 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 13:10:00
+2025-09-12 18:54:14,719 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 3 ongoing order items, 27 completed order items
+2025-09-12 18:54:21,613 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[d1_1142590023-1] V_4:[] V_5:[d1_1125490022-1]
+The fitness value before EA: 18.68
+V_1:[] V_2:[p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[d1_1142590023-1] V_4:[] V_5:[d1_1125490022-1]
+The fitness value after EA: 18.68
+
+Thoi gian thuc hien thuat toan:  5.151285648345947
+SUCCESS
+
+2025-09-12 18:54:21,615 [simulate_environment.py | 254] INFO: 2025-09-12 13:10:00, Item 1219390025-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:54:21,616 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:54:21,616 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 13:20:00, pre time: 2025-09-12 13:10:00
+2025-09-12 18:54:21,616 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 13:20:00
+2025-09-12 18:54:21,617 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 3 ongoing order items, 27 completed order items
+2025-09-12 18:54:30,235 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[d1_1142590023-1] V_4:[] V_5:[d1_1125490022-1]
+The fitness value before EA: 4.36
+V_1:[] V_2:[p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[d1_1142590023-1] V_4:[] V_5:[d1_1125490022-1]
+The fitness value after EA: 4.36
+
+Thoi gian thuc hien thuat toan:  6.352573394775391
+SUCCESS
+
+2025-09-12 18:54:30,237 [simulate_environment.py | 254] INFO: 2025-09-12 13:20:00, Item 1219390025-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:54:30,237 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:54:30,238 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 13:30:00, pre time: 2025-09-12 13:20:00
+2025-09-12 18:54:30,238 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 13:30:00
+2025-09-12 18:54:30,239 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 3 ongoing order items, 27 completed order items
+2025-09-12 18:54:38,672 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[d1_1142590023-1] V_4:[] V_5:[d1_1125490022-1]
+The fitness value before EA: 4.36
+V_1:[] V_2:[p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[d1_1142590023-1] V_4:[] V_5:[d1_1125490022-1]
+The fitness value after EA: 4.36
+
+Thoi gian thuc hien thuat toan:  6.820755243301392
+SUCCESS
+
+2025-09-12 18:54:38,673 [simulate_environment.py | 254] INFO: 2025-09-12 13:30:00, Item 1219390025-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:54:38,673 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:54:38,674 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 13:40:00, pre time: 2025-09-12 13:30:00
+2025-09-12 18:54:38,674 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 13:40:00
+2025-09-12 18:54:38,676 [simulate_environment.py | 167] INFO: Get 5 unallocated order items, 3 ongoing order items, 27 completed order items
+2025-09-12 18:55:02,968 [simulate_environment.py | 232] INFO: 
+Generation 1: Best = 8.04, Worst = 18.26, Avg = 10.85, Diversity = 0.379, FitDiv = 0.319 , Time: 0.0738680362701416
+Generation 2: Best = 8.04, Worst = 10.86, Avg = 8.23, Diversity = 0.061, FitDiv = 0.085 , Time: 0.05850982666015625
+Low diversity detected, applying diversity maintenance...
+Generation 3: Best = 8.04, Worst = 8.04, Avg = 8.04, Diversity = 0.000, FitDiv = 0.000 , Time: 3.186117649078369
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 8.04, Worst = 11.12, Avg = 8.63, Diversity = 0.085, FitDiv = 0.136 , Time: 3.663003444671631
+Low diversity detected, applying diversity maintenance...
+Generation 5: Best = 8.04, Worst = 8.04, Avg = 8.04, Diversity = 0.000, FitDiv = 0.000 , Time: 3.9831604957580566
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 8.04, Worst = 10.86, Avg = 8.24, Diversity = 0.116, FitDiv = 0.085 , Time: 3.3781936168670654
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 8.04, Worst = 11.62, Avg = 8.29, Diversity = 0.116, FitDiv = 0.107 , Time: 3.5872104167938232
+Stopping early due to lack of improvement.
+Total runtime: 22.75s (0.4 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[p3_1219390025-1 d3_1219390025-3 d1_1153080024-1 p1_1332540026-1 d1_1332540026-1] V_3:[d1_1142590023-1] V_4:[] V_5:[d1_1125490022-1 p1_1333580027-1 d1_1333580027-1]
+The fitness value before EA: 10.860000000000001
+V_1:[] V_2:[p3_1219390025-1 d3_1219390025-3 d1_1153080024-1] V_3:[d1_1142590023-1] V_4:[] V_5:[d1_1125490022-1 p1_1333580027-1 p1_1332540026-1 d1_1332540026-1 d1_1333580027-1]
+The fitness value after EA: 8.040000000000001
+
+Thoi gian thuc hien thuat toan:  22.75862455368042
+SUCCESS
+
+2025-09-12 18:55:02,971 [simulate_environment.py | 254] INFO: 2025-09-12 13:40:00, Item 1219390025-1: state = 1 < 2, we can not finish the simulation
+2025-09-12 18:55:02,971 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-12 18:55:02,972 [simulate_environment.py | 103] INFO: cur time: 2025-09-12 13:50:00, pre time: 2025-09-12 13:40:00
+2025-09-12 18:55:02,972 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-12 13:50:00
+2025-09-12 18:55:02,973 [simulate_environment.py | 167] INFO: Get 2 unallocated order items, 5 ongoing order items, 28 completed order items
