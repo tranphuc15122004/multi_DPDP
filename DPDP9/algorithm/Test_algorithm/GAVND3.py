@@ -222,13 +222,13 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1):
         if config.is_timeout():
             break
         
-        ls_start = time.time()
+        """ ls_start = time.time()
         if methods[method_names[4]]():
             ls_timings[method_names[4]] += time.time() - ls_start
             i += 1
             counters[method_names[4]] += 1
             continue
-        ls_timings[method_names[4]] += time.time() - ls_start
+        ls_timings[method_names[4]] += time.time() - ls_start """
         
         # No improvement found
         break

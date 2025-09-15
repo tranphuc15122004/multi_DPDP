@@ -452,7 +452,7 @@ def randon_1_LS(indivisual: Chromosome , is_limited = False , mode = 0):
     
     # Lấy thứ tự adaptive
     if mode == 0:
-        chosen_method = random.choices(config.LS_METHODS)[0]
+        chosen_method = random.choices(list(methods.keys()))[0]
     else:
         chosen_method = get_adaptive_order(indivisual , methods , mode=mode)[0]
     i = 0

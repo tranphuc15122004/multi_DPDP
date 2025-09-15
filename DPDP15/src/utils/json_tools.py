@@ -66,7 +66,7 @@ def get_algorithm_calling_command():
                 if system == 'Windows':
                     return file
                 elif system == 'Linux':
-                    os.system(f'chmod 777 {file}')
+                    os.system(f'wine {file}')
                     return './{}'.format(file)
     logger.error('Can not find main_algorithm file.')
     sys.exit(-1)
