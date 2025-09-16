@@ -1,0 +1,323 @@
+2025-09-16 11:46:51,728 [main.py         | 48] INFO: Start to run instance_1
+2025-09-16 11:46:51,728 [simulate_api.py | 60] INFO: Start time of the simulator: 2025-09-16 00:00:00, time interval:  600.00
+2025-09-16 11:46:51,743 [input_utils.py  | 48] INFO: Get 154 factories
+2025-09-16 11:46:53,495 [input_utils.py  | 52] INFO: Get 23562 routes
+2025-09-16 11:46:53,527 [input_utils.py  | 57] INFO: Get 5 vehicles
+2025-09-16 11:46:53,542 [input_utils.py  | 61] INFO: Get 50 orders
+2025-09-16 11:46:53,543 [simulate_api.py | 87] INFO: Initial position of V_1 is e2d5093fbe36431f8986ddb0e1c586be
+2025-09-16 11:46:53,545 [simulate_api.py | 87] INFO: Initial position of V_2 is 7fe14b93f0f04ee7a994ef5b2c1fdb72
+2025-09-16 11:46:53,545 [simulate_api.py | 87] INFO: Initial position of V_3 is fa366fc87a124d32926daa5bb093129f
+2025-09-16 11:46:53,545 [simulate_api.py | 87] INFO: Initial position of V_4 is e47399648fa842b2b8f80094343d8091
+2025-09-16 11:46:53,545 [simulate_api.py | 87] INFO: Initial position of V_5 is becb4f85393540b287e7329758b8d832
+2025-09-16 11:46:53,545 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-16 11:46:53,546 [simulate_environment.py | 103] INFO: cur time: 2025-09-16 00:10:00, pre time: 2025-09-16 00:00:00
+2025-09-16 11:46:53,546 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-16 00:10:00
+2025-09-16 11:46:53,547 [simulate_environment.py | 167] INFO: Get 1 unallocated order items, 0 ongoing order items, 0 completed order items
+2025-09-16 11:46:56,125 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0003480001-1 d1_0003480001-1]
+The fitness value before EA: 3.08
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0003480001-1 d1_0003480001-1]
+The fitness value after EA: 3.08
+
+Thoi gian thuc hien thuat toan:  1.6402976512908936
+SUCCESS
+
+2025-09-16 11:46:56,126 [simulate_environment.py | 254] INFO: 2025-09-16 00:10:00, Item 0003480001-1: state = 1 < 2, we can not finish the simulation
+2025-09-16 11:46:56,126 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-16 11:46:56,126 [simulate_environment.py | 103] INFO: cur time: 2025-09-16 00:20:00, pre time: 2025-09-16 00:10:00
+2025-09-16 11:46:56,126 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-16 00:20:00
+2025-09-16 11:46:56,127 [simulate_environment.py | 167] INFO: Get 3 unallocated order items, 0 ongoing order items, 0 completed order items
+2025-09-16 11:47:02,194 [simulate_environment.py | 232] INFO: Thoi gian thuc hien crossover:  6.628036499023438e-05
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.62
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:5.66
+Thoi gian thuc hien crossover:  0.0007131099700927734
+9.06
+5.659999999999999
+Thoi gian thuc hien crossover:  2.9802322387695312e-05
+LS: BlockRelocate | Count: 1 | TotalTime:0.000s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:4.88
+Thoi gian thuc hien crossover:  0.0007641315460205078
+1.8
+4.880000000000001
+Thoi gian thuc hien crossover:  2.8848648071289062e-05
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:4.88
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.72
+Thoi gian thuc hien crossover:  0.0005626678466796875
+4.880000000000001
+5.4399999999999995
+Thoi gian thuc hien crossover:  2.7894973754882812e-05
+LS: BlockRelocate | Count: 0 | TotalTime:0.000s | Cost:1.72
+LS: mPDG | Count: 1 | TotalTime:0.001s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0010802745819091797
+4.880000000000001
+1.8
+Thoi gian thuc hien crossover:  3.0279159545898438e-05
+LS: BlockRelocate | Count: 1 | TotalTime:0.000s | Cost:5.48
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.62
+Thoi gian thuc hien crossover:  0.0007050037384033203
+5.4799999999999995
+9.06
+Thoi gian thuc hien crossover:  2.7179718017578125e-05
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:4.88
+LS: BlockRelocate | Count: 0 | TotalTime:0.000s | Cost:1.72
+Thoi gian thuc hien crossover:  0.0004532337188720703
+4.880000000000001
+4.9399999999999995
+LS: BlockRelocate | Count: 0 | TotalTime:0.001s | Cost:1.80
+LS: BlockRelocate | Count: 0 | TotalTime:0.001s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:2.02
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:2.18
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:4.88
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:4.88
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:4.88
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:4.88
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:4.94
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:5.44
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:5.48
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:5.66
+LS: mPDG | Count: 1 | TotalTime:0.001s | Cost:1.80
+LS: BlockRelocate | Count: 1 | TotalTime:0.000s | Cost:2.02
+Thoi gian thuc hien crossover:  2.8371810913085938e-05
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0007109642028808594
+1.8
+1.8
+Thoi gian thuc hien crossover:  2.86102294921875e-05
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.62
+LS: mPDG | Count: 1 | TotalTime:0.001s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0017654895782470703
+1.8
+1.8
+Thoi gian thuc hien crossover:  3.3855438232421875e-05
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.62
+LS: mPDG | Count: 1 | TotalTime:0.001s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0009958744049072266
+4.14
+1.8
+Thoi gian thuc hien crossover:  2.5987625122070312e-05
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0005390644073486328
+1.8
+1.8
+Thoi gian thuc hien crossover:  2.765655517578125e-05
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:2.18
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.62
+Thoi gian thuc hien crossover:  0.0003898143768310547
+2.18
+2.18
+Thoi gian thuc hien crossover:  2.5510787963867188e-05
+LS: BlockRelocate | Count: 0 | TotalTime:0.001s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0010259151458740234
+1.8
+1.8
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockRelocate | Count: 0 | TotalTime:0.001s | Cost:1.80
+LS: BlockRelocate | Count: 0 | TotalTime:0.001s | Cost:1.80
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:2.18
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:2.18
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:4.14
+Thoi gian thuc hien crossover:  1.8835067749023438e-05
+LS: BlockRelocate | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0007638931274414062
+1.8
+1.8
+Thoi gian thuc hien crossover:  1.71661376953125e-05
+LS: BlockRelocate | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0007505416870117188
+1.8
+1.8
+Thoi gian thuc hien crossover:  2.6702880859375e-05
+LS: BlockRelocate | Count: 0 | TotalTime:0.001s | Cost:1.80
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0007863044738769531
+1.8
+1.8
+Thoi gian thuc hien crossover:  1.52587890625e-05
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockRelocate | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0006473064422607422
+1.8
+1.8
+Thoi gian thuc hien crossover:  2.7179718017578125e-05
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0004680156707763672
+1.8
+1.8
+Thoi gian thuc hien crossover:  2.384185791015625e-05
+LS: BlockRelocate | Count: 0 | TotalTime:0.001s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0011417865753173828
+1.8
+1.8
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockRelocate | Count: 0 | TotalTime:0.001s | Cost:1.80
+LS: BlockRelocate | Count: 0 | TotalTime:0.001s | Cost:1.80
+LS: BlockRelocate | Count: 0 | TotalTime:0.001s | Cost:1.80
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  2.765655517578125e-05
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0009310245513916016
+1.8
+1.8
+LS: PDPairExchange:0(0.000s) | mPDG:0(0.000s) | BlockExchange:0(0.000s) | BlockRelocate:0(0.000s) | 2opt:0(0.000s) | TotalTime:0.001s | Cost:1.80
+LS: BlockRelocate:0(0.000s) | PDPairExchange:0(0.000s) | BlockExchange:0(0.000s) | mPDG:0(0.000s) | 2opt:0(0.000s) | TotalTime:0.001s | Cost:1.80
+LS: mPDG:0(0.000s) | PDPairExchange:0(0.000s) | BlockExchange:0(0.000s) | BlockRelocate:0(0.000s) | 2opt:0(0.000s) | TotalTime:0.001s | Cost:1.80
+LS: 2opt:0(0.000s) | mPDG:0(0.000s) | PDPairExchange:0(0.000s) | BlockRelocate:0(0.000s) | BlockExchange:0(0.000s) | TotalTime:0.001s | Cost:1.80
+Thoi gian thuc hien crossover:  1.9550323486328125e-05
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0006299018859863281
+1.8
+1.8
+Thoi gian thuc hien crossover:  1.6689300537109375e-05
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0004603862762451172
+1.8
+1.8
+Thoi gian thuc hien crossover:  1.5974044799804688e-05
+LS: BlockRelocate | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockRelocate | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0008389949798583984
+1.8
+1.8
+Thoi gian thuc hien crossover:  1.4543533325195312e-05
+LS: BlockRelocate | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0006647109985351562
+1.8
+1.8
+Thoi gian thuc hien crossover:  1.4543533325195312e-05
+LS: mPDG | Count: 1 | TotalTime:0.000s | Cost:1.80
+LS: BlockRelocate | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0010223388671875
+1.8
+1.8
+Thoi gian thuc hien crossover:  1.6927719116210938e-05
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockRelocate | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0005781650543212891
+1.8
+1.8
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockRelocate | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: mPDG | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  3.8623809814453125e-05
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0005183219909667969
+1.8
+1.8
+Thoi gian thuc hien crossover:  3.743171691894531e-05
+LS: BlockRelocate | Count: 0 | TotalTime:0.001s | Cost:1.80
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.001058816909790039
+1.8
+1.8
+LS: PDPairExchange:0(0.000s) | BlockRelocate:0(0.001s) | 2opt:0(0.000s) | BlockExchange:0(0.000s) | mPDG:0(0.000s) | TotalTime:0.001s | Cost:1.80
+LS: BlockRelocate:0(0.001s) | PDPairExchange:0(0.000s) | BlockExchange:0(0.000s) | mPDG:0(0.000s) | 2opt:0(0.000s) | TotalTime:0.001s | Cost:1.80
+LS: mPDG:0(0.000s) | PDPairExchange:0(0.000s) | BlockExchange:0(0.000s) | BlockRelocate:0(0.001s) | 2opt:0(0.000s) | TotalTime:0.001s | Cost:1.80
+LS: PDPairExchange:0(0.000s) | 2opt:0(0.000s) | mPDG:0(0.000s) | BlockExchange:0(0.000s) | BlockRelocate:0(0.000s) | TotalTime:0.001s | Cost:1.80
+Thoi gian thuc hien crossover:  4.0531158447265625e-05
+LS: 2opt | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: BlockRelocate | Count: 0 | TotalTime:0.001s | Cost:1.80
+Thoi gian thuc hien crossover:  0.0010159015655517578
+1.8
+1.8
+Thoi gian thuc hien crossover:  2.5033950805664062e-05
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+LS: PDPairExchange | Count: 0 | TotalTime:0.000s | Cost:1.80
+Thoi gian thuc hien crossover:  0.00035881996154785156
+1.8
+1.8
+LS: BlockExchange:0(0.000s) | PDPairExchange:0(0.000s) | mPDG:0(0.000s) | BlockRelocate:0(0.001s) | 2opt:0(0.000s) | TotalTime:0.001s | Cost:1.80
+LS: BlockRelocate:0(0.001s) | PDPairExchange:0(0.000s) | BlockExchange:0(0.000s) | mPDG:0(0.000s) | 2opt:0(0.000s) | TotalTime:0.002s | Cost:1.80
+LS: mPDG:0(0.000s) | PDPairExchange:0(0.000s) | BlockExchange:0(0.000s) | BlockRelocate:0(0.000s) | 2opt:0(0.000s) | TotalTime:0.001s | Cost:1.80
+LS: BlockRelocate:0(0.000s) | PDPairExchange:0(0.000s) | 2opt:0(0.000s) | mPDG:0(0.000s) | BlockExchange:0(0.000s) | TotalTime:0.001s | Cost:1.80
+
+Generation 1: Best = 1.80, Worst = 5.66, Avg = 3.63, Diversity = 0.664, FitDiv = 0.447 , Time: 0.016328811645507812
+Generation 2: Best = 1.80, Worst = 4.14, Avg = 2.01, Diversity = 0.181, FitDiv = 0.291 , Time: 0.016185283660888672
+Generation 3: Best = 1.80, Worst = 1.80, Avg = 1.80, Diversity = 0.000, FitDiv = 0.000 , Time: 0.015516996383666992
+Low diversity detected, applying diversity maintenance...
+Generation 4: Best = 1.80, Worst = 4.94, Avg = 2.20, Diversity = 0.338, FitDiv = 0.426 , Time: 1.14133620262146
+Generation 5: Best = 1.80, Worst = 1.80, Avg = 1.80, Diversity = 0.000, FitDiv = 0.000 , Time: 0.010762929916381836
+Low diversity detected, applying diversity maintenance...
+Generation 6: Best = 1.80, Worst = 1.86, Avg = 1.80, Diversity = 0.044, FitDiv = 0.008 , Time: 1.3207223415374756
+Low diversity detected, applying diversity maintenance...
+Generation 7: Best = 1.80, Worst = 5.44, Avg = 2.41, Diversity = 0.278, FitDiv = 0.515 , Time: 1.2052733898162842
+Stopping early due to lack of improvement.
+Total runtime: 5.19s (0.1 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0003480001-1 p1_0012230002-1 d1_0012230002-1 d1_0003480001-1 p1_0013570003-1 d1_0013570003-1]
+The fitness value before EA: 1.8
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0003480001-1 p1_0012230002-1 d1_0012230002-1 d1_0003480001-1 p1_0013570003-1 d1_0013570003-1]
+The fitness value after EA: 1.8
+
+Thoi gian thuc hien thuat toan:  5.190990209579468
+SUCCESS
+
+2025-09-16 11:47:02,195 [simulate_environment.py | 254] INFO: 2025-09-16 00:20:00, Item 0003480001-1: state = 1 < 2, we can not finish the simulation
+2025-09-16 11:47:02,195 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-16 11:47:02,195 [simulate_environment.py | 103] INFO: cur time: 2025-09-16 00:30:00, pre time: 2025-09-16 00:20:00
+2025-09-16 11:47:02,195 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-16 00:30:00
+2025-09-16 11:47:02,197 [simulate_environment.py | 167] INFO: Get 1 unallocated order items, 2 ongoing order items, 0 completed order items
+2025-09-16 11:47:05,536 [simulate_environment.py | 232] INFO: 
+Cant initialize the population
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0012230002-1 d1_0003480001-1 p1_0013570003-1 d1_0013570003-1]
+The fitness value before EA: 1.8
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0012230002-1 d1_0003480001-1 p1_0013570003-1 d1_0013570003-1]
+The fitness value after EA: 1.8
+
+Thoi gian thuc hien thuat toan:  2.5520541667938232
+SUCCESS
+
+2025-09-16 11:47:05,537 [simulate_environment.py | 254] INFO: 2025-09-16 00:30:00, Item 0013570003-1: state = 1 < 2, we can not finish the simulation
+2025-09-16 11:47:05,538 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-16 11:47:05,538 [simulate_environment.py | 103] INFO: cur time: 2025-09-16 00:40:00, pre time: 2025-09-16 00:30:00
+2025-09-16 11:47:05,538 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-16 00:40:00
+2025-09-16 11:47:05,539 [simulate_environment.py | 167] INFO: Get 7 unallocated order items, 2 ongoing order items, 0 completed order items
