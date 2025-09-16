@@ -66,8 +66,11 @@ def get_algorithm_calling_command():
                 if system == 'Windows':
                     return file
                 elif system == 'Linux':
-                    os.system(f'wine {file}')
-                    return './{}'.format(file)
+                    # On Linux, run Windows .exe via wine; run native binaries directly
+                    if file.endswith('.exe'):
+                        return 'wine "{}"'.format(file)
+                    else:
+                        return './{}'.format(file)
     logger.error('Can not find main_algorithm file.')
     sys.exit(-1)
 
@@ -88,7 +91,8 @@ def get_algorithm_calling_command():
         sys.exit(-1) """
 
 def subprocess_function(cmd):
-    sub_process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, shell=True)
+    # Capture both stdout and stderr to avoid losing SUCCESS printed to stderr
+    sub_process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
     try:
         start_time = time.time()
         stdout, stderr = sub_process.communicate(timeout=Configs.MAX_RUNTIME_OF_ALGORITHM)
