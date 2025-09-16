@@ -1,4 +1,4 @@
-#!/home/phuc/multi_thread_DPDP/venv/bin/python3
+#!/home/phuc/multi_thread_DPDP/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
