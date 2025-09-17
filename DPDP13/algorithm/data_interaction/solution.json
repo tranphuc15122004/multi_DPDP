@@ -1,16 +1,18 @@
 {
     "complete_order_items": [],
-    "deltaT": "0340-0350",
+    "deltaT": "0360-0370",
     "improved_in_cross": 0,
     "improved_in_diver": 0,
     "improved_in_mutation": 0,
-    "new_order_items": [],
-    "no.": "33",
-    "ongoing_order_items": "0517240008-1",
-    "onvehicle_order_items": "",
-    "route_after": "V_1:[] V_2:[] V_3:[p1_0517240008-1 p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]",
-    "route_before": "V_1:[] V_2:[] V_3:[p1_0517240008-1 p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]",
-    "unallocated_order_items": "0517240008-1 0529360009-1",
-    "unongoing_order_items": "0529360009-1",
-    "used_time": 0.149017
+    "new_order_items": [
+        "0625250010-1"
+    ],
+    "no.": "35",
+    "ongoing_order_items": "",
+    "onvehicle_order_items": "0517240008-1",
+    "route_after": "V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1 p1_0625250010-1 d1_0625250010-1] V_4:[] V_5:[]",
+    "route_before": "V_1:[] V_2:[] V_3:[p1_0529360009-1 d1_0529360009-1 d1_0517240008-1] V_4:[] V_5:[]",
+    "unallocated_order_items": "0529360009-1 0625250010-1",
+    "unongoing_order_items": "0529360009-1 0625250010-1",
+    "used_time": 0.1274035
 }

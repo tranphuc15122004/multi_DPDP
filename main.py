@@ -51,7 +51,7 @@ def run_all_mains_ver1(in_range=None):
     # for p in process_list:
     #     p.wait()
 
-def run_all_mains_ver2(in_range=None, threads_per_proc=None, affinity='inherit'):
+def run_all_mains_ver2(in_range=None, threads_per_proc=None, affinity='inherit', detach_io=False, log_dir='logs'):
     base_dir = os.path.dirname(os.path.abspath(__file__))
     process_list = []
     if in_range is None:
@@ -104,10 +104,42 @@ def run_all_mains_ver2(in_range=None, threads_per_proc=None, affinity='inherit')
                 cpu_lists.append(cpu_indices[start:start+size])
                 start += size
 
+    # Chuẩn bị thư mục log nếu cần
+    logs_path = os.path.join(base_dir, log_dir) if not os.path.isabs(log_dir) else log_dir
+    if detach_io:
+        try:
+            os.makedirs(logs_path, exist_ok=True)
+        except Exception as e:
+            print(f"Không thể tạo thư mục log '{logs_path}': {e}")
+            detach_io = False
+
     # Khởi chạy các tiến trình
     for idx, (i, subfolder, main_path) in enumerate(procs_to_launch):
         env = base_env.copy()
-        p = subprocess.Popen(["python3", main_path], cwd=os.path.join(base_dir, subfolder), env=env)
+        stdout = None
+        stderr = None
+        stdin = None
+        if detach_io:
+            try:
+                log_file = os.path.join(logs_path, f"DPDP{i}.log")
+                stdout = open(log_file, "a", buffering=1)
+                stderr = stdout
+                stdin = subprocess.DEVNULL
+            except Exception as e:
+                print(f"Không thể mở file log cho DPDP{i}: {e}")
+                stdout = None
+                stderr = None
+                stdin = None
+        p = subprocess.Popen(
+            ["python3", main_path],
+            cwd=os.path.join(base_dir, subfolder),
+            env=env,
+            start_new_session=True,
+            close_fds=True,
+            stdin=stdin,
+            stdout=stdout,
+            stderr=stderr,
+        )
         process_list.append(p)
         # Thiết lập CPU affinity nếu cần
         if affinity in ('all', 'distribute'):
@@ -195,6 +227,10 @@ if __name__ == "__main__":
     parser.add_argument('--threads-per-proc', type=int, help='Số thread mỗi tiến trình cho OMP/MKL/BLAS. Ví dụ: 1, 2, 4...')
     parser.add_argument('--affinity', choices=['inherit', 'all', 'distribute'], default='inherit',
                         help='CPU affinity: inherit=giữ nguyên, all=mở tất cả core, distribute=chia core đều giữa các tiến trình')
+    parser.add_argument('--detach-io', action='store_true', help='Tách stdout/stderr của tiến trình con ra file log để chạy bền khi ngắt SSH')
+    parser.add_argument('--log-dir', type=str, default='logs', help='Thư mục lưu log khi dùng --detach-io (mặc định: logs)')
+    parser.add_argument('--replicas-per-instance', type=int,
+                        help='Số simulator chạy song song cho mỗi instance (nhân bản instance lên R simulator).')
     args = parser.parse_args()
 
     in_range = range(args.start, args.end + 1)
@@ -220,8 +256,6 @@ if __name__ == "__main__":
         return result
 
     selected_list = parse_selected(args.selected) if args.selected else None
-    if selected_list:
-        update_selected_instances_all(in_range, selected_list)
 
     # Nếu truyền algorithm thì cập nhật cho toàn bộ in_range
     if args.algorithm:
@@ -229,7 +263,20 @@ if __name__ == "__main__":
 
 
     simulators_to_run = list(in_range)
-    if args.auto_select:
+    # Chế độ replicate: mỗi instance được gán cho nhiều simulator, không restart
+    if selected_list and args.replicas_per_instance and args.replicas_per_instance > 0:
+        simulators = list(in_range)
+        pairs = []
+        for inst in selected_list:
+            for _ in range(args.replicas_per_instance):
+                pairs.append(inst)
+        # Cắt theo số simulator sẵn có
+        use_count = min(len(simulators), len(pairs))
+        simulators_to_run = []
+        for sim, inst in zip(simulators[:use_count], pairs[:use_count]):
+            update_selected_instances_all([sim], [inst])
+            simulators_to_run.append(sim)
+    elif args.auto_select:
         if not selected_list:
             print('Bạn phải nhập --selected để chia đều cho các simulator.')
             sys.exit(1)
@@ -263,11 +310,21 @@ if __name__ == "__main__":
                 update_selected_instances_all([sim_idx], inst_group)
                 if inst_group:
                     simulators_to_run.append(sim_idx)
+    else:
+        # Mặc định: gán cùng một danh sách selected cho tất cả simulator
+        if selected_list:
+            update_selected_instances_all(in_range, selected_list)
     
 
     if args.mode == 'run':
         if simulators_to_run:
-            run_all_mains_ver2(simulators_to_run, threads_per_proc=args.threads_per_proc, affinity=args.affinity)
+            run_all_mains_ver2(
+                simulators_to_run,
+                threads_per_proc=args.threads_per_proc,
+                affinity=args.affinity,
+                detach_io=args.detach_io,
+                log_dir=args.log_dir,
+            )
         else:
             print("Không có simulator nào có instance để chạy.")
     elif args.mode == 'kill':
