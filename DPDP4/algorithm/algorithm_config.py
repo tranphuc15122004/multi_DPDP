@@ -34,6 +34,8 @@ LS_MAX = 20
 IMPROVED_IN_CROSS = 0
 IMPROVED_IN_MUTATION = 0
 IMPROVED_IN_DIVER = 0
+"""Per local search time limit (seconds). Each LS operator should stop when exceeding this budget."""
+LS_MAX_TIME_PER_OP = 8 # seconds (adjustable)
 
 """ ACO configuration """
 POPULATION_SIZE_ACO = 20
