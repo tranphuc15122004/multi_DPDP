@@ -26,6 +26,12 @@ def get_remaining_time() -> float:
     return max(0, ALGO_TIME_LIMIT - (time.time() - BEGIN_TIME))
 
 
+# Tabu Search configuration (for hybrid GA + TS in GAVND4)
+USE_TABU = True              # Enable/disable tabu filtering in local search
+USE_TABU_IN_LS = True
+TABU_LIST_SIZE = 200         # Max number of recent route signatures to remember
+TABU_ACCEPT_BETTER = True    # Allow tabu move if it improves global best
+
 """GA configuration"""
 POPULATION_SIZE = 15
 NUMBER_OF_GENERATION = 20

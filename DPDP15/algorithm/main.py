@@ -4,12 +4,10 @@ from typing import Dict , List
 from algorithm.In_and_Out import *
 from algorithm.Object import Chromosome
 from algorithm.engine import *
-from algorithm.Main_algorithm.GA import GA ,  GA1LS , GA5LS
 from algorithm.Test_algorithm.new_engine import new_dispatch_new_orders
 from algorithm.Test_algorithm.new_LS import *
-from algorithm.Test_algorithm.GAVND import GAVND_1
-from algorithm.Test_algorithm.GAVND2 import GAVND_2
 from algorithm.Test_algorithm.GAVND3 import GAVND_3
+from algorithm.Test_algorithm.GAVND4 import GAVND_4
 from algorithm.local_search import delaytime_for_each_node
 import algorithm.algorithm_config as Config
 from src.conf.configs import Configs
@@ -36,7 +34,7 @@ def main():
     Unongoing_super_nodes , Base_vehicleid_to_plan= get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
     
     copy_vehicleid_to_plan = copy.deepcopy(vehicleid_to_plan)
-    best_chromosome : Chromosome = GAVND_3(copy_vehicleid_to_plan , route_map , id_to_vehicle , Unongoing_super_nodes , Base_vehicleid_to_plan)
+    best_chromosome : Chromosome = GAVND_4(copy_vehicleid_to_plan , route_map , id_to_vehicle , Unongoing_super_nodes , Base_vehicleid_to_plan)
     if best_chromosome is None or best_chromosome.fitness > total_cost(id_to_vehicle , route_map , vehicleid_to_plan):
         best_chromosome = Chromosome(vehicleid_to_plan , route_map , id_to_vehicle)
     
