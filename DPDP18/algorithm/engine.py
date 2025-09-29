@@ -12,7 +12,7 @@ import algorithm.algorithm_config as config
 from src.conf.configs import Configs
 
 
-input_directory = Configs.algorithm_data_interaction_folder_path
+input_directory = Configs.algorithm_data_interaction_folder_path   
 
 def restore_scene_with_single_node(vehicleid_to_plan: Dict[str , List[Node]], id_to_ongoing_items: Dict[str , OrderItem], id_to_unlocated_items: Dict[str , OrderItem], id_to_vehicle: Dict[str , Vehicle] , id_to_factory: Dict[str , Factory], id_to_allorder: Dict[str , OrderItem]) -> List[str]:
     onVehicleOrderItems = ''
@@ -409,7 +409,7 @@ def dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_facto
                 
                 for item in orderID_items:
                     if (tmp_demand + item.demand) > capacity:
-                        node_list: list[Node] = create_Pickup_Delivery_nodes(copy.deepcopy(tmp_itemList) , id_to_factory)
+                        node_list: list[Node] = create_Pickup_Delivery_nodes(tmp_itemList , id_to_factory)
                         isExhausive = False
                         route_node_list : List[Node] = []
                         
@@ -437,7 +437,7 @@ def dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_facto
                     tmp_demand += item.demand 
 
                 if len(tmp_itemList) > 0:
-                    node_list: list[Node] = create_Pickup_Delivery_nodes(copy.deepcopy(tmp_itemList) , id_to_factory)
+                    node_list: list[Node] = create_Pickup_Delivery_nodes(tmp_itemList , id_to_factory)
                     isExhausive = False
                     
                     if node_list:
@@ -457,7 +457,7 @@ def dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_facto
                         route_node_list.insert(bestInsertPosJ, new_order_delivery_node)
                     vehicleid_to_plan[bestInsertVehicleID] = route_node_list
             else:
-                node_list: list[Node] = create_Pickup_Delivery_nodes(copy.deepcopy(orderID_items) , id_to_factory)
+                node_list: list[Node] = create_Pickup_Delivery_nodes(orderID_items , id_to_factory)
                 
                 isExhausive = False
                 if node_list:
@@ -692,7 +692,9 @@ def dispatch_nodePair(node_list: list[Node]  , id_to_vehicle: Dict[str , Vehicle
         else:
             for i in range(insert_pos, node_list_size + 1):
                 if vehicle_plan is not None:
-                    tempRouteNodeList = copy.deepcopy(vehicle_plan)
+                    #tempRouteNodeList = copy.deepcopy(vehicle_plan)
+                    tempRouteNodeList : List[Node]= []
+                    for nnn in vehicle_plan: tempRouteNodeList.append(nnn)
                 else:
                     tempRouteNodeList = []
 
@@ -1191,7 +1193,7 @@ def total_cost(id_to_vehicle: Dict[str , Vehicle] , route_map: Dict[tuple , tupl
 
             service_time += minTNodeList[curr_node[minT2VehicleIndex]].service_time
             curr_node[minT2VehicleIndex] += 1
-            
+        
         if curr_node[minT2VehicleIndex] >= n_node[minT2VehicleIndex]:
             n -= 1
             curr_node[minT2VehicleIndex] = math.inf

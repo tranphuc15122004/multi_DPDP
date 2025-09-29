@@ -57,7 +57,11 @@ def get_algorithm_calling_command():
             end_name = file.split('.')[-1]
             algorithm_language = Configs.ALGORITHM_LANGUAGE_MAP.get(end_name)
             if algorithm_language == 'python':
-                return '{} {}'.format(sys.executable, file)
+                system = platform.system()
+                if system == 'Windows':
+                    return 'python {}'.format(file)
+                elif system == 'Linux':
+                    return 'python3 {}'.format(file)
             elif algorithm_language == 'java':
                 return 'java {}'.format(file.split('.')[0])
             # c和c++调用方式一样，但系统不同调用方式有异
@@ -66,11 +70,8 @@ def get_algorithm_calling_command():
                 if system == 'Windows':
                     return file
                 elif system == 'Linux':
-                    # On Linux, run Windows .exe via wine; run native binaries directly
-                    if file.endswith('.exe'):
-                        return 'wine "{}"'.format(file)
-                    else:
-                        return './{}'.format(file)
+                    os.system(f'chmod 777 {file}')
+                    return './{}'.format(file)
     logger.error('Can not find main_algorithm file.')
     sys.exit(-1)
 
@@ -91,13 +92,18 @@ def get_algorithm_calling_command():
         sys.exit(-1) """
 
 def subprocess_function(cmd):
-    # Capture both stdout and stderr to avoid losing SUCCESS printed to stderr
-    sub_process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
+    # Capture both stdout and stderr to provide complete logs back to simulator
+    # Force UTF-8 for child process stdio to avoid UnicodeEncodeError on Windows consoles
+    env = os.environ.copy()
+    env.setdefault('PYTHONIOENCODING', 'utf-8')
+    sub_process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, shell=True, env=env)
     try:
         start_time = time.time()
         stdout, stderr = sub_process.communicate(timeout=Configs.MAX_RUNTIME_OF_ALGORITHM)
         end_time = time.time()
-        return end_time - start_time, stdout.decode() 
+        # Be tolerant to encoding issues across platforms; keep ASCII like 'SUCCESS' intact
+        message = stdout.decode('utf-8', errors='replace') if isinstance(stdout, (bytes, bytearray)) else str(stdout)
+        return end_time - start_time, message 
     
     except subprocess.TimeoutExpired:
         print("Tiến trình chạy quá lâu, đang hủy...")
@@ -106,8 +112,8 @@ def subprocess_function(cmd):
         return None, "Timeout"
 
     except Exception as e:
-        print("Lỗi xảy ra:", e)
-        return None, str(e)
+        # Return error string as message so caller can log it
+        return None, f"subprocess error: {e}"
 
     finally:
         # Đảm bảo tiến trình không bị treo sau khi chạy

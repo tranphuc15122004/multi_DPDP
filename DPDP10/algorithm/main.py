@@ -4,14 +4,16 @@ from typing import Dict , List
 from algorithm.In_and_Out import *
 from algorithm.Object import Chromosome
 from algorithm.engine import *
-from algorithm.Test_algorithm.new_engine import new_dispatch_new_orders
+from algorithm.Test_algorithm.new_engine import *
 from algorithm.Test_algorithm.new_LS import *
-from algorithm.Test_algorithm.GAVND3 import GAVND_3
+from algorithm.Test_algorithm.GAVND5 import GAVND_5
 from algorithm.Test_algorithm.GAVND4 import GAVND_4
-from algorithm.local_search import delaytime_for_each_node
 import algorithm.algorithm_config as Config
 from src.conf.configs import Configs
+import time
 
+
+input_directory = Configs.algorithm_data_interaction_folder_path
 
 def main():
     Config.set_begin_time()
@@ -29,12 +31,16 @@ def main():
     #Thuat toan
     print()
     
-    new_dispatch_new_orders(vehicleid_to_plan , id_to_factory , route_map , id_to_vehicle , id_to_unlocated_items , new_order_itemIDs)
+    #new_dispatch_new_orders(vehicleid_to_plan , id_to_factory , route_map , id_to_vehicle , id_to_unlocated_items , new_order_itemIDs)
+    if over24hours(id_to_vehicle , new_order_itemIDs):
+        redispatch_process(id_to_vehicle , route_map , vehicleid_to_plan , id_to_factory , id_to_unlocated_items)
+    else:
+        dispatch_new_orders(vehicleid_to_plan , id_to_factory , route_map , id_to_vehicle , id_to_unlocated_items , new_order_itemIDs)
     
     Unongoing_super_nodes , Base_vehicleid_to_plan= get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
     
     copy_vehicleid_to_plan = copy.deepcopy(vehicleid_to_plan)
-    best_chromosome : Chromosome = GAVND_4(copy_vehicleid_to_plan , route_map , id_to_vehicle , Unongoing_super_nodes , Base_vehicleid_to_plan)
+    best_chromosome : Chromosome = GAVND_5(copy_vehicleid_to_plan , route_map , id_to_vehicle , Unongoing_super_nodes , Base_vehicleid_to_plan)
     if best_chromosome is None or best_chromosome.fitness > total_cost(id_to_vehicle , route_map , vehicleid_to_plan):
         best_chromosome = Chromosome(vehicleid_to_plan , route_map , id_to_vehicle)
     
@@ -56,8 +62,8 @@ def main():
     merge_node(id_to_vehicle , best_chromosome.solution)    
     get_output_solution(id_to_vehicle , best_chromosome.solution , vehicleid_to_destination)
     
-    write_destination_json_to_file(vehicleid_to_destination   , Configs.algorithm_data_interaction_folder_path)    
-    write_route_json_to_file(best_chromosome.solution  , Configs.algorithm_data_interaction_folder_path) 
+    write_destination_json_to_file(vehicleid_to_destination   , input_directory)    
+    write_route_json_to_file(best_chromosome.solution  , input_directory) 
 
 if __name__ == '__main__':
     main()

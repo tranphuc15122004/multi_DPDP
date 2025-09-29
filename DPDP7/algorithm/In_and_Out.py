@@ -87,6 +87,7 @@ def read_ongoing_item(file_path : str) -> Dict[str , OrderItem]:
     return id_to_ongoing_item
 
 def read_vehicleinfor(path , id_allorder: Dict[str ,OrderItem]) -> Dict[str , Vehicle]:
+    #path  = 'C:\\PHUC\\DPDP\\dpdp_competition\\algorithm\\data_interaction\\vehicle_info.json'
     id_to_vehicle = {}
     with open(path , mode= 'r' ) as file:
         data = file.read()
