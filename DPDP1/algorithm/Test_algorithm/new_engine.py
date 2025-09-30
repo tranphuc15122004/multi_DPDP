@@ -474,7 +474,7 @@ def randon_1_LS(indivisual: Chromosome , is_limited = False , mode = 0):
     for method_name in methods.keys():
         indivisual.improved_LS_map[method_name] += counters[method_name]
     total_ls_time = time.time() - begin_LS_time
-    print(f"LS: {chosen_method} | Count: {i} | TotalTime:{total_ls_time:.3f}s | Cost:{total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution):.2f}", file=sys.stderr)
+    print(f"LS: {chosen_method} | Count: {i} | TotalTime:{total_ls_time:.3f}s | Cost:{total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution):.2f}")
 
 
 def new_crossover(parent1: Chromosome , parent2: Chromosome , PDG_map : Dict[str , List[Node]] , is_limited = False):
@@ -1670,7 +1670,7 @@ def new_crossver2(parent1: Chromosome , parent2: Chromosome , Base_vehicleid_to_
     block_vehicle_map_p2: Dict[str, Optional[str]] = build_block_vehicle_map(blockmap_parent2, node2veh_p2)
 
     # ========= Khởi tạo biến điều khiển vòng lặp =========
-    DEBUG = False  # set True to enable verbose logging
+    DEBUG = True  # set True to enable verbose logging
     start_time = time.time()
     iteration = 0
     stagnation = 0  # số vòng không thu thêm signature mới
@@ -1678,7 +1678,7 @@ def new_crossver2(parent1: Chromosome , parent2: Chromosome , Base_vehicleid_to_
     # Tham số dừng (có thể điều chỉnh / đưa ra ngoài nếu cần tinh chỉnh sau)
     MAX_ITER = max(5, 2 * total_blocks_target) if total_blocks_target > 0 else 20
     MAX_NO_GAIN = 5          # số vòng liên tiếp không có gain mới thì dừng
-    TIME_BUDGET_SEC = 10   # ngân sách thời gian cho riêng crossover này
+    TIME_BUDGET_SEC = 3   # ngân sách thời gian cho riêng crossover này
     MIN_GAIN_PER_BLOCK = 1   # yêu cầu tối thiểu signature mới / vòng
 
     # Ghi lại lý do dừng cuối cùng (debug)

@@ -61,7 +61,7 @@ def GAVND_5(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
         
         mutate_count = 0
         for c in range (len(population)):
-            if mutate_count > int(len(population) * 0.3):
+            if mutate_count > int(len(population) * 0.25):
                 break            
             randon_1_LS(population[c] , True , 1)
             mutate_count +=1
@@ -251,5 +251,5 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
     #  Enhanced logging with detailed timing information
     total_ls_time = sum(ls_timings.values())
     timing_details = " | ".join([f"{name}:{counters[name]}({ls_timings[name]:.3f}s)" for name in method_names])
-    print(f"LS: {timing_details} | TotalTime:{total_ls_time:.3f}s | Cost:{total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution):.2f}", file=sys.stderr)
+    print(f"LS: {timing_details} | TotalTime:{total_ls_time:.3f}s | Cost:{total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution):.2f}")
 
