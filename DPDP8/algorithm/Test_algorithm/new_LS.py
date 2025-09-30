@@ -348,6 +348,8 @@ def new_inter_couple_exchange(vehicleid_to_plan: Dict[str , List[Node]], id_to_v
     min_cost_pdg1 : List[Node]= None
     min_cost_pdg2 : List[Node]= None
     
+    
+
     # Shuffle PDG iteration order to diversify search without changing internal PDG structure
     shuffled_keys = list(pdg_Map.keys())
     random.shuffle(shuffled_keys)

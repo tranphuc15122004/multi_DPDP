@@ -440,10 +440,10 @@ def randon_1_LS(indivisual: Chromosome , is_limited = False , mode = 0):
     
     # Dictionary các phương pháp Local Search
     methods = {
-        'PDPairExchange': lambda: new_inter_couple_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map , is_limited),
-        'BlockExchange': lambda: new_block_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, is_limited),
-        'BlockRelocate': lambda: new_block_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, is_limited),
-        'mPDG': lambda: new_multi_pd_group_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, is_limited)
+        'PDPairExchange': lambda: new_inter_couple_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map , config.LS_MAX_TIME_IN_SINGLE , is_limited),
+        'BlockExchange': lambda: new_block_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map , config.LS_MAX_TIME_IN_SINGLE, is_limited),
+        'BlockRelocate': lambda: new_block_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map , config.LS_MAX_TIME_IN_SINGLE, is_limited),
+        'mPDG': lambda: new_multi_pd_group_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map , config.LS_MAX_TIME_IN_SINGLE, is_limited)
     }
     
     # Counter cho từng phương pháp
@@ -1670,7 +1670,7 @@ def new_crossver2(parent1: Chromosome , parent2: Chromosome , Base_vehicleid_to_
     block_vehicle_map_p2: Dict[str, Optional[str]] = build_block_vehicle_map(blockmap_parent2, node2veh_p2)
 
     # ========= Khởi tạo biến điều khiển vòng lặp =========
-    DEBUG = True  # set True to enable verbose logging
+    DEBUG = False  # set True to enable verbose logging
     start_time = time.time()
     iteration = 0
     stagnation = 0  # số vòng không thu thêm signature mới
@@ -1678,7 +1678,7 @@ def new_crossver2(parent1: Chromosome , parent2: Chromosome , Base_vehicleid_to_
     # Tham số dừng (có thể điều chỉnh / đưa ra ngoài nếu cần tinh chỉnh sau)
     MAX_ITER = max(5, 2 * total_blocks_target) if total_blocks_target > 0 else 20
     MAX_NO_GAIN = 5          # số vòng liên tiếp không có gain mới thì dừng
-    TIME_BUDGET_SEC = 3   # ngân sách thời gian cho riêng crossover này
+    TIME_BUDGET_SEC = 10   # ngân sách thời gian cho riêng crossover này
     MIN_GAIN_PER_BLOCK = 1   # yêu cầu tối thiểu signature mới / vòng
 
     # Ghi lại lý do dừng cuối cùng (debug)
