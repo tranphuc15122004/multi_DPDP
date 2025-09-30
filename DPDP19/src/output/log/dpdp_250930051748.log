@@ -1,0 +1,415 @@
+2025-09-30 05:17:48,965 [main.py         | 48] INFO: Start to run instance_34
+2025-09-30 05:17:48,965 [simulate_api.py | 60] INFO: Start time of the simulator: 2025-09-30 00:00:00, time interval:  600.00
+2025-09-30 05:17:48,976 [input_utils.py  | 48] INFO: Get 154 factories
+2025-09-30 05:17:49,653 [input_utils.py  | 52] INFO: Get 23562 routes
+2025-09-30 05:17:49,667 [input_utils.py  | 57] INFO: Get 50 vehicles
+2025-09-30 05:17:49,747 [input_utils.py  | 61] INFO: Get 1000 orders
+2025-09-30 05:17:49,747 [simulate_api.py | 87] INFO: Initial position of V_1 is e2d5093fbe36431f8986ddb0e1c586be
+2025-09-30 05:17:49,747 [simulate_api.py | 87] INFO: Initial position of V_2 is 7fe14b93f0f04ee7a994ef5b2c1fdb72
+2025-09-30 05:17:49,747 [simulate_api.py | 87] INFO: Initial position of V_3 is fa366fc87a124d32926daa5bb093129f
+2025-09-30 05:17:49,747 [simulate_api.py | 87] INFO: Initial position of V_4 is e47399648fa842b2b8f80094343d8091
+2025-09-30 05:17:49,747 [simulate_api.py | 87] INFO: Initial position of V_5 is becb4f85393540b287e7329758b8d832
+2025-09-30 05:17:49,747 [simulate_api.py | 87] INFO: Initial position of V_6 is 7fb0acc4e2634440ba26a7ebc0040dc2
+2025-09-30 05:17:49,747 [simulate_api.py | 87] INFO: Initial position of V_7 is 6380b13f12984a08a4994fb4c126215b
+2025-09-30 05:17:49,747 [simulate_api.py | 87] INFO: Initial position of V_8 is 449b516ba21b4270ac1ea1b13a89514c
+2025-09-30 05:17:49,747 [simulate_api.py | 87] INFO: Initial position of V_9 is c174cfe9fcbf4f1b82095941a49f7bd9
+2025-09-30 05:17:49,747 [simulate_api.py | 87] INFO: Initial position of V_10 is c0979c05f2c44e6fa7c5e42ae9aa977e
+2025-09-30 05:17:49,747 [simulate_api.py | 87] INFO: Initial position of V_11 is 4a85fbdd319140dd83f55766289d365f
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_12 is 61a68b6b728b4413ba6a0f695091579c
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_13 is 76d691d6054f42d48f27e16806928020
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_14 is 433544a316b84100a11a703f1b99494a
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_15 is 680ee12255ad415ab7838647f138778e
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_16 is 433544a316b84100a11a703f1b99494a
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_17 is 8479328003a8427ca68b7600f0ac7045
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_18 is 9b8851cf57f944c6b168ec887558ffaa
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_19 is 433901c139d54522a8f3790b07a335e5
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_20 is a6d6e6a52a0044e99991fc8fb0248027
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_21 is d1f8de642d734931be957336196d996d
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_22 is 773b0458659248f1938a61ddaeef55ef
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_23 is 6e4801bd12654045a5f3d63e2951594c
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_24 is e15ed46435514dda8bd6a420ab3e5d0b
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_25 is a678f7137f7e4debbc6bc4679cd2c1b4
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_26 is 32ab2049f3fb437881ff3912470d7840
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_27 is 773b0458659248f1938a61ddaeef55ef
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_28 is a6fefc4ac6f541cbbc7af963c13350f6
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_29 is aa61dc034d9240e9950b027ba204f5f0
+2025-09-30 05:17:49,748 [simulate_api.py | 87] INFO: Initial position of V_30 is ef3171964da04ea7ac2e547f2441eff0
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_31 is 4780dc7fb51f4f5da3dea9e56c125fe6
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_32 is ffaae12a3c054da585696a96e880cf64
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_33 is c174cfe9fcbf4f1b82095941a49f7bd9
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_34 is f7ee272fbbba4f918bcd4f36ea053908
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_35 is af35b43e04df49b9b469a0018730faeb
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_36 is e47399648fa842b2b8f80094343d8091
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_37 is 00e5630fbb3c4ff4b753ac1e1c15d561
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_38 is 24b6bf044ee8473db7030d008fb422b5
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_39 is f5118fa189b742a897beec2f77de9b27
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_40 is 797fe83c0ac14a3c8724aa4d9ce0049a
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_41 is ce433928b8724d77bbe97ccb1e3312a5
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_42 is 9829a9e1f6874f28b33b57a7a42bb49f
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_43 is 1821ddf96fe14083ba213868cd82b840
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_44 is e2327ef4f46a40908e2b8ad97e855333
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_45 is 9f1a09c368584eba9e7f10a53d55caae
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_46 is 206128e3ee9a458d9cfd053cedc0fad6
+2025-09-30 05:17:49,749 [simulate_api.py | 87] INFO: Initial position of V_47 is 0c589202a6584664939d46842080d019
+2025-09-30 05:17:49,750 [simulate_api.py | 87] INFO: Initial position of V_48 is 081dc54492414061ae6c6e47bf7b8db5
+2025-09-30 05:17:49,750 [simulate_api.py | 87] INFO: Initial position of V_49 is 5ec55e3f537d448d95144cec1cc37f54
+2025-09-30 05:17:49,750 [simulate_api.py | 87] INFO: Initial position of V_50 is 5920212e6b0b46b198b9677bfe74f35d
+2025-09-30 05:17:49,751 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-30 05:17:49,751 [simulate_environment.py | 103] INFO: cur time: 2025-09-30 00:10:00, pre time: 2025-09-30 00:00:00
+2025-09-30 05:17:49,751 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-30 00:10:00
+2025-09-30 05:17:49,752 [simulate_environment.py | 167] INFO: Get 18 unallocated order items, 0 ongoing order items, 0 completed order items
+2025-09-30 05:18:02,364 [simulate_environment.py | 234] INFO: 
+Generation 1: Best = 0.78, Worst = 2.01, Avg = 1.29, Time: 0.9464004039764404
+Generation 2: Best = 0.72, Worst = 1.47, Avg = 0.98, Time: 1.1884500980377197
+Generation 3: Best = 0.69, Worst = 0.94, Avg = 0.79, Time: 0.9064476490020752
+Generation 4: Best = 0.67, Worst = 0.75, Avg = 0.72, Time: 0.7898125648498535
+Generation 5: Best = 0.65, Worst = 1.47, Avg = 0.89, Time: 1.1374173164367676
+Generation 6: Best = 0.64, Worst = 1.44, Avg = 0.88, Time: 0.9938559532165527
+Generation 7: Best = 0.64, Worst = 1.44, Avg = 0.89, Time: 0.9742035865783691
+Generation 8: Best = 0.64, Worst = 1.44, Avg = 0.90, Time: 0.8529782295227051
+Generation 9: Best = 0.64, Worst = 1.44, Avg = 0.88, Time: 0.788576602935791
+Generation 10: Best = 0.64, Worst = 1.44, Avg = 0.88, Time: 0.8267550468444824
+Generation 11: Best = 0.64, Worst = 1.44, Avg = 0.91, Time: 0.7892377376556396
+Generation 12: Best = 0.64, Worst = 1.44, Avg = 0.88, Time: 0.8728578090667725
+Stopping early due to lack of improvement.
+Total runtime: 11.83s (0.2 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[] V_6:[] V_7:[] V_8:[p5_0007310008-1 d5_0007310008-5] V_9:[] V_10:[] V_11:[] V_12:[] V_13:[] V_14:[] V_15:[] V_16:[] V_17:[] V_18:[] V_19:[] V_20:[] V_21:[] V_22:[] V_23:[p3_0000060001-1 p1_0003230002-1 p1_0003270004-1 p2_0003230003-1 d2_0003230003-2 d1_0003270004-1 d1_0003230002-1 d3_0000060001-3 p1_0007220007-1 p2_0006280005-1 d2_0006280005-2 p1_0006540006-1 d1_0006540006-1 d1_0007220007-1] V_24:[] V_25:[] V_26:[] V_27:[] V_28:[] V_29:[] V_30:[] V_31:[] V_32:[] V_33:[] V_34:[] V_35:[] V_36:[] V_37:[] V_38:[] V_39:[] V_40:[] V_41:[] V_42:[] V_43:[] V_44:[] V_45:[] V_46:[] V_47:[] V_48:[] V_49:[p1_0007410009-1 p1_0008460010-1 d1_0008460010-1 d1_0007410009-1] V_50:[]
+The fitness value before EA: 0.7859999999999999
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[] V_6:[] V_7:[p1_0006540006-1 p1_0007220007-1 d1_0007220007-1 d1_0006540006-1] V_8:[] V_9:[] V_10:[] V_11:[] V_12:[] V_13:[] V_14:[] V_15:[] V_16:[] V_17:[] V_18:[] V_19:[] V_20:[] V_21:[] V_22:[] V_23:[p3_0000060001-1 p1_0003230002-1 p1_0008460010-1 p1_0003270004-1 p2_0003230003-1 d2_0003230003-2 d1_0003270004-1 d1_0008460010-1 d1_0003230002-1 d3_0000060001-3] V_24:[] V_25:[] V_26:[] V_27:[] V_28:[] V_29:[] V_30:[] V_31:[] V_32:[] V_33:[] V_34:[] V_35:[] V_36:[] V_37:[] V_38:[] V_39:[] V_40:[] V_41:[] V_42:[] V_43:[] V_44:[] V_45:[] V_46:[] V_47:[] V_48:[] V_49:[p1_0007410009-1 p5_0007310008-1 p2_0006280005-1 d2_0006280005-2 d5_0007310008-5 d1_0007410009-1] V_50:[]
+The fitness value after EA: 0.6359999999999999
+
+Thoi gian thuc hien thuat toan:  12.269155025482178
+SUCCESS
+
+2025-09-30 05:18:02,365 [simulate_environment.py | 256] INFO: 2025-09-30 00:10:00, Item 0000060001-1: state = 1 < 2, we can not finish the simulation
+2025-09-30 05:18:02,365 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-30 05:18:02,366 [simulate_environment.py | 103] INFO: cur time: 2025-09-30 00:20:00, pre time: 2025-09-30 00:10:00
+2025-09-30 05:18:02,366 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-30 00:20:00
+2025-09-30 05:18:02,367 [simulate_environment.py | 167] INFO: Get 43 unallocated order items, 10 ongoing order items, 0 completed order items
+2025-09-30 05:18:20,326 [simulate_environment.py | 234] INFO: 
+Generation 1: Best = 2.16, Worst = 4.28, Avg = 3.61, Time: 3.0678153038024902
+Generation 2: Best = 2.16, Worst = 3.50, Avg = 3.01, Time: 3.265098810195923
+Generation 3: Best = 2.16, Worst = 3.38, Avg = 2.62, Time: 3.0643622875213623
+Generation 4: Best = 2.16, Worst = 2.78, Avg = 2.40, Time: 1.8880503177642822
+Generation 5: Best = 2.16, Worst = 3.38, Avg = 2.35, Time: 2.8780951499938965
+Stopping early due to lack of improvement.
+Total runtime: 15.03s (0.3 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[] V_6:[] V_7:[p1_0007220007-1 p1_0018100022-1 p1_0010110011-1 p1_0011450013-1 d1_0011450013-1 d1_0010110011-1 d1_0018100022-1 d1_0007220007-1 d1_0006540006-1] V_8:[p1_0013120015-1 d1_0013120015-1] V_9:[] V_10:[] V_11:[] V_12:[] V_13:[] V_14:[] V_15:[] V_16:[] V_17:[] V_18:[] V_19:[p1_0016480020-1 d1_0016480020-1] V_20:[] V_21:[p17_0012180014-1 d17_0012180014-17] V_22:[] V_23:[d2_0003230003-2 d1_0003270004-1 d1_0008460010-1 p1_0011330012-1 d1_0011330012-1 d1_0003230002-1 d3_0000060001-3] V_24:[] V_25:[] V_26:[p1_0015300017-1 p6_0012180014-18 d6_0012180014-23 p1_0015380018-1 p1_0014080016-1 p2_0018000021-1 d2_0018000021-2 d1_0014080016-1 d1_0015380018-1 d1_0015300017-1] V_27:[] V_28:[] V_29:[] V_30:[] V_31:[] V_32:[] V_33:[] V_34:[] V_35:[] V_36:[] V_37:[] V_38:[] V_39:[] V_40:[] V_41:[] V_42:[] V_43:[] V_44:[] V_45:[] V_46:[] V_47:[] V_48:[] V_49:[p5_0007310008-1 p2_0006280005-1 p1_0015510019-1 d1_0015510019-1 d2_0006280005-2 d5_0007310008-5 d1_0007410009-1] V_50:[]
+The fitness value before EA: 2.1639999999999997
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[] V_6:[] V_7:[p1_0007220007-1 d1_0007220007-1 d1_0006540006-1] V_8:[] V_9:[] V_10:[] V_11:[] V_12:[] V_13:[] V_14:[] V_15:[] V_16:[] V_17:[p1_0015380018-1 p1_0014080016-1 p2_0018000021-1 p1_0013120015-1 d1_0013120015-1 d2_0018000021-2 p1_0018100022-1 p1_0010110011-1 p1_0011450013-1 d1_0011450013-1 d1_0010110011-1 d1_0018100022-1 d1_0014080016-1 d1_0015380018-1] V_18:[] V_19:[] V_20:[] V_21:[p6_0012180014-18 p1_0015300017-1 p1_0016480020-1 d1_0016480020-1 d1_0015300017-1 d6_0012180014-23] V_22:[] V_23:[d2_0003230003-2 d1_0003270004-1 d1_0008460010-1 p1_0011330012-1 d1_0011330012-1 d1_0003230002-1 d3_0000060001-3] V_24:[] V_25:[] V_26:[p17_0012180014-1 d17_0012180014-17] V_27:[] V_28:[] V_29:[] V_30:[] V_31:[] V_32:[] V_33:[] V_34:[] V_35:[] V_36:[] V_37:[] V_38:[] V_39:[] V_40:[] V_41:[] V_42:[] V_43:[] V_44:[] V_45:[] V_46:[] V_47:[] V_48:[] V_49:[p5_0007310008-1 p2_0006280005-1 p1_0015510019-1 d1_0015510019-1 d2_0006280005-2 d5_0007310008-5 d1_0007410009-1] V_50:[]
+The fitness value after EA: 2.138
+
+Thoi gian thuc hien thuat toan:  17.636908054351807
+SUCCESS
+
+2025-09-30 05:18:20,328 [simulate_environment.py | 256] INFO: 2025-09-30 00:20:00, Item 0006280005-1: state = 1 < 2, we can not finish the simulation
+2025-09-30 05:18:20,328 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-30 05:18:20,328 [simulate_environment.py | 103] INFO: cur time: 2025-09-30 00:30:00, pre time: 2025-09-30 00:20:00
+2025-09-30 05:18:20,328 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-30 00:30:00
+2025-09-30 05:18:20,330 [simulate_environment.py | 167] INFO: Get 76 unallocated order items, 21 ongoing order items, 0 completed order items
+2025-09-30 05:19:40,158 [simulate_environment.py | 234] INFO: 
+Generation 1: Best = 4.01, Worst = 5192.76, Avg = 224.05, Time: 13.725428104400635
+Generation 2: Best = 4.01, Worst = 5.14, Avg = 4.85, Time: 10.391111373901367
+Generation 3: Best = 4.00, Worst = 1868.61, Avg = 85.52, Time: 12.685919284820557
+Generation 4: Best = 4.00, Worst = 5.04, Avg = 4.58, Time: 13.241511106491089
+Generation 5: Best = 4.00, Worst = 5.13, Avg = 4.61, Time: 10.644123315811157
+Stopping early due to lack of improvement.
+Total runtime: 63.08s (1.1 minutes)
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0022230028-1 p1_0026560039-1 p1_0027570040-1 d1_0027570040-1 d1_0026560039-1 d1_0022230028-1] V_6:[] V_7:[p1_0007220007-1 p2_0021150025-1 p1_0028350042-1 d1_0028350042-1 d2_0021150025-2 d1_0007220007-1 d1_0006540006-1] V_8:[] V_9:[] V_10:[] V_11:[] V_12:[] V_13:[] V_14:[] V_15:[] V_16:[] V_17:[p1_0013120015-1 d1_0013120015-1 d2_0018000021-2 p1_0028350041-1 p1_0026510038-1 d1_0026510038-1 d1_0028350041-1 p1_0018100022-1 p1_0010110011-1 p1_0011450013-1 d1_0011450013-1 d1_0010110011-1 d1_0018100022-1 d1_0014080016-1 d1_0015380018-1] V_18:[] V_19:[p9_0020190023-1 p1_0024560033-1 p2_0021080024-1 d2_0021080024-2 d1_0024560033-1 d9_0020190023-9] V_20:[p1_0024050031-1 p1_0026250036-1 p1_0029330043-1 p1_0025520035-1 d1_0025520035-1 d1_0029330043-1 d1_0026250036-1 d1_0024050031-1] V_21:[p1_0016480020-1 d1_0016480020-1 d1_0015300017-1 d6_0012180014-23] V_22:[] V_23:[d2_0003230003-2 d1_0003270004-1 d1_0008460010-1 p7_0026490037-1 p1_0025250034-1 p2_0023480030-1 p1_0023200029-1 p1_0011330012-1 d1_0011330012-1 d1_0023200029-1 d2_0023480030-2 d1_0025250034-1 d7_0026490037-7 d1_0003230002-1 d3_0000060001-3] V_24:[] V_25:[] V_26:[p17_0012180014-1 d17_0012180014-17] V_27:[] V_28:[] V_29:[] V_30:[] V_31:[] V_32:[] V_33:[] V_34:[] V_35:[] V_36:[] V_37:[] V_38:[] V_39:[] V_40:[] V_41:[] V_42:[] V_43:[] V_44:[] V_45:[] V_46:[] V_47:[] V_48:[] V_49:[p5_0007310008-1 p2_0006280005-1 p1_0015510019-1 d1_0015510019-1 d2_0006280005-2 d5_0007310008-5 d1_0007410009-1 p1_0029470044-1 p2_0022000027-1 p1_0022000026-1 d1_0022000026-1 d2_0022000027-2 d1_0029470044-1] V_50:[p5_0024470032-1 d5_0024470032-5]
+The fitness value before EA: 4.014000000000001
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[p1_0022230028-1 p1_0026560039-1 p7_0026490037-1 p1_0025250034-1 p2_0023480030-1 p1_0023200029-1 p1_0011330012-1 d1_0011330012-1 d1_0023200029-1 d2_0023480030-2 d1_0025250034-1 d7_0026490037-7 p2_0006280005-1 p1_0015510019-1 d1_0015510019-1 d2_0006280005-2 d1_0026560039-1 d1_0022230028-1] V_6:[] V_7:[p1_0007220007-1 p2_0021150025-1 p1_0028350042-1 d1_0028350042-1 d2_0021150025-2 d1_0007220007-1 d1_0006540006-1] V_8:[] V_9:[] V_10:[] V_11:[] V_12:[] V_13:[] V_14:[] V_15:[] V_16:[] V_17:[p1_0013120015-1 d1_0013120015-1 d2_0018000021-2 p1_0028350041-1 p1_0026510038-1 d1_0026510038-1 d1_0028350041-1 p1_0018100022-1 p1_0010110011-1 p1_0011450013-1 d1_0011450013-1 d1_0010110011-1 d1_0018100022-1 d1_0014080016-1 d1_0015380018-1] V_18:[] V_19:[p9_0020190023-1 p1_0024560033-1 p2_0021080024-1 d2_0021080024-2 d1_0024560033-1 d9_0020190023-9] V_20:[p1_0024050031-1 p1_0026250036-1 p1_0029330043-1 p1_0025520035-1 d1_0025520035-1 d1_0029330043-1 d1_0026250036-1 d1_0024050031-1] V_21:[p1_0016480020-1 d1_0016480020-1 d1_0015300017-1 d6_0012180014-23] V_22:[] V_23:[d2_0003230003-2 d1_0003270004-1 d1_0008460010-1 d1_0003230002-1 d3_0000060001-3] V_24:[] V_25:[] V_26:[p17_0012180014-1 d17_0012180014-17] V_27:[] V_28:[] V_29:[] V_30:[] V_31:[] V_32:[] V_33:[] V_34:[] V_35:[] V_36:[] V_37:[] V_38:[] V_39:[] V_40:[] V_41:[] V_42:[] V_43:[] V_44:[] V_45:[] V_46:[] V_47:[] V_48:[] V_49:[p5_0007310008-1 p1_0027570040-1 d1_0027570040-1 d5_0007310008-5 d1_0007410009-1] V_50:[p5_0024470032-1 p1_0029470044-1 p2_0022000027-1 p1_0022000026-1 d1_0022000026-1 d2_0022000027-2 d1_0029470044-1 d5_0024470032-5]
+The fitness value after EA: 3.99
+
+Thoi gian thuc hien thuat toan:  79.52065300941467
+SUCCESS
+
+2025-09-30 05:19:40,160 [simulate_environment.py | 256] INFO: 2025-09-30 00:30:00, Item 0006280005-1: state = 1 < 2, we can not finish the simulation
+2025-09-30 05:19:40,160 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-30 05:19:40,160 [simulate_environment.py | 103] INFO: cur time: 2025-09-30 00:40:00, pre time: 2025-09-30 00:30:00
+2025-09-30 05:19:40,160 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-30 00:40:00
+2025-09-30 05:19:40,162 [simulate_environment.py | 167] INFO: Get 81 unallocated order items, 49 ongoing order items, 0 completed order items
+2025-09-30 05:21:31,990 [simulate_environment.py | 234] INFO: 
+LS: BlockExchange | Count: 0 | TotalTime:0.085s | Cost:5.38
+LS: BlockExchange | Count: 1 | TotalTime:0.108s | Cost:7.40
+LS: PDPairExchange | Count: 1 | TotalTime:0.119s | Cost:7.79
+LS: BlockRelocate | Count: 1 | TotalTime:1.003s | Cost:7.21
+LS: PDPairExchange | Count: 1 | TotalTime:0.114s | Cost:8.04
+LS: mPDG | Count: 1 | TotalTime:0.056s | Cost:8.05
+LS: BlockRelocate | Count: 1 | TotalTime:1.003s | Cost:7.68
+LS: PDPairExchange | Count: 1 | TotalTime:0.115s | Cost:8.22
+LS: PDPairExchange | Count: 1 | TotalTime:0.117s | Cost:8.18
+LS: PDPairExchange | Count: 1 | TotalTime:0.119s | Cost:8.69
+LS: PDPairExchange | Count: 1 | TotalTime:0.125s | Cost:8.42
+LS: BlockRelocate | Count: 1 | TotalTime:1.003s | Cost:7.83
+LS: BlockExchange | Count: 1 | TotalTime:0.113s | Cost:8.63
+Generation 1: Best = 5.38, Worst = 16874.05, Avg = 1519.54, Time: 17.53034210205078
+LS: BlockExchange | Count: 0 | TotalTime:0.083s | Cost:5.38
+LS: mPDG | Count: 1 | TotalTime:0.062s | Cost:7.10
+LS: BlockRelocate | Count: 1 | TotalTime:1.001s | Cost:6.79
+LS: BlockRelocate | Count: 1 | TotalTime:1.000s | Cost:6.82
+LS: BlockExchange | Count: 1 | TotalTime:0.101s | Cost:7.33
+LS: BlockRelocate | Count: 1 | TotalTime:1.004s | Cost:7.07
+LS: BlockExchange | Count: 1 | TotalTime:0.112s | Cost:7.74
+LS: PDPairExchange | Count: 1 | TotalTime:0.120s | Cost:7.79
+LS: mPDG | Count: 1 | TotalTime:0.072s | Cost:7.40
+LS: mPDG | Count: 1 | TotalTime:0.086s | Cost:7.40
+LS: PDPairExchange | Count: 1 | TotalTime:0.132s | Cost:7.77
+LS: BlockExchange | Count: 1 | TotalTime:0.122s | Cost:7.77
+LS: mPDG | Count: 1 | TotalTime:0.074s | Cost:7.58
+Generation 2: Best = 5.38, Worst = 637.89, Avg = 338.42, Time: 18.92574405670166
+LS: BlockRelocate | Count: 1 | TotalTime:0.950s | Cost:5.36
+LS: BlockRelocate | Count: 1 | TotalTime:1.004s | Cost:6.50
+LS: BlockRelocate | Count: 1 | TotalTime:1.004s | Cost:6.44
+LS: BlockRelocate | Count: 1 | TotalTime:1.006s | Cost:6.67
+LS: mPDG | Count: 1 | TotalTime:0.087s | Cost:6.49
+LS: PDPairExchange | Count: 1 | TotalTime:0.132s | Cost:6.94
+LS: mPDG | Count: 1 | TotalTime:0.071s | Cost:6.91
+LS: PDPairExchange | Count: 1 | TotalTime:0.131s | Cost:7.14
+LS: PDPairExchange | Count: 1 | TotalTime:0.124s | Cost:7.14
+LS: PDPairExchange | Count: 1 | TotalTime:0.114s | Cost:7.17
+LS: PDPairExchange | Count: 1 | TotalTime:0.118s | Cost:7.17
+LS: BlockRelocate | Count: 1 | TotalTime:1.003s | Cost:6.81
+LS: BlockExchange | Count: 1 | TotalTime:0.105s | Cost:7.28
+Generation 3: Best = 5.36, Worst = 771.13, Avg = 199.72, Time: 21.721663236618042
+LS: BlockRelocate | Count: 0 | TotalTime:0.753s | Cost:5.36
+LS: BlockRelocate | Count: 1 | TotalTime:1.002s | Cost:6.15
+LS: mPDG | Count: 1 | TotalTime:0.059s | Cost:6.10
+LS: BlockRelocate | Count: 1 | TotalTime:1.001s | Cost:6.29
+LS: BlockRelocate | Count: 1 | TotalTime:1.000s | Cost:6.29
+LS: BlockRelocate | Count: 1 | TotalTime:1.002s | Cost:6.52
+LS: mPDG | Count: 1 | TotalTime:0.065s | Cost:6.77
+LS: mPDG | Count: 1 | TotalTime:0.064s | Cost:6.76
+LS: BlockRelocate | Count: 1 | TotalTime:1.002s | Cost:6.46
+LS: PDPairExchange | Count: 1 | TotalTime:0.123s | Cost:6.85
+LS: BlockExchange | Count: 1 | TotalTime:0.125s | Cost:6.62
+LS: mPDG | Count: 1 | TotalTime:0.066s | Cost:6.55
+LS: mPDG | Count: 1 | TotalTime:0.062s | Cost:6.08
+Generation 4: Best = 5.36, Worst = 770.61, Avg = 130.51, Time: 19.78464126586914
+LS: BlockRelocate | Count: 0 | TotalTime:0.751s | Cost:5.36
+LS: mPDG | Count: 1 | TotalTime:0.064s | Cost:5.98
+LS: mPDG | Count: 1 | TotalTime:0.063s | Cost:6.05
+LS: BlockRelocate | Count: 1 | TotalTime:1.002s | Cost:5.87
+LS: BlockRelocate | Count: 1 | TotalTime:1.001s | Cost:5.99
+LS: BlockRelocate | Count: 1 | TotalTime:1.003s | Cost:6.10
+LS: BlockRelocate | Count: 1 | TotalTime:1.001s | Cost:6.08
+LS: BlockRelocate | Count: 1 | TotalTime:0.983s | Cost:6.24
+LS: PDPairExchange | Count: 1 | TotalTime:0.100s | Cost:6.79
+LS: BlockExchange | Count: 1 | TotalTime:0.108s | Cost:6.79
+LS: PDPairExchange | Count: 1 | TotalTime:0.102s | Cost:6.82
+LS: mPDG | Count: 1 | TotalTime:0.066s | Cost:6.46
+LS: PDPairExchange | Count: 1 | TotalTime:0.105s | Cost:6.82
+Generation 5: Best = 5.36, Worst = 770.26, Avg = 95.57, Time: 20.648991346359253
+Stopping early due to lack of improvement.
+Total runtime: 99.97s (1.7 minutes)
+LS: BlockRelocate:4(-0.074s) | PDPairExchange:2(0.187s) | BlockExchange:0(0.076s) | mPDG:0(0.080s) | TotalTime:0.270s | Cost:5.01
+LS: BlockRelocate:19(1.171s) | PDPairExchange:0(0.000s) | BlockExchange:0(0.000s) | mPDG:0(0.000s) | TotalTime:1.171s | Cost:5.20
+LS: mPDG:10(0.566s) | PDPairExchange:3(0.630s) | BlockExchange:1(0.396s) | BlockRelocate:5(1.047s) | TotalTime:2.640s | Cost:5.12
+LS: BlockRelocate:19(1.200s) | PDPairExchange:0(0.000s) | BlockExchange:0(0.000s) | mPDG:0(0.000s) | TotalTime:1.200s | Cost:5.18
+LS: mPDG:11(0.694s) | PDPairExchange:1(0.612s) | BlockExchange:2(0.436s) | BlockRelocate:5(1.088s) | TotalTime:2.830s | Cost:5.10
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0011330012-1 d1_0023200029-1 d2_0023480030-2 d1_0025250034-1 d7_0026490037-7 p2_0006280005-1 p1_0015510019-1 p4_0039370058-1 p2_0035330055-1 d2_0035330055-2 d4_0039370058-4 p1_0034310051-1 d1_0034310051-1 d1_0015510019-1 d2_0006280005-2 d1_0026560039-1 d1_0022230028-1] V_6:[] V_7:[p1_0007220007-1 p2_0021150025-1 p1_0028350042-1 d1_0028350042-1 d2_0021150025-2 d1_0007220007-1 d1_0006540006-1] V_8:[] V_9:[] V_10:[p3_0033490048-1 p1_0034500052-1 p1_0034500053-1 p4_0033520049-1 d4_0033520049-4 d1_0034500053-1 d1_0034500052-1 d3_0033490048-3] V_11:[] V_12:[p1_0038310056-1 d1_0038310056-1 p4_0035190054-1 d4_0035190054-4] V_13:[] V_14:[] V_15:[] V_16:[] V_17:[p6_0032240046-1 p1_0013120015-1 d1_0013120015-1 d6_0032240046-6 d2_0018000021-2 p1_0028350041-1 p1_0026510038-1 d1_0026510038-1 d1_0028350041-1 p1_0018100022-1 p1_0010110011-1 p1_0011450013-1 d1_0011450013-1 d1_0010110011-1 d1_0018100022-1 d1_0014080016-1 d1_0015380018-1] V_18:[] V_19:[p1_0024560033-1 p2_0021080024-1 d2_0021080024-2 d1_0024560033-1 d9_0020190023-9] V_20:[p1_0024050031-1 p1_0026250036-1 p1_0029330043-1 p1_0025520035-1 d1_0025520035-1 d1_0029330043-1 d1_0026250036-1 d1_0024050031-1] V_21:[p1_0016480020-1 d1_0016480020-1 d1_0015300017-1 d6_0012180014-23] V_22:[] V_23:[d2_0003230003-2 d1_0003270004-1 d1_0008460010-1 d1_0003230002-1 d3_0000060001-3] V_24:[] V_25:[] V_26:[p17_0012180014-1 d17_0012180014-17] V_27:[] V_28:[] V_29:[] V_30:[] V_31:[] V_32:[] V_33:[] V_34:[] V_35:[] V_36:[] V_37:[] V_38:[] V_39:[] V_40:[] V_41:[] V_42:[] V_43:[] V_44:[] V_45:[] V_46:[p2_0033050047-1 d2_0033050047-2] V_47:[] V_48:[] V_49:[p5_0007310008-1 p1_0027570040-1 d1_0027570040-1 d5_0007310008-5 d1_0007410009-1] V_50:[p2_0034010050-1 p1_0031100045-1 p1_0029470044-1 p2_0022000027-1 p1_0022000026-1 d1_0022000026-1 d2_0022000027-2 d1_0029470044-1 d1_0031100045-1 d2_0034010050-2 p1_0039270057-1 d1_0039270057-1 d5_0024470032-5]
+The fitness value before EA: 5.377999999999999
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0011330012-1 d1_0023200029-1 d2_0023480030-2 d1_0025250034-1 d7_0026490037-7 p2_0006280005-1 p1_0015510019-1 p4_0039370058-1 p2_0035330055-1 d2_0035330055-2 d4_0039370058-4 p1_0034310051-1 d1_0034310051-1 d1_0015510019-1 d2_0006280005-2 d1_0026560039-1 d1_0022230028-1] V_6:[] V_7:[p1_0007220007-1 p2_0021150025-1 p1_0028350042-1 d1_0028350042-1 d2_0021150025-2 d1_0007220007-1 d1_0006540006-1] V_8:[] V_9:[] V_10:[] V_11:[] V_12:[p1_0038310056-1 d1_0038310056-1 p3_0033490048-1 p4_0035190054-1 d4_0035190054-4 d3_0033490048-3] V_13:[] V_14:[] V_15:[] V_16:[] V_17:[p6_0032240046-1 p1_0013120015-1 d1_0013120015-1 d6_0032240046-6 d2_0018000021-2 p1_0028350041-1 p1_0026510038-1 d1_0026510038-1 d1_0028350041-1 p1_0018100022-1 p1_0010110011-1 p1_0011450013-1 d1_0011450013-1 d1_0010110011-1 d1_0018100022-1 d1_0014080016-1 d1_0015380018-1] V_18:[] V_19:[p1_0024560033-1 d1_0024560033-1 d9_0020190023-9] V_20:[p1_0024050031-1 p1_0026250036-1 p1_0029330043-1 p1_0025520035-1 d1_0025520035-1 d1_0029330043-1 d1_0026250036-1 d1_0024050031-1] V_21:[p1_0016480020-1 d1_0016480020-1 d1_0015300017-1 d6_0012180014-23] V_22:[] V_23:[d2_0003230003-2 d1_0003270004-1 d1_0008460010-1 d1_0003230002-1 d3_0000060001-3] V_24:[] V_25:[] V_26:[p17_0012180014-1 d17_0012180014-17] V_27:[] V_28:[] V_29:[] V_30:[] V_31:[] V_32:[] V_33:[] V_34:[] V_35:[] V_36:[] V_37:[] V_38:[p1_0034500052-1 p1_0034500053-1 p4_0033520049-1 p2_0021080024-1 d2_0021080024-2 d4_0033520049-4 d1_0034500053-1 d1_0034500052-1] V_39:[] V_40:[] V_41:[] V_42:[] V_43:[] V_44:[] V_45:[] V_46:[p2_0033050047-1 d2_0033050047-2] V_47:[] V_48:[] V_49:[p5_0007310008-1 p1_0027570040-1 d1_0027570040-1 d5_0007310008-5 d1_0007410009-1] V_50:[p2_0034010050-1 p1_0031100045-1 p1_0029470044-1 p2_0022000027-1 p1_0022000026-1 d1_0022000026-1 d2_0022000027-2 d1_0029470044-1 d1_0031100045-1 d2_0034010050-2 p1_0039270057-1 d1_0039270057-1 d5_0024470032-5]
+The fitness value after EA: 5.014000000000001
+
+Thoi gian thuc hien thuat toan:  111.49293398857117
+SUCCESS
+
+2025-09-30 05:21:31,995 [simulate_environment.py | 256] INFO: 2025-09-30 00:40:00, Item 0006280005-1: state = 1 < 2, we can not finish the simulation
+2025-09-30 05:21:31,996 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-30 05:21:31,996 [simulate_environment.py | 103] INFO: cur time: 2025-09-30 00:50:00, pre time: 2025-09-30 00:40:00
+2025-09-30 05:21:31,996 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-30 00:50:00
+2025-09-30 05:21:31,999 [simulate_environment.py | 167] INFO: Get 69 unallocated order items, 74 ongoing order items, 0 completed order items
+2025-09-30 05:23:27,184 [simulate_environment.py | 234] INFO: 
+LS: mPDG | Count: 0 | TotalTime:0.104s | Cost:5.20
+LS: BlockRelocate | Count: 1 | TotalTime:1.001s | Cost:7.53
+LS: BlockExchange | Count: 0 | TotalTime:0.135s | Cost:8.62
+LS: PDPairExchange | Count: 0 | TotalTime:0.125s | Cost:8.62
+LS: BlockExchange | Count: 0 | TotalTime:0.127s | Cost:8.62
+LS: mPDG | Count: 1 | TotalTime:0.080s | Cost:8.25
+LS: PDPairExchange | Count: 0 | TotalTime:0.133s | Cost:8.68
+LS: PDPairExchange | Count: 1 | TotalTime:0.136s | Cost:8.72
+LS: BlockExchange | Count: 1 | TotalTime:0.145s | Cost:8.72
+LS: mPDG | Count: 1 | TotalTime:-1.096s | Cost:8.18
+LS: PDPairExchange | Count: 0 | TotalTime:0.136s | Cost:9.02
+LS: BlockExchange | Count: 1 | TotalTime:0.140s | Cost:8.82
+LS: BlockExchange | Count: 1 | TotalTime:0.138s | Cost:9.22
+Generation 1: Best = 5.20, Worst = 24016.23, Avg = 1476.35, Time: 19.46610450744629
+LS: PDPairExchange | Count: 0 | TotalTime:0.087s | Cost:5.20
+LS: BlockRelocate | Count: 1 | TotalTime:1.002s | Cost:7.18
+LS: mPDG | Count: 1 | TotalTime:0.083s | Cost:8.14
+LS: mPDG | Count: 1 | TotalTime:0.092s | Cost:8.20
+LS: mPDG | Count: 1 | TotalTime:0.081s | Cost:8.26
+LS: BlockExchange | Count: 0 | TotalTime:0.137s | Cost:8.62
+LS: PDPairExchange | Count: 0 | TotalTime:0.138s | Cost:8.62
+LS: mPDG | Count: 1 | TotalTime:0.085s | Cost:8.26
+LS: BlockExchange | Count: 0 | TotalTime:0.134s | Cost:8.62
+LS: BlockRelocate | Count: 1 | TotalTime:1.002s | Cost:8.27
+LS: BlockExchange | Count: 0 | TotalTime:0.148s | Cost:8.62
+LS: mPDG | Count: 1 | TotalTime:0.092s | Cost:8.09
+LS: BlockRelocate | Count: 1 | TotalTime:1.003s | Cost:8.27
+Generation 2: Best = 5.20, Worst = 9.31, Avg = 8.54, Time: 20.582276821136475
+LS: mPDG | Count: 0 | TotalTime:0.119s | Cost:5.20
+LS: BlockRelocate | Count: 1 | TotalTime:1.001s | Cost:6.44
+LS: mPDG | Count: 1 | TotalTime:0.101s | Cost:8.03
+LS: mPDG | Count: 1 | TotalTime:0.090s | Cost:8.10
+LS: mPDG | Count: 1 | TotalTime:0.096s | Cost:8.19
+LS: mPDG | Count: 1 | TotalTime:0.099s | Cost:8.20
+LS: mPDG | Count: 1 | TotalTime:0.096s | Cost:8.20
+LS: BlockRelocate | Count: 1 | TotalTime:1.003s | Cost:7.92
+LS: BlockExchange | Count: 0 | TotalTime:0.147s | Cost:8.62
+LS: mPDG | Count: 1 | TotalTime:0.089s | Cost:8.26
+LS: mPDG | Count: 1 | TotalTime:0.089s | Cost:8.26
+LS: PDPairExchange | Count: 0 | TotalTime:0.132s | Cost:8.62
+LS: BlockExchange | Count: 0 | TotalTime:0.143s | Cost:8.62
+Generation 3: Best = 5.20, Worst = 9.31, Avg = 8.42, Time: 17.92437744140625
+LS: PDPairExchange | Count: 0 | TotalTime:0.107s | Cost:5.20
+LS: BlockRelocate | Count: 1 | TotalTime:1.002s | Cost:6.13
+LS: BlockRelocate | Count: 1 | TotalTime:1.004s | Cost:7.73
+LS: mPDG | Count: 0 | TotalTime:0.100s | Cost:8.03
+LS: mPDG | Count: 0 | TotalTime:0.081s | Cost:8.10
+LS: mPDG | Count: 1 | TotalTime:0.092s | Cost:8.16
+LS: mPDG | Count: 0 | TotalTime:0.092s | Cost:8.20
+LS: mPDG | Count: 0 | TotalTime:0.093s | Cost:8.20
+LS: BlockRelocate | Count: 1 | TotalTime:1.001s | Cost:8.27
+LS: BlockRelocate | Count: 1 | TotalTime:1.004s | Cost:8.27
+LS: PDPairExchange | Count: 0 | TotalTime:0.146s | Cost:8.62
+LS: PDPairExchange | Count: 0 | TotalTime:0.127s | Cost:8.62
+LS: PDPairExchange | Count: 0 | TotalTime:0.149s | Cost:8.62
+Generation 4: Best = 5.20, Worst = 9.22, Avg = 8.39, Time: 20.755208015441895
+LS: BlockExchange | Count: 0 | TotalTime:0.091s | Cost:5.20
+LS: BlockRelocate | Count: 1 | TotalTime:1.001s | Cost:5.87
+LS: BlockRelocate | Count: 1 | TotalTime:1.004s | Cost:6.97
+LS: mPDG | Count: 0 | TotalTime:0.101s | Cost:8.03
+LS: mPDG | Count: 0 | TotalTime:0.093s | Cost:8.10
+LS: mPDG | Count: 1 | TotalTime:0.093s | Cost:7.98
+LS: mPDG | Count: 0 | TotalTime:0.092s | Cost:8.20
+LS: mPDG | Count: 0 | TotalTime:0.094s | Cost:8.20
+LS: BlockRelocate | Count: 1 | TotalTime:1.002s | Cost:8.43
+LS: BlockRelocate | Count: 1 | TotalTime:1.002s | Cost:8.27
+LS: BlockExchange | Count: 0 | TotalTime:0.147s | Cost:8.62
+LS: PDPairExchange | Count: 0 | TotalTime:0.144s | Cost:8.62
+LS: PDPairExchange | Count: 0 | TotalTime:0.147s | Cost:8.62
+Generation 5: Best = 5.20, Worst = 9.31, Avg = 8.42, Time: 20.905500411987305
+Stopping early due to lack of improvement.
+Total runtime: 100.95s (1.7 minutes)
+LS: PDPairExchange:0(0.000s) | mPDG:0(0.116s) | BlockRelocate:0(0.902s) | BlockExchange:0(0.101s) | TotalTime:1.119s | Cost:5.20
+LS: BlockRelocate:19(1.357s) | PDPairExchange:0(0.000s) | BlockExchange:0(0.000s) | mPDG:0(0.000s) | TotalTime:1.357s | Cost:5.40
+LS: BlockRelocate:19(3.535s) | PDPairExchange:0(0.000s) | BlockExchange:0(0.000s) | mPDG:0(0.000s) | TotalTime:3.535s | Cost:6.19
+LS: mPDG:7(0.604s) | PDPairExchange:4(1.076s) | BlockExchange:2(0.757s) | BlockRelocate:6(0.850s) | TotalTime:3.287s | Cost:6.23
+LS: mPDG:8(0.708s) | PDPairExchange:1(1.182s) | BlockExchange:0(0.006s) | BlockRelocate:10(0.441s) | TotalTime:2.338s | Cost:6.79
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0011330012-1 d1_0023200029-1 d2_0023480030-2 d1_0025250034-1 d7_0026490037-7 p2_0006280005-1 p1_0015510019-1 p4_0039370058-1 p2_0035330055-1 d2_0035330055-2 d4_0039370058-4 p3_0047030065-1 p1_0042310060-1 p1_0040420059-1 p1_0034310051-1 d1_0034310051-1 d1_0040420059-1 d1_0042310060-1 d3_0047030065-3 d1_0015510019-1 d2_0006280005-2 d1_0026560039-1 d1_0022230028-1] V_6:[] V_7:[d1_0028350042-1 d2_0021150025-2 d1_0007220007-1 d1_0006540006-1] V_8:[] V_9:[] V_10:[] V_11:[] V_12:[p2_0047570067-1 p1_0047570066-1 p1_0038310056-1 d1_0038310056-1 d1_0047570066-1 d2_0047570067-2 p3_0033490048-1 p1_0045540062-1 p4_0035190054-1 d4_0035190054-4 d1_0045540062-1 d3_0033490048-3] V_13:[] V_14:[] V_15:[] V_16:[] V_17:[p6_0032240046-1 p1_0013120015-1 d1_0013120015-1 d6_0032240046-6 d2_0018000021-2 p1_0028350041-1 p1_0026510038-1 d1_0026510038-1 d1_0028350041-1 p1_0018100022-1 p1_0010110011-1 p1_0011450013-1 d1_0011450013-1 d1_0010110011-1 d1_0018100022-1 d1_0014080016-1 d1_0015380018-1] V_18:[] V_19:[p1_0024560033-1 p1_0047010064-1 d1_0047010064-1 d1_0024560033-1 d9_0020190023-9] V_20:[p1_0029330043-1 p1_0025520035-1 d1_0025520035-1 d1_0029330043-1 d1_0026250036-1 d1_0024050031-1] V_21:[p1_0016480020-1 d1_0016480020-1 d1_0015300017-1 d6_0012180014-23] V_22:[] V_23:[d2_0003230003-2 d1_0003270004-1 d1_0008460010-1 d1_0003230002-1 d3_0000060001-3] V_24:[] V_25:[] V_26:[d17_0012180014-17] V_27:[] V_28:[] V_29:[] V_30:[] V_31:[] V_32:[] V_33:[] V_34:[] V_35:[] V_36:[] V_37:[] V_38:[p1_0034500052-1 p1_0034500053-1 p4_0033520049-1 p2_0021080024-1 d2_0021080024-2 d4_0033520049-4 d1_0034500053-1 d1_0034500052-1] V_39:[] V_40:[] V_41:[] V_42:[] V_43:[] V_44:[] V_45:[] V_46:[d2_0033050047-2] V_47:[] V_48:[p1_0045450061-1 p1_0046130063-1 d1_0046130063-1 d1_0045450061-1] V_49:[p5_0007310008-1 p1_0027570040-1 d1_0027570040-1 d5_0007310008-5 d1_0007410009-1] V_50:[p1_0049300068-1 p2_0034010050-1 p1_0031100045-1 p1_0029470044-1 p2_0022000027-1 p1_0022000026-1 d1_0022000026-1 d2_0022000027-2 d1_0029470044-1 d1_0031100045-1 d2_0034010050-2 d1_0049300068-1 p1_0039270057-1 d1_0039270057-1 d5_0024470032-5]
+The fitness value before EA: 5.204000000000001
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0011330012-1 d1_0023200029-1 d2_0023480030-2 d1_0025250034-1 d7_0026490037-7 p2_0006280005-1 p1_0015510019-1 p4_0039370058-1 p2_0035330055-1 d2_0035330055-2 d4_0039370058-4 p3_0047030065-1 p1_0042310060-1 p1_0040420059-1 p1_0034310051-1 d1_0034310051-1 d1_0040420059-1 d1_0042310060-1 d3_0047030065-3 d1_0015510019-1 d2_0006280005-2 d1_0026560039-1 d1_0022230028-1] V_6:[] V_7:[d1_0028350042-1 d2_0021150025-2 d1_0007220007-1 d1_0006540006-1] V_8:[] V_9:[] V_10:[] V_11:[] V_12:[p2_0047570067-1 p1_0047570066-1 p1_0038310056-1 d1_0038310056-1 d1_0047570066-1 d2_0047570067-2 p3_0033490048-1 p1_0045540062-1 p4_0035190054-1 d4_0035190054-4 d1_0045540062-1 d3_0033490048-3] V_13:[] V_14:[] V_15:[] V_16:[] V_17:[p6_0032240046-1 p1_0013120015-1 d1_0013120015-1 d6_0032240046-6 d2_0018000021-2 p1_0028350041-1 p1_0026510038-1 d1_0026510038-1 d1_0028350041-1 p1_0018100022-1 p1_0010110011-1 p1_0011450013-1 d1_0011450013-1 d1_0010110011-1 d1_0018100022-1 d1_0014080016-1 d1_0015380018-1] V_18:[] V_19:[p1_0024560033-1 p1_0047010064-1 d1_0047010064-1 d1_0024560033-1 d9_0020190023-9] V_20:[p1_0029330043-1 p1_0025520035-1 d1_0025520035-1 d1_0029330043-1 d1_0026250036-1 d1_0024050031-1] V_21:[p1_0016480020-1 d1_0016480020-1 d1_0015300017-1 d6_0012180014-23] V_22:[] V_23:[d2_0003230003-2 d1_0003270004-1 d1_0008460010-1 d1_0003230002-1 d3_0000060001-3] V_24:[] V_25:[] V_26:[d17_0012180014-17] V_27:[] V_28:[] V_29:[] V_30:[] V_31:[] V_32:[] V_33:[] V_34:[] V_35:[] V_36:[] V_37:[] V_38:[p1_0034500052-1 p1_0034500053-1 p4_0033520049-1 p2_0021080024-1 d2_0021080024-2 d4_0033520049-4 d1_0034500053-1 d1_0034500052-1] V_39:[] V_40:[] V_41:[] V_42:[] V_43:[] V_44:[] V_45:[] V_46:[d2_0033050047-2] V_47:[] V_48:[p1_0045450061-1 p1_0046130063-1 d1_0046130063-1 d1_0045450061-1] V_49:[p5_0007310008-1 p1_0027570040-1 d1_0027570040-1 d5_0007310008-5 d1_0007410009-1] V_50:[p1_0049300068-1 p2_0034010050-1 p1_0031100045-1 p1_0029470044-1 p2_0022000027-1 p1_0022000026-1 d1_0022000026-1 d2_0022000027-2 d1_0029470044-1 d1_0031100045-1 d2_0034010050-2 d1_0049300068-1 p1_0039270057-1 d1_0039270057-1 d5_0024470032-5]
+The fitness value after EA: 5.204000000000001
+
+Thoi gian thuc hien thuat toan:  114.8497850894928
+SUCCESS
+
+2025-09-30 05:23:27,188 [simulate_environment.py | 256] INFO: 2025-09-30 00:50:00, Item 0006280005-1: state = 1 < 2, we can not finish the simulation
+2025-09-30 05:23:27,189 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-30 05:23:27,189 [simulate_environment.py | 103] INFO: cur time: 2025-09-30 01:00:00, pre time: 2025-09-30 00:50:00
+2025-09-30 05:23:27,189 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-30 01:00:00
+2025-09-30 05:23:27,192 [simulate_environment.py | 167] INFO: Get 59 unallocated order items, 86 ongoing order items, 0 completed order items
+2025-09-30 05:25:27,346 [simulate_environment.py | 234] INFO: 
+LS: PDPairExchange | Count: 0 | TotalTime:0.070s | Cost:5.08
+LS: mPDG | Count: 1 | TotalTime:0.065s | Cost:6.70
+LS: mPDG | Count: 1 | TotalTime:0.071s | Cost:8.51
+LS: BlockExchange | Count: 1 | TotalTime:0.112s | Cost:8.76
+LS: BlockExchange | Count: 1 | TotalTime:0.103s | Cost:8.77
+LS: BlockExchange | Count: 1 | TotalTime:0.101s | Cost:8.77
+LS: BlockRelocate | Count: 1 | TotalTime:1.001s | Cost:8.17
+LS: mPDG | Count: 1 | TotalTime:0.072s | Cost:8.57
+LS: BlockExchange | Count: 1 | TotalTime:0.108s | Cost:8.77
+LS: PDPairExchange | Count: 1 | TotalTime:0.107s | Cost:8.77
+LS: PDPairExchange | Count: 1 | TotalTime:0.102s | Cost:8.77
+LS: mPDG | Count: 1 | TotalTime:0.078s | Cost:8.57
+LS: BlockExchange | Count: 1 | TotalTime:0.111s | Cost:8.77
+Generation 1: Best = 5.08, Worst = 25431.94, Avg = 2653.73, Time: 21.896371841430664
+LS: BlockExchange | Count: 0 | TotalTime:0.072s | Cost:5.08
+LS: mPDG | Count: 1 | TotalTime:0.067s | Cost:6.58
+LS: BlockRelocate | Count: 1 | TotalTime:1.001s | Cost:7.89
+LS: mPDG | Count: 1 | TotalTime:0.073s | Cost:8.46
+LS: mPDG | Count: 1 | TotalTime:0.078s | Cost:8.05
+LS: mPDG | Count: 1 | TotalTime:0.076s | Cost:8.05
+LS: BlockExchange | Count: 1 | TotalTime:0.116s | Cost:8.23
+LS: BlockExchange | Count: 1 | TotalTime:0.116s | Cost:8.23
+LS: PDPairExchange | Count: 1 | TotalTime:0.108s | Cost:8.23
+LS: mPDG | Count: 1 | TotalTime:0.087s | Cost:8.70
+LS: PDPairExchange | Count: 1 | TotalTime:0.101s | Cost:8.23
+LS: PDPairExchange | Count: 1 | TotalTime:0.105s | Cost:8.23
+LS: mPDG | Count: 1 | TotalTime:0.079s | Cost:8.70
+Generation 2: Best = 5.08, Worst = 8.93, Avg = 8.52, Time: 19.936360120773315
+LS: mPDG | Count: 0 | TotalTime:0.105s | Cost:5.08
+LS: mPDG | Count: 1 | TotalTime:0.071s | Cost:6.50
+LS: BlockRelocate | Count: 1 | TotalTime:1.001s | Cost:7.70
+LS: mPDG | Count: 1 | TotalTime:0.066s | Cost:8.01
+LS: mPDG | Count: 1 | TotalTime:0.063s | Cost:8.01
+LS: BlockRelocate | Count: 1 | TotalTime:-0.066s | Cost:8.01
+LS: BlockExchange | Count: 1 | TotalTime:0.107s | Cost:16986.08
+LS: BlockExchange | Count: 1 | TotalTime:0.108s | Cost:16986.08
+LS: BlockRelocate | Count: 1 | TotalTime:1.006s | Cost:7.92
+LS: mPDG | Count: 1 | TotalTime:0.076s | Cost:7.96
+LS: BlockExchange | Count: 1 | TotalTime:0.113s | Cost:7.70
+LS: BlockExchange | Count: 1 | TotalTime:0.118s | Cost:7.70
+LS: mPDG | Count: 1 | TotalTime:0.074s | Cost:7.96
+Generation 3: Best = 5.08, Worst = 16986.08, Avg = 857.23, Time: 21.123119354248047
+LS: PDPairExchange | Count: 0 | TotalTime:0.074s | Cost:5.08
+LS: mPDG | Count: 1 | TotalTime:0.074s | Cost:6.28
+LS: BlockExchange | Count: 0 | TotalTime:0.103s | Cost:7.70
+LS: BlockExchange | Count: 0 | TotalTime:0.110s | Cost:7.70
+LS: BlockRelocate | Count: 1 | TotalTime:1.005s | Cost:6.94
+LS: BlockRelocate | Count: 1 | TotalTime:1.004s | Cost:7.73
+LS: mPDG | Count: 1 | TotalTime:0.077s | Cost:7.90
+LS: mPDG | Count: 1 | TotalTime:0.075s | Cost:7.96
+LS: PDPairExchange | Count: 1 | TotalTime:0.110s | Cost:8.16
+LS: PDPairExchange | Count: 1 | TotalTime:0.104s | Cost:8.16
+LS: PDPairExchange | Count: 1 | TotalTime:0.102s | Cost:8.16
+LS: PDPairExchange | Count: 1 | TotalTime:0.106s | Cost:8.16
+LS: PDPairExchange | Count: 1 | TotalTime:0.102s | Cost:8.16
+Generation 4: Best = 5.08, Worst = 8.93, Avg = 8.05, Time: 20.390848875045776
+LS: BlockRelocate | Count: 0 | TotalTime:0.762s | Cost:5.08
+LS: mPDG | Count: 1 | TotalTime:0.075s | Cost:6.27
+LS: BlockRelocate | Count: 1 | TotalTime:1.005s | Cost:6.90
+LS: BlockExchange | Count: 0 | TotalTime:0.097s | Cost:7.70
+LS: BlockExchange | Count: 0 | TotalTime:0.102s | Cost:7.70
+LS: BlockRelocate | Count: 1 | TotalTime:0.992s | Cost:6.98
+LS: mPDG | Count: 1 | TotalTime:0.074s | Cost:7.89
+LS: mPDG | Count: 1 | TotalTime:0.072s | Cost:7.92
+LS: PDPairExchange | Count: 1 | TotalTime:0.099s | Cost:8.16
+LS: mPDG | Count: 1 | TotalTime:0.075s | Cost:8.09
+LS: BlockExchange | Count: 1 | TotalTime:0.110s | Cost:16497.79
+LS: PDPairExchange | Count: 1 | TotalTime:0.107s | Cost:8.16
+LS: mPDG | Count: 1 | TotalTime:0.074s | Cost:8.09
+Generation 5: Best = 5.08, Worst = 16497.79, Avg = 420.37, Time: 20.304536819458008
+Stopping early due to lack of improvement.
+Total runtime: 104.58s (1.7 minutes)
+LS: PDPairExchange:0(0.000s) | BlockRelocate:0(0.820s) | BlockExchange:0(0.075s) | mPDG:0(0.100s) | TotalTime:0.995s | Cost:5.08
+LS: mPDG:2(0.161s) | PDPairExchange:2(0.698s) | BlockExchange:2(0.487s) | BlockRelocate:4(2.348s) | TotalTime:3.694s | Cost:5.98
+LS: BlockRelocate:19(1.809s) | PDPairExchange:0(0.000s) | BlockExchange:0(0.000s) | mPDG:0(0.000s) | TotalTime:1.809s | Cost:5.62
+LS: BlockRelocate:19(4.927s) | PDPairExchange:0(0.000s) | BlockExchange:0(0.000s) | mPDG:0(0.000s) | TotalTime:4.927s | Cost:5.84
+LS: BlockExchange:8(0.306s) | PDPairExchange:0(1.031s) | BlockRelocate:11(0.528s) | mPDG:0(0.000s) | TotalTime:1.865s | Cost:6.94
+
+The solution initialized by Cheapest Insertion:
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0011330012-1 d1_0023200029-1 d2_0023480030-2 d1_0025250034-1 d7_0026490037-7 p2_0006280005-1 p1_0015510019-1 p4_0039370058-1 p2_0035330055-1 d2_0035330055-2 d4_0039370058-4 p3_0047030065-1 p1_0042310060-1 p1_0040420059-1 p1_0034310051-1 d1_0034310051-1 d1_0040420059-1 d1_0042310060-1 d3_0047030065-3 d1_0015510019-1 d2_0006280005-2 d1_0026560039-1 d1_0022230028-1] V_6:[] V_7:[d1_0028350042-1 d2_0021150025-2 d1_0007220007-1 d1_0006540006-1] V_8:[] V_9:[] V_10:[] V_11:[] V_12:[d1_0038310056-1 d1_0047570066-1 d2_0047570067-2 p3_0033490048-1 p1_0045540062-1 p4_0035190054-1 d4_0035190054-4 d1_0045540062-1 d3_0033490048-3] V_13:[] V_14:[] V_15:[] V_16:[] V_17:[p6_0032240046-1 p1_0013120015-1 d1_0013120015-1 d6_0032240046-6 d2_0018000021-2 p1_0028350041-1 p1_0026510038-1 d1_0026510038-1 d1_0028350041-1 p1_0018100022-1 p1_0010110011-1 p1_0011450013-1 d1_0011450013-1 d1_0010110011-1 d1_0018100022-1 d1_0014080016-1 d1_0015380018-1] V_18:[] V_19:[p1_0024560033-1 p1_0047010064-1 p1_0058400070-1 d1_0058400070-1 d1_0047010064-1 d1_0024560033-1 d9_0020190023-9] V_20:[p1_0029330043-1 p1_0025520035-1 d1_0025520035-1 d1_0029330043-1 d1_0026250036-1 d1_0024050031-1] V_21:[p1_0016480020-1 d1_0016480020-1 d1_0015300017-1 d6_0012180014-23] V_22:[] V_23:[d2_0003230003-2 d1_0003270004-1 d1_0008460010-1 d1_0003230002-1 d3_0000060001-3] V_24:[] V_25:[] V_26:[d17_0012180014-17] V_27:[] V_28:[] V_29:[] V_30:[] V_31:[] V_32:[] V_33:[] V_34:[] V_35:[] V_36:[] V_37:[] V_38:[d2_0021080024-2 d4_0033520049-4 d1_0034500053-1 d1_0034500052-1] V_39:[] V_40:[] V_41:[] V_42:[] V_43:[] V_44:[] V_45:[] V_46:[d2_0033050047-2 p1_0055410069-1 d1_0055410069-1] V_47:[] V_48:[p1_0045450061-1 p1_0046130063-1 d1_0046130063-1 d1_0045450061-1] V_49:[p5_0007310008-1 p1_0027570040-1 d1_0027570040-1 d5_0007310008-5 d1_0007410009-1] V_50:[p1_0049300068-1 p2_0034010050-1 p1_0031100045-1 p1_0029470044-1 p2_0022000027-1 p1_0022000026-1 d1_0022000026-1 d2_0022000027-2 d1_0029470044-1 d1_0031100045-1 d2_0034010050-2 d1_0049300068-1 p1_0039270057-1 d1_0039270057-1 d5_0024470032-5]
+The fitness value before EA: 5.080000000000001
+V_1:[] V_2:[] V_3:[] V_4:[] V_5:[d1_0011330012-1 d1_0023200029-1 d2_0023480030-2 d1_0025250034-1 d7_0026490037-7 p2_0006280005-1 p1_0015510019-1 p4_0039370058-1 p2_0035330055-1 d2_0035330055-2 d4_0039370058-4 p3_0047030065-1 p1_0042310060-1 p1_0040420059-1 p1_0034310051-1 d1_0034310051-1 d1_0040420059-1 d1_0042310060-1 d3_0047030065-3 d1_0015510019-1 d2_0006280005-2 d1_0026560039-1 d1_0022230028-1] V_6:[] V_7:[d1_0028350042-1 d2_0021150025-2 d1_0007220007-1 d1_0006540006-1] V_8:[] V_9:[] V_10:[] V_11:[] V_12:[d1_0038310056-1 d1_0047570066-1 d2_0047570067-2 p3_0033490048-1 p1_0045540062-1 p4_0035190054-1 d4_0035190054-4 d1_0045540062-1 d3_0033490048-3] V_13:[] V_14:[] V_15:[] V_16:[] V_17:[p6_0032240046-1 p1_0013120015-1 d1_0013120015-1 d6_0032240046-6 d2_0018000021-2 p1_0028350041-1 p1_0026510038-1 d1_0026510038-1 d1_0028350041-1 p1_0018100022-1 p1_0010110011-1 p1_0011450013-1 d1_0011450013-1 d1_0010110011-1 d1_0018100022-1 d1_0014080016-1 d1_0015380018-1] V_18:[] V_19:[p1_0024560033-1 p1_0047010064-1 p1_0058400070-1 d1_0058400070-1 d1_0047010064-1 d1_0024560033-1 d9_0020190023-9] V_20:[p1_0029330043-1 p1_0025520035-1 d1_0025520035-1 d1_0029330043-1 d1_0026250036-1 d1_0024050031-1] V_21:[p1_0016480020-1 d1_0016480020-1 d1_0015300017-1 d6_0012180014-23] V_22:[] V_23:[d2_0003230003-2 d1_0003270004-1 d1_0008460010-1 d1_0003230002-1 d3_0000060001-3] V_24:[] V_25:[] V_26:[d17_0012180014-17] V_27:[] V_28:[] V_29:[] V_30:[] V_31:[] V_32:[] V_33:[] V_34:[] V_35:[] V_36:[] V_37:[] V_38:[d2_0021080024-2 d4_0033520049-4 d1_0034500053-1 d1_0034500052-1] V_39:[] V_40:[] V_41:[] V_42:[] V_43:[] V_44:[] V_45:[] V_46:[d2_0033050047-2 p1_0055410069-1 d1_0055410069-1] V_47:[] V_48:[p1_0045450061-1 p1_0046130063-1 d1_0046130063-1 d1_0045450061-1] V_49:[p5_0007310008-1 p1_0027570040-1 d1_0027570040-1 d5_0007310008-5 d1_0007410009-1] V_50:[p1_0049300068-1 p2_0034010050-1 p1_0031100045-1 p1_0029470044-1 p2_0022000027-1 p1_0022000026-1 d1_0022000026-1 d2_0022000027-2 d1_0029470044-1 d1_0031100045-1 d2_0034010050-2 d1_0049300068-1 p1_0039270057-1 d1_0039270057-1 d5_0024470032-5]
+The fitness value after EA: 5.080000000000001
+
+Thoi gian thuc hien thuat toan:  119.83928155899048
+SUCCESS
+
+2025-09-30 05:25:27,388 [simulate_environment.py | 256] INFO: 2025-09-30 01:00:00, Item 0006280005-1: state = 1 < 2, we can not finish the simulation
+2025-09-30 05:25:27,389 [simulate_environment.py | 99] INFO: **************************************************
+2025-09-30 05:25:27,389 [simulate_environment.py | 103] INFO: cur time: 2025-09-30 01:10:00, pre time: 2025-09-30 01:00:00
+2025-09-30 05:25:27,389 [simulate_environment.py | 140] INFO: Start to update the input of 2025-09-30 01:10:00
+2025-09-30 05:25:27,390 [simulate_environment.py | 167] INFO: Get 57 unallocated order items, 88 ongoing order items, 0 completed order items

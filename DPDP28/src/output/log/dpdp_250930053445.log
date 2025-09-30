@@ -1,0 +1,5 @@
+2025-09-30 05:34:45,249 [main.py         | 48] INFO: Start to run instance_31
+2025-09-30 05:34:45,249 [simulate_api.py | 60] INFO: Start time of the simulator: 2025-09-30 00:00:00, time interval:  600.00
+2025-09-30 05:34:45,333 [input_utils.py  | 48] INFO: Get 154 factories
+2025-09-30 05:34:51,023 [input_utils.py  | 52] INFO: Get 23562 routes
+2025-09-30 05:34:51,158 [input_utils.py  | 57] INFO: Get 20 vehicles
