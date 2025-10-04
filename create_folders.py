@@ -1,7 +1,7 @@
 import os
 import shutil
 
-def create_dpdp_folders(n, base_dir=None, copy_from='DPDP1'):
+def create_dpdp_folders(n, base_dir=None, copy_from='DPDP21'):
     """
     Tạo n thư mục DPDP1, DPDP2, ..., DPDPn trong base_dir (mặc định là thư mục hiện tại).
     Các thư mục DPDP2...DPDPn sẽ sao chép toàn bộ nội dung từ copy_from (mặc định là DPDP1).
@@ -12,7 +12,7 @@ def create_dpdp_folders(n, base_dir=None, copy_from='DPDP1'):
     if not os.path.exists(src_path):
         print(f"Không tìm thấy thư mục nguồn: {src_path}")
         return
-    for i in range(2, n+1):
+    for i in range(22, n+1):
         folder_name = f"DPDP{i}"
         folder_path = os.path.join(base_dir, folder_name)
         if i == 1:
@@ -42,4 +42,4 @@ def remove_dpdp_folders(start, end, base_dir=None):
 
 # Ví dụ sử dụng:
 create_dpdp_folders(30)
-#remove_dpdp_folders(1, 30)
+#remove_dpdp_folders(12, 30)

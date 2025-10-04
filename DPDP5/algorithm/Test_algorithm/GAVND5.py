@@ -4,18 +4,21 @@ import algorithm.algorithm_config as config
 import random
 import time
 from algorithm.engine import *
-from algorithm.Test_algorithm.new_LS import *
 from collections import deque
 import hashlib
+import copy
 from algorithm.Test_algorithm.new_engine import *
 from algorithm.Test_algorithm.new_LS import *
+import contextlib
 
 
 def GAVND_5(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, Tuple], 
             id_to_vehicle: Dict[str, Vehicle], Unongoing_super_nodes: Dict[int, Dict[str, Node]], 
             Base_vehicleid_to_plan: Dict[str, List[Node]]) -> Chromosome:
     
-    population, PDG_map = new_generate_random_chromosome(initial_vehicleid_to_plan, route_map, id_to_vehicle, Unongoing_super_nodes, Base_vehicleid_to_plan, config.POPULATION_SIZE)
+
+    population, PDG_map = new_generate_random_chromosome(initial_vehicleid_to_plan, route_map, id_to_vehicle, Unongoing_super_nodes, Base_vehicleid_to_plan, 1)
+    
 
     if population is None:
         print('Cant initialize the population')
@@ -34,19 +37,34 @@ def GAVND_5(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
             print(f"TimeOut!! Elapsed: {elapsed_time:.1f}s")
             break
         
-        elite_count = max(1, int(config.POPULATION_SIZE * 0.2))
-        if elite_count > len(population):
-            elite_count = len(population)
+        elite_count = min(len(population), max(1, int(config.POPULATION_SIZE * 0.2)))
         new_population = population[:elite_count]
         
         # Tạo con (có giới hạn số lần thử để tránh vòng lặp vô hạn ở test nhỏ)
         target_size = config.POPULATION_SIZE
-        while len(new_population) < target_size :
+        max_attempts = (getattr(config, 'OFFSPRING_ATTEMPTS_FACTOR', 10) or 10) * max(1, target_size - len(new_population))
+        attempts = 0
+        while len(new_population) < target_size and not config.is_timeout():
+            attempts += 1
             parent1, parent2 = select_parents(population)
-            if not parent1 or not parent2 :
+            if not parent1 or not parent2:
+                # Fall back to cloning best if parent selection fails (very small population)
+                candidate = copy.deepcopy(population[0]) if population else None
+                if candidate:
+                    new_population.append(candidate)
                 continue
-            child = new_crossver2(parent1 , parent2 , Base_vehicleid_to_plan , PDG_map )
+            child = new_crossver2(parent1, parent2, Base_vehicleid_to_plan, PDG_map)
+            
             if child is None:
+                # If crossover repeatedly fails, use a safe fallback individual
+                if attempts >= max_attempts:
+                    # Fallback: clone a random elite and apply a light LS step to diversify
+                    base = copy.deepcopy(random.choice(new_population)) if new_population else copy.deepcopy(population[0])
+                    with contextlib.suppress(Exception):
+                        randon_1_LS(base, True, 1)
+                    new_population.append(base)
+                    # Reset attempts for the next child
+                    attempts = 0
                 continue
             new_population.append(child)
             
@@ -77,12 +95,12 @@ def GAVND_5(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
         else:
             stagnant_generations += 1
         
-        avg = sum([c.fitness for c in population]) / len(population)
+        avg = sum(c.fitness for c in population) / len(population)
         
         print(f'Generation {gen+1}: Best = {population[0].fitness:.2f}, '
-            f'Worst = {population[-1].fitness:.2f}, '
-            f'Avg = {avg:.2f}, '
-            f'Time: {time.time() - begin_gen_time}')
+              f'Worst = {population[-1].fitness:.2f}, '
+              f'Avg = {avg:.2f}, '
+              f'Time: {time.time() - begin_gen_time}')
 
         # Điều kiện dừng
         #  
@@ -115,7 +133,7 @@ def GAVND_5(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     for c in range (len(unique_population)):
         if mutate_count > int(len(population) * config.MUTATION_RATE) or mutate_count >= len(unique_population):
             break            
-        adaptive_LS_stategy(unique_population[c] , True , 1)
+        adaptive_LS_stategy(unique_population[c] , True , 1)        
         mutate_count +=1
     
     unique_population.sort(key=lambda x: x.fitness)
@@ -179,7 +197,7 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
     }
     
     # Counter cho từng phương pháp
-    counters = {name: 0 for name in methods.keys()}
+    counters = {name: 0 for name in methods}
     
     # Lấy thứ tự adaptive
     method_names = get_adaptive_order(indivisual , methods , mode=mode)
@@ -192,9 +210,7 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
         'mPDG': 0.0,
     }
     
-    while i < config.LS_MAX:
-        if config.is_timeout():
-            break
+    while i < config.LS_MAX and not config.is_timeout():
         
         ls_start = time.time()
         if methods[method_names[0]]():
@@ -245,7 +261,7 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
         indivisual.cant_improved = True
         break
 
-    for method_name in methods.keys():
+    for method_name in methods:
         indivisual.improved_LS_map[method_name] += counters[method_name]
     
     #  Enhanced logging with detailed timing information

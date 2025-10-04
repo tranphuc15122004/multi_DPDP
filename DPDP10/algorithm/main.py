@@ -35,9 +35,18 @@ def main():
     if over24hours(id_to_vehicle , new_order_itemIDs):
         redispatch_process(id_to_vehicle , route_map , vehicleid_to_plan , id_to_factory , id_to_unlocated_items)
     else:
-        dispatch_new_orders(vehicleid_to_plan , id_to_factory , route_map , id_to_vehicle , id_to_unlocated_items , new_order_itemIDs)
+        new_dispatch_new_orders(vehicleid_to_plan , id_to_factory , route_map , id_to_vehicle , id_to_unlocated_items , new_order_itemIDs)
     
-    Unongoing_super_nodes , Base_vehicleid_to_plan= get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    Unongoing_super_nodes , Base_vehicleid_to_plan = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    
+    best_chromosome = Chromosome(vehicleid_to_plan , route_map , id_to_vehicle)
+
+    try:
+        current_orders = max(0, len(Unongoing_super_nodes))
+        applied_params = Config.adaptive_config(current_orders, num_vehicles=len(id_to_vehicle))
+        print(f"Adaptive config applied: {applied_params}")
+    except Exception as e:
+        print(f"Adaptive config failed: {e}", file=sys.stderr)
     
     copy_vehicleid_to_plan = copy.deepcopy(vehicleid_to_plan)
     best_chromosome : Chromosome = GAVND_5(copy_vehicleid_to_plan , route_map , id_to_vehicle , Unongoing_super_nodes , Base_vehicleid_to_plan)

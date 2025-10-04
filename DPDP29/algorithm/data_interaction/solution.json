@@ -1,16 +1,18 @@
 {
-    "no.": "162",
-    "deltaT": "1630-1640",
-    "complete_order_items": [],
-    "onvehicle_order_items": "2338100097-1 2342570099-1",
+    "no.": "157",
+    "deltaT": "1580-1590",
+    "complete_order_items": [
+        "2339300099-1"
+    ],
+    "onvehicle_order_items": "2237480094-1 2304290097-1 2304290097-2 2304290097-3 2253360096-1 2353310100-1 2353310100-2 2353310100-3 2353310100-4 2353310100-5 2353310100-6 2314300098-1 2314300098-2",
     "ongoing_order_items": "",
     "unongoing_order_items": "",
     "unallocated_order_items": "",
     "new_order_items": [],
-    "used_time": 0.919170618057251,
-    "route_before": "V_1:[d1_2338100097-1] V_2:[] V_3:[] V_4:[p1_2342570099-1 d1_2342570099-1] V_5:[]",
-    "route_after": "V_1:[d1_2338100097-1] V_2:[] V_3:[] V_4:[d1_2342570099-1] V_5:[]",
-    "improved_in_cross": 3,
-    "improved_in_mutation": 74,
-    "improved_in_diver": 24
+    "used_time": 1.1821584701538086,
+    "route_before": "V_1:[d1_2237480094-1] V_2:[d1_2253360096-1] V_3:[d3_2304290097-3] V_4:[d1_2339300099-1 p2_2314300098-1 d2_2314300098-2] V_5:[d6_2353310100-6]",
+    "route_after": "V_1:[d1_2237480094-1] V_2:[d1_2253360096-1] V_3:[d3_2304290097-3] V_4:[d2_2314300098-2] V_5:[d6_2353310100-6]",
+    "improved_in_cross": 0,
+    "improved_in_mutation": 12,
+    "improved_in_diver": 9
 }

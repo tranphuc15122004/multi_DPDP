@@ -24,6 +24,8 @@ import platform
 import subprocess
 import sys
 import time
+import shlex
+import signal
 from importlib import import_module
 
 from src.common.node import Node
@@ -54,24 +56,25 @@ def get_algorithm_calling_command():
     for file in files:
         # 调度算法的入口文件必须以main_algorithm开头
         if file.startswith(Configs.ALGORITHM_ENTRY_FILE_NAME):
+            abs_path = os.path.join(Configs.root_folder_path, file)
             end_name = file.split('.')[-1]
             algorithm_language = Configs.ALGORITHM_LANGUAGE_MAP.get(end_name)
             if algorithm_language == 'python':
                 system = platform.system()
                 if system == 'Windows':
-                    return 'python {}'.format(file)
+                    return ['python', abs_path]
                 elif system == 'Linux':
-                    return 'python3 {}'.format(file)
+                    return ['python3', abs_path]
             elif algorithm_language == 'java':
-                return 'java {}'.format(file.split('.')[0])
+                return ['java', file.split('.')[0]]
             # c和c++调用方式一样，但系统不同调用方式有异
             elif algorithm_language == 'c':
                 system = platform.system()
                 if system == 'Windows':
-                    return file
+                    return [abs_path]
                 elif system == 'Linux':
-                    os.system(f'chmod 777 {file}')
-                    return './{}'.format(file)
+                    os.system(f'chmod 777 {abs_path}')
+                    return [abs_path]
     logger.error('Can not find main_algorithm file.')
     sys.exit(-1)
 
@@ -92,34 +95,71 @@ def get_algorithm_calling_command():
         sys.exit(-1) """
 
 def subprocess_function(cmd):
-    # Capture both stdout and stderr to provide complete logs back to simulator
-    # Force UTF-8 for child process stdio to avoid UnicodeEncodeError on Windows consoles
+    """Run algorithm as a child process robustly.
+    - Accepts either list argv or string command; if string, split safely.
+    - Launches without an intermediate shell (shell=False).
+    - Starts a new session so we can kill the whole process group on timeout.
+    - Kills the process group if timeout occurs to avoid orphaned children (e.g., python under a shell).
+    """
     env = os.environ.copy()
     env.setdefault('PYTHONIOENCODING', 'utf-8')
-    sub_process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, shell=True, env=env)
+    env.setdefault('PYTHONUNBUFFERED', '1')
+
+    # Normalize command to argv list
+    argv = cmd
+    if isinstance(cmd, str):
+        argv = shlex.split(cmd)
+
+    # Ensure working directory is the DPDP root so relative paths resolve
+    cwd = Configs.root_folder_path
+
+    # On POSIX, start_new_session=True makes child the leader of a new process group
+    sub_process = subprocess.Popen(
+        argv,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        shell=False,
+        env=env,
+        cwd=cwd,
+        start_new_session=True,
+    )
     try:
         start_time = time.time()
         stdout, stderr = sub_process.communicate(timeout=Configs.MAX_RUNTIME_OF_ALGORITHM)
         end_time = time.time()
-        # Be tolerant to encoding issues across platforms; keep ASCII like 'SUCCESS' intact
-        message = stdout.decode('utf-8', errors='replace') if isinstance(stdout, (bytes, bytearray)) else str(stdout)
-        return end_time - start_time, message 
-    
+        # Decode outputs
+        out_msg = stdout.decode('utf-8', errors='replace') if isinstance(stdout, (bytes, bytearray)) else str(stdout)
+        err_msg = stderr.decode('utf-8', errors='replace') if isinstance(stderr, (bytes, bytearray)) else ''
+        message = out_msg if out_msg else err_msg
+        return end_time - start_time, message
+
     except subprocess.TimeoutExpired:
-        print("Tiến trình chạy quá lâu, đang hủy...")
-        sub_process.terminate()  # Kết thúc tiến trình con an toàn
-        sub_process.wait()  # Đợi tiến trình con kết thúc hoàn toàn
+        print("Tiến trình chạy quá lâu, đang hủy toàn bộ nhóm tiến trình...")
+        try:
+            # Kill the whole process group started by this child
+            os.killpg(sub_process.pid, signal.SIGKILL)
+        except Exception:
+            sub_process.kill()
+        finally:
+            try:
+                stdout, stderr = sub_process.communicate(timeout=5)
+            except Exception:
+                pass
         return None, "Timeout"
 
     except Exception as e:
-        # Return error string as message so caller can log it
         return None, f"subprocess error: {e}"
 
     finally:
-        # Đảm bảo tiến trình không bị treo sau khi chạy
+        # Best-effort cleanup
         if sub_process.poll() is None:
-            print("Tiến trình con vẫn chưa kết thúc, đang kill...")
-            sub_process.kill()
+            try:
+                os.killpg(sub_process.pid, signal.SIGKILL)
+            except Exception:
+                try:
+                    sub_process.kill()
+                except Exception:
+                    pass
 
 
 
