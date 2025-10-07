@@ -7,13 +7,14 @@ from algorithm.engine import *
 from algorithm.Test_algorithm.new_engine import *
 from algorithm.Test_algorithm.new_LS import *
 from algorithm.Test_algorithm.GAVND5 import GAVND_5
-from algorithm.Test_algorithm.GAVND4 import GAVND_4
+from algorithm.Test_algorithm.GAVND6 import GAVND_6
 import algorithm.algorithm_config as Config
 from src.conf.configs import Configs
 import time
 
 
 input_directory = Configs.algorithm_data_interaction_folder_path
+
 
 def main():
     Config.set_begin_time()
@@ -40,16 +41,9 @@ def main():
     Unongoing_super_nodes , Base_vehicleid_to_plan = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
     
     best_chromosome = Chromosome(vehicleid_to_plan , route_map , id_to_vehicle)
-
-    try:
-        current_orders = max(0, len(Unongoing_super_nodes))
-        applied_params = Config.adaptive_config(current_orders, num_vehicles=len(id_to_vehicle))
-        print(f"Adaptive config applied: {applied_params}")
-    except Exception as e:
-        print(f"Adaptive config failed: {e}", file=sys.stderr)
     
     copy_vehicleid_to_plan = copy.deepcopy(vehicleid_to_plan)
-    best_chromosome : Chromosome = GAVND_5(copy_vehicleid_to_plan , route_map , id_to_vehicle , Unongoing_super_nodes , Base_vehicleid_to_plan)
+    best_chromosome : Chromosome = GAVND_6(copy_vehicleid_to_plan , route_map , id_to_vehicle , Unongoing_super_nodes , Base_vehicleid_to_plan)
     if best_chromosome is None or best_chromosome.fitness > total_cost(id_to_vehicle , route_map , vehicleid_to_plan):
         best_chromosome = Chromosome(vehicleid_to_plan , route_map , id_to_vehicle)
     

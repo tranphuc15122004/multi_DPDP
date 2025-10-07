@@ -199,6 +199,8 @@ def delaytime_for_each_node(id_to_vehicle: Dict[str , Vehicle] , route_map: Dict
     return delaytime_to_node
 
 def disturbance_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Dict[str , Vehicle] , route_map: Dict[tuple , tuple] , relocate_rate = 0.3):
+    begin = time.time()
+    
     new_vehicle_to_plan : Dict[str , List[Node]] = {}
     for VID , plan in vehicleid_to_plan.items():
         new_vehicle_to_plan[VID] = []
@@ -300,7 +302,161 @@ def disturbance_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Di
         # Sử dụng random_dispatch_nodePair để gán ngẫu nhiên cặp node
         random_dispatch_nodePair(node_list, id_to_vehicle, new_vehicle_to_plan)
     
+    
+    #print(time.time() - begin)
     return Chromosome(new_vehicle_to_plan , route_map , id_to_vehicle)
+
+def cheapest_insertion_for_block(node_block: List[Node],
+                                id_to_vehicle: Dict[str, Vehicle],
+                                vehicleid_to_plan: Dict[str, list[Node]],
+                                route_map: Dict[tuple, tuple],
+                                selected_vehicle: str = None):
+    """Append-at-end heuristic with cost evaluation, optimized to avoid deep copies.
+
+    We override only the target vehicle's route in the shared mapping temporarily when
+    calling cost_of_a_route, then restore it. This avoids copying the whole plan map.
+    """
+    minCost = math.inf
+    bestInsertPos = 0
+    bestInsertVehicleID: Optional[str] = None
+
+    for vehicleID, vehicle in id_to_vehicle.items():
+        if selected_vehicle is not None and vehicleID != selected_vehicle:
+            continue
+
+        vehicle_plan = vehicleid_to_plan.get(vehicleID) or []
+        tempRouteNodeList = vehicle_plan + node_block  # append at end
+        carrying_items = vehicle.carrying_items if vehicle.des else []
+        if not isFeasible(tempRouteNodeList, carrying_items, vehicle.board_capacity):
+            continue
+        # Temporarily override this vehicle's route
+        tmp_cost = cost_of_a_route(tempRouteNodeList, vehicle, id_to_vehicle, route_map, vehicleid_to_plan)
+        
+        if tmp_cost < minCost:
+            minCost = tmp_cost
+            bestInsertPos = len(vehicle_plan)
+            bestInsertVehicleID = vehicleID
+
+    return bestInsertPos, bestInsertVehicleID
+
+def disturbance_opt_insert_best(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Dict[str , Vehicle] , route_map: Dict[tuple , tuple] , relocate_rate = 0.3):
+    begin  = time.time()
+    
+    new_vehicle_to_plan : Dict[str , List[Node]] = {}
+    for VID , plan in vehicleid_to_plan.items():
+        new_vehicle_to_plan[VID] = []
+        for node in plan:
+            new_vehicle_to_plan[VID].append(copy.deepcopy(node))
+            
+    dis_order_super_node,  _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    ls_node_pair_num = len(dis_order_super_node)
+    if ls_node_pair_num == 0:
+        return None
+    
+    pdg_Map : Dict[str , List[Node]] = {}
+    
+    for idx, pdg in dis_order_super_node.items():
+        pickup_node = None
+        delivery_node = None
+        node_list: List[Node] = []
+        pos_i = 0
+        pos_j = 0
+        d_num = len(pdg) // 2
+        index = 0
+
+        if pdg:
+            for v_and_pos_str, node in pdg.items():
+                if index % 2 == 0:
+                    vehicleID = v_and_pos_str.split(",")[0]
+                    pos_i = int(v_and_pos_str.split(",")[1])
+                    pickup_node = node
+                    node_list.insert(0, pickup_node)
+                    index += 1
+                else:
+                    pos_j = int(v_and_pos_str.split(",")[1])
+                    delivery_node = node
+                    node_list.append(delivery_node)
+                    index += 1
+                    pos_j = pos_j - d_num + 1
+
+            k : str = f"{vehicleID},{int(pos_i)}+{int(pos_j)}"
+            pdg_Map[k] = node_list
+            
+    if len(pdg_Map) < 2:
+        return None
+
+    num_pairs_to_relocate = max(1, int(len(pdg_Map) * relocate_rate))
+    pairs_to_relocate = random.sample(list(pdg_Map.keys()), num_pairs_to_relocate)
+    
+    # Lưu trữ các cặp node sẽ được gán lại
+    relocated_pairs : Dict[str, List[Node]] = {}
+    
+    # Nhóm các cặp node cần xóa theo xe
+    vehicle_removal_info : Dict[str, List[tuple]] = {}
+    
+    for key in pairs_to_relocate:
+        relocated_pairs[key] = pdg_Map[key]
+        
+        # Lấy thông tin vị trí và xe
+        vehicle_pos_info = key.split(',')
+        vehicle_id = vehicle_pos_info[0]
+        positions = vehicle_pos_info[1].split('+')
+        pos_i = int(positions[0])
+        pos_j = int(positions[1])
+        
+        node_list = pdg_Map[key]
+        d_num = len(node_list) // 2
+        
+        # Thêm thông tin xóa vào dictionary theo xe
+        if vehicle_id not in vehicle_removal_info:
+            vehicle_removal_info[vehicle_id] = []
+        vehicle_removal_info[vehicle_id].append((pos_i, pos_i + d_num, pos_j, pos_j + d_num))
+    
+    # Xây dựng lời giải sau khi bỏ những cặp sẽ được gán lại
+    for vehicle_id, removal_list in vehicle_removal_info.items():
+        route_node_list = new_vehicle_to_plan.get(vehicle_id, [])
+        
+        # Thu thập tất cả các chỉ số cần xóa
+        indices_to_remove = set()
+        for pos_i_start, pos_i_end, pos_j_start, pos_j_end in removal_list:
+            # Thêm chỉ số pickup nodes
+            for idx in range(pos_i_start, pos_i_end):
+                if idx < len(route_node_list):
+                    indices_to_remove.add(idx)
+            # Thêm chỉ số delivery nodes
+            for idx in range(pos_j_start, pos_j_end):
+                if idx < len(route_node_list):
+                    indices_to_remove.add(idx)
+        
+        # Sắp xếp chỉ số theo thứ tự giảm dần để xóa từ cuối lên đầu
+        sorted_indices = sorted(indices_to_remove, reverse=True)
+        
+        # Xóa các node theo thứ tự từ cuối lên đầu
+        for idx in sorted_indices:
+            if idx < len(route_node_list):
+                del route_node_list[idx]
+        
+        new_vehicle_to_plan[vehicle_id] = route_node_list
+    
+    # Gán lại các cặp node đã đánh dấu một cách ngẫu nhiên vào tuyến đường
+    for key, node_list in relocated_pairs.items():
+        if random.random() < 0.25:
+            if node_list:
+                bestInsertPos, bestInsertVehicle = cheapest_insertion_for_block(node_list, id_to_vehicle, new_vehicle_to_plan, route_map)
+                
+            if bestInsertVehicle is None:
+                print(f"[fix error] reinsert abandon block | insertion failed -> stopping")
+                continue
+            target_route = new_vehicle_to_plan[bestInsertVehicle]
+            target_route[bestInsertPos: bestInsertPos] = node_list
+        
+        else:
+            random_dispatch_nodePair(node_list, id_to_vehicle, new_vehicle_to_plan)
+        
+    
+    #print(time.time() - begin)
+    return Chromosome(new_vehicle_to_plan , route_map , id_to_vehicle)
+
 
 def new_inter_couple_exchange(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Dict[str , Vehicle] , route_map: Dict[tuple , tuple] , limit_time : float , is_limited : bool = False ):    
     # Kiểm tra timeout toàn cục và khởi tạo thời gian bắt đầu cho giới hạn cục bộ

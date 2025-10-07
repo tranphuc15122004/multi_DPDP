@@ -16,10 +16,16 @@ def GAVND_5(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
             id_to_vehicle: Dict[str, Vehicle], Unongoing_super_nodes: Dict[int, Dict[str, Node]], 
             Base_vehicleid_to_plan: Dict[str, List[Node]]) -> Chromosome:
     
+    try:
+        current_orders = max(0, len(Unongoing_super_nodes))
+        applied_params = config.adaptive_config(current_orders, num_vehicles=len(id_to_vehicle))
+        print(f"Adaptive config applied: {applied_params}")
+    except Exception as e:
+        print(f"Adaptive config failed: {e}", file=sys.stderr)
+    
 
     population, PDG_map = new_generate_random_chromosome(initial_vehicleid_to_plan, route_map, id_to_vehicle, Unongoing_super_nodes, Base_vehicleid_to_plan, 1)
     
-
     if population is None:
         print('Cant initialize the population')
         return None
@@ -29,6 +35,7 @@ def GAVND_5(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     best_solution = population[0]
     # Elite size
     
+        
     for gen in range(config.NUMBER_OF_GENERATION):
         # Kiểm tra timeout
         begin_gen_time = time.time()
@@ -133,7 +140,8 @@ def GAVND_5(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     for c in range (len(unique_population)):
         if mutate_count > int(len(population) * config.MUTATION_RATE) or mutate_count >= len(unique_population):
             break            
-        adaptive_LS_stategy(unique_population[c] , True , 1)        
+        adaptive_LS_stategy(unique_population[c] , True , 1)
+        
         mutate_count +=1
     
     unique_population.sort(key=lambda x: x.fitness)
@@ -162,7 +170,7 @@ def select_parents(population: List[Chromosome]) -> Tuple[Chromosome, Chromosome
             return population[0]
         candidates = random.sample(population, tournament_size)
         return min(candidates, key=lambda x: x.fitness)
-
+    
     # Kết hợp cả 2 phương pháp
     # If population extremely small, allow duplicates gracefully
     p1 = tournament_selection()

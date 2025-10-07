@@ -386,7 +386,7 @@ def remove_similar_individuals(population: List[Chromosome], threshold: float = 
         
         for unique_individual in unique_population:
             distance = calculate_chromosome_distance(individual, unique_individual)
-            if distance < threshold:
+            if distance <= threshold:
                 # Giữ cá thể có fitness tốt hơn
                 if individual.fitness < unique_individual.fitness:
                     unique_population.remove(unique_individual)
@@ -1662,7 +1662,7 @@ def new_crossver2(parent1: Chromosome , parent2: Chromosome , Base_vehicleid_to_
 
 
     # ========= Khởi tạo biến điều khiển vòng lặp =========
-    DEBUG = True  # set True to enable verbose logging
+    DEBUG = False  # set True to enable verbose logging
     start_time = time.time()
     iteration = 0
     stagnation = 0  # số vòng không thu thêm signature mới
@@ -2180,3 +2180,106 @@ def fix_duppication_nodes2 (inidividual : Chromosome ,   PDG_map: Dict[str , Lis
                 target_route[bestInsertPos: bestInsertPos] = node_list
 
         return False
+    
+    
+
+def decrease_node_num(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Dict[str , Vehicle] , route_map: Dict[tuple , tuple] , num_nodes = 0):
+    
+    new_vehicle_to_plan : Dict[str , List[Node]] = {}
+    for VID , plan in vehicleid_to_plan.items():
+        new_vehicle_to_plan[VID] = []
+        for node in plan:
+            new_vehicle_to_plan[VID].append(copy.deepcopy(node))
+            
+    dis_order_super_node,  _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    ls_node_pair_num = len(dis_order_super_node)
+    if ls_node_pair_num == 0:
+        return None
+    
+    pdg_Map : Dict[str , List[Node]] = {}
+    
+    for idx, pdg in dis_order_super_node.items():
+        pickup_node = None
+        delivery_node = None
+        node_list: List[Node] = []
+        pos_i = 0
+        pos_j = 0
+        d_num = len(pdg) // 2
+        index = 0
+
+        if pdg:
+            for v_and_pos_str, node in pdg.items():
+                if index % 2 == 0:
+                    vehicleID = v_and_pos_str.split(",")[0]
+                    pos_i = int(v_and_pos_str.split(",")[1])
+                    pickup_node = node
+                    node_list.insert(0, pickup_node)
+                    index += 1
+                else:
+                    pos_j = int(v_and_pos_str.split(",")[1])
+                    delivery_node = node
+                    node_list.append(delivery_node)
+                    index += 1
+                    pos_j = pos_j - d_num + 1
+
+            k : str = f"{vehicleID},{int(pos_i)}+{int(pos_j)}"
+            pdg_Map[k] = node_list
+            
+    if len(pdg_Map) < 2:
+        return None
+
+    num_pairs_to_relocate = max(1, int(len(pdg_Map) - (num_nodes )))
+    pairs_to_relocate = random.sample(list(pdg_Map.keys()), num_pairs_to_relocate)
+    
+    # Lưu trữ các cặp node sẽ được gán lại
+    relocated_pairs : Dict[str, List[Node]] = {}
+    
+    # Nhóm các cặp node cần xóa theo xe
+    vehicle_removal_info : Dict[str, List[tuple]] = {}
+    
+    for key in pairs_to_relocate:
+        relocated_pairs[key] = pdg_Map[key]
+        
+        # Lấy thông tin vị trí và xe
+        vehicle_pos_info = key.split(',')
+        vehicle_id = vehicle_pos_info[0]
+        positions = vehicle_pos_info[1].split('+')
+        pos_i = int(positions[0])
+        pos_j = int(positions[1])
+        
+        node_list = pdg_Map[key]
+        d_num = len(node_list) // 2
+        
+        # Thêm thông tin xóa vào dictionary theo xe
+        if vehicle_id not in vehicle_removal_info:
+            vehicle_removal_info[vehicle_id] = []
+        vehicle_removal_info[vehicle_id].append((pos_i, pos_i + d_num, pos_j, pos_j + d_num))
+    
+    # Xây dựng lời giải sau khi bỏ những cặp sẽ được gán lại
+    for vehicle_id, removal_list in vehicle_removal_info.items():
+        route_node_list = new_vehicle_to_plan.get(vehicle_id, [])
+        
+        # Thu thập tất cả các chỉ số cần xóa
+        indices_to_remove = set()
+        for pos_i_start, pos_i_end, pos_j_start, pos_j_end in removal_list:
+            # Thêm chỉ số pickup nodes
+            for idx in range(pos_i_start, pos_i_end):
+                if idx < len(route_node_list):
+                    indices_to_remove.add(idx)
+            # Thêm chỉ số delivery nodes
+            for idx in range(pos_j_start, pos_j_end):
+                if idx < len(route_node_list):
+                    indices_to_remove.add(idx)
+        
+        # Sắp xếp chỉ số theo thứ tự giảm dần để xóa từ cuối lên đầu
+        sorted_indices = sorted(indices_to_remove, reverse=True)
+        
+        # Xóa các node theo thứ tự từ cuối lên đầu
+        for idx in sorted_indices:
+            if idx < len(route_node_list):
+                del route_node_list[idx]
+        
+        new_vehicle_to_plan[vehicle_id] = route_node_list    
+    
+    #print(time.time() - begin)
+    return new_vehicle_to_plan

@@ -31,7 +31,7 @@ def get_remaining_time() -> float:
 """GA configuration"""
 POPULATION_SIZE = 40
 NUMBER_OF_GENERATION = 20
-MUTATION_RATE = 0.1
+MUTATION_RATE = 0.25
 LS_MAX = 20
 IMPROVED_IN_CROSS = 0
 IMPROVED_IN_MUTATION = 0
@@ -59,10 +59,10 @@ def adaptive_config(num_orders: int, num_vehicles: int | None = None, time_budge
     global POPULATION_SIZE
 
     # Define ranges
-    min_orders, max_orders = 20, 100
+    min_orders, max_orders = 20, 80
     max_pop, min_pop = 40, 10
-    min_mut, max_mut = 0.1 , 0.4
-    min_ls, max_ls = 20 , 100
+    min_mut, max_mut = 0.1, 0.4
+    min_ls, max_ls = 20, 100
 
     # Clamp and interpolate linearly
     if num_orders <= min_orders:
