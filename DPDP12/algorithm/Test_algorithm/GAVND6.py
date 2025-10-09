@@ -21,8 +21,8 @@ def adaptive_local_configs(num_order: int, num_vehicles: int):
     """Compute and assign global CROSSOVER_TYPE_RATIO using adaptive module."""
     global CROSSOVER_TYPE_RATIO
     params = AdaptiveRatioParams(
-        threshold_orders=150,
-        kww_beta=0.7,
+        threshold_orders=100,
+        kww_beta=3,
         kww_tau_factor=10.0,
         min_ratio=0.0,
         max_ratio=1.0,
