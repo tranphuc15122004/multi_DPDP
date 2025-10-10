@@ -13,6 +13,7 @@ from algorithm.Test_algorithm.adaptive_ratio import (
     AdaptiveRatioParams,
     compute_adaptive_ratio,
     params_from_config,
+    compute_adaptive_ratio_erfc
 )
 
 
@@ -21,7 +22,7 @@ def adaptive_local_configs(num_order: int, num_vehicles: int):
     """Compute and assign global CROSSOVER_TYPE_RATIO using adaptive module."""
     global CROSSOVER_TYPE_RATIO
     params = AdaptiveRatioParams(
-        threshold_orders=100,
+        threshold_orders=80,
         kww_beta=3,
         kww_tau_factor=10.0,
         min_ratio=0.0,
@@ -31,7 +32,8 @@ def adaptive_local_configs(num_order: int, num_vehicles: int):
         logistic_slope=10,
         early_shape=0.7,
     )
-    info = compute_adaptive_ratio(num_orders=num_order, num_vehicles=num_vehicles, p=params)
+    #info = compute_adaptive_ratio(num_orders=num_order, num_vehicles=num_vehicles, p=params)
+    info = compute_adaptive_ratio_erfc(num_orders= num_order , num_vehicles=num_vehicles , p = params , center= 0.5 , width= 0.2)
     CROSSOVER_TYPE_RATIO = info['ratio']
     # Return full diagnostics for logging if needed by caller
     return info
@@ -161,6 +163,8 @@ def GAVND_6(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     
     # Giai doan 2
     unique_population = remove_similar_individuals(population, threshold=0.0)
+    unique_population.sort(key=lambda x: x.fitness)
+    
     
     mutate_count = 0
     for c in range (len(unique_population)):

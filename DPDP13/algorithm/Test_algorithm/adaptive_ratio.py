@@ -293,14 +293,25 @@ def compute_adaptive_ratio_erfc(
     sigma = max(1e-6, float(width))
     mu = float(center)
 
-    # erfc(x) = 1 - erf(x). Use math.erfc if available (Python 3.8+)
-    try:
-        z = (prog - mu) / (sigma * math.sqrt(2.0))
-        base_raw = 0.5 * math.erfc(z)
-    except AttributeError:
-        # Fallback via erf if erfc missing
-        z = (prog - mu) / (sigma * math.sqrt(2.0))
-        base_raw = 0.5 * (1.0 - math.erf(z))
+    # Helper for ERFC value at a given progress
+    def erfc_val(pv: float) -> float:
+        zloc = (pv - mu) / (sigma * math.sqrt(2.0))
+        try:
+            return 0.5 * math.erfc(zloc)
+        except AttributeError:
+            return 0.5 * (1.0 - math.erf(zloc))
+
+    # Raw values at endpoints and current progress
+    raw_start = erfc_val(0.0)
+    raw_end = erfc_val(1.0)
+    raw_prog = erfc_val(prog)
+
+    # Normalize so that base_raw(0)=1 and base_raw(1)=0
+    denom = raw_start - raw_end
+    if abs(denom) < 1e-12:
+        base_raw = 0.0  # degenerate width -> fallback flat
+    else:
+        base_raw = (raw_prog - raw_end) / denom
 
     base_raw = max(0.0, min(1.0, base_raw))
     base = base_raw
@@ -313,6 +324,7 @@ def compute_adaptive_ratio_erfc(
 
     return {
         'mode': 'erfc',
+        'raw_prog' : raw_prog,
         'ratio': ratio,
         'ratio_pre': ratio_pre,
         'base': base,
