@@ -245,6 +245,7 @@ def disturbance_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Di
         return None
 
     num_pairs_to_relocate = max(1, int(len(pdg_Map) * relocate_rate))
+    num_pairs_to_relocate = min(num_pairs_to_relocate , 100)
     pairs_to_relocate = random.sample(list(pdg_Map.keys()), num_pairs_to_relocate)
     
     # Lưu trữ các cặp node sẽ được gán lại
