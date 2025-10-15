@@ -245,7 +245,6 @@ def disturbance_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Di
         return None
 
     num_pairs_to_relocate = max(1, int(len(pdg_Map) * relocate_rate))
-    num_pairs_to_relocate = min(num_pairs_to_relocate , 100)
     pairs_to_relocate = random.sample(list(pdg_Map.keys()), num_pairs_to_relocate)
     
     # Lưu trữ các cặp node sẽ được gán lại
@@ -463,6 +462,7 @@ def new_inter_couple_exchange(vehicleid_to_plan: Dict[str , List[Node]], id_to_v
     # Kiểm tra timeout toàn cục và khởi tạo thời gian bắt đầu cho giới hạn cục bộ
     if config.is_timeout():
         return False
+    
     op_start_time = time.time()
     
     is_improved = False

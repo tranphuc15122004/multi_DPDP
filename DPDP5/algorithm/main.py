@@ -6,8 +6,9 @@ from algorithm.Object import Chromosome
 from algorithm.engine import *
 from algorithm.Test_algorithm.new_engine import *
 from algorithm.Test_algorithm.new_LS import *
-from algorithm.Test_algorithm.GAVND5 import GAVND_5
 from algorithm.Test_algorithm.GAVND6 import GAVND_6
+from algorithm.Test_algorithm.GAVND7 import GAVND_7
+
 import algorithm.algorithm_config as Config
 from src.conf.configs import Configs
 import time
@@ -32,26 +33,30 @@ def main():
     #Thuat toan
     print()
     
-    #new_dispatch_new_orders(vehicleid_to_plan , id_to_factory , route_map , id_to_vehicle , id_to_unlocated_items , new_order_itemIDs)
+    #worse_dispatch_new_orders(vehicleid_to_plan , id_to_factory , route_map , id_to_vehicle , id_to_unlocated_items , new_order_itemIDs)
     if over24hours(id_to_vehicle , new_order_itemIDs):
         redispatch_process(id_to_vehicle , route_map , vehicleid_to_plan , id_to_factory , id_to_unlocated_items)
     else:
         new_dispatch_new_orders(vehicleid_to_plan , id_to_factory , route_map , id_to_vehicle , id_to_unlocated_items , new_order_itemIDs)
     
-    Unongoing_super_nodes , Base_vehicleid_to_plan = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    """ Unongoing_super_nodes , Base_vehicleid_to_plan = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
     
     best_chromosome = Chromosome(vehicleid_to_plan , route_map , id_to_vehicle)
     
     copy_vehicleid_to_plan = copy.deepcopy(vehicleid_to_plan)
-    best_chromosome : Chromosome = GAVND_6(copy_vehicleid_to_plan , route_map , id_to_vehicle , Unongoing_super_nodes , Base_vehicleid_to_plan)
+    best_chromosome : Chromosome = GAVND_7(copy_vehicleid_to_plan , route_map , id_to_vehicle , Unongoing_super_nodes , Base_vehicleid_to_plan)
     if best_chromosome is None or best_chromosome.fitness > total_cost(id_to_vehicle , route_map , vehicleid_to_plan):
-        best_chromosome = Chromosome(vehicleid_to_plan , route_map , id_to_vehicle)
+        best_chromosome = Chromosome(vehicleid_to_plan , route_map , id_to_vehicle) """
     
+    copy_vehicleid_to_plan = copy.deepcopy(vehicleid_to_plan)
+    best_chromosome = Chromosome(copy_vehicleid_to_plan , route_map , id_to_vehicle)
+    gold_algorithm_LS(best_chromosome , False)
     
     print()
     print('The solution initialized by Cheapest Insertion:')
     print(get_route_after(vehicleid_to_plan , {}))
     print(f'The fitness value before EA: {total_cost(id_to_vehicle , route_map , vehicleid_to_plan)}')
+    
     print(get_route_after(best_chromosome.solution , {}))
     print(f'The fitness value after EA: {best_chromosome.fitness}')
     print()

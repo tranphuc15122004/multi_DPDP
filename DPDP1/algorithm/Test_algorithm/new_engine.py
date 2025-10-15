@@ -125,6 +125,85 @@ def new_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_f
     
     return all_exhautive            
 
+
+
+def worse_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_factory:Dict[str , Factory] , route_map: Dict[tuple , tuple] ,  id_to_vehicle: Dict[str , Vehicle] , id_to_unlocated_items:Dict[str , OrderItem], new_order_itemIDs: list[str]):
+    all_exhautive = True
+    
+    if new_order_itemIDs:
+        orderId_to_Item : Dict[str , list[OrderItem]] = {}
+        for new_order_item in new_order_itemIDs:
+            new_item = id_to_unlocated_items.get(new_order_item)
+            orderID  = new_item.order_id
+            if orderID not in orderId_to_Item:
+                orderId_to_Item[orderID] = []
+            orderId_to_Item.get(orderID).append(new_item)
+        
+        for vehicle in id_to_vehicle.values():
+            capacity = vehicle.board_capacity
+            break
+        
+        for orderID , orderID_items in orderId_to_Item.items():
+            order_demand = 0
+            for item in orderID_items:
+                order_demand += item.demand
+            
+            if order_demand > capacity:
+                tmp_demand = 0
+                tmp_itemList: list[OrderItem] = []
+                
+                for item in orderID_items:
+                    if (tmp_demand + item.demand) > capacity:
+                        for plan in vehicleid_to_plan.values():
+                            if len(plan) >= 6: all_exhautive = False
+                        
+                        
+                        node_list: list[Node] = create_Pickup_Delivery_nodes(tmp_itemList , id_to_factory)
+                        
+                        if node_list:
+                            bestInsertPos, bestInsertVehicle = cheapest_insertion_for_block(node_list, id_to_vehicle, vehicleid_to_plan, route_map)
+                            
+                        if bestInsertVehicle is None:
+                            print(f"[new_crossver2] reinsert abandon block | insertion failed -> stopping", file=sys.stderr)
+                            break
+                        target_route = vehicleid_to_plan[bestInsertVehicle]
+                        target_route[bestInsertPos: bestInsertPos] = node_list
+                        
+                        tmp_itemList.clear()
+                        tmp_demand = 0
+                    tmp_itemList.append(item)
+                    tmp_demand += item.demand 
+
+                if len(tmp_itemList) > 0:
+                    for plan in vehicleid_to_plan.values():
+                        if len(plan) >= 6: all_exhautive = False
+                    
+                    node_list: list[Node] = create_Pickup_Delivery_nodes(tmp_itemList , id_to_factory)
+                    if node_list:
+                        bestInsertPos, bestInsertVehicle = cheapest_insertion_for_block(node_list, id_to_vehicle, vehicleid_to_plan, route_map)
+                        
+                    if bestInsertVehicle is None:
+                        print(f"[new_crossver2] reinsert abandon block | insertion failed -> stopping", file=sys.stderr)
+                        break
+                    target_route = vehicleid_to_plan[bestInsertVehicle]
+                    target_route[bestInsertPos: bestInsertPos] = node_list
+            else:
+                for plan in vehicleid_to_plan.values():
+                    if len(plan) >= 6: all_exhautive = False
+                
+                node_list: list[Node] = create_Pickup_Delivery_nodes(orderID_items , id_to_factory)
+                if node_list:
+                    bestInsertPos, bestInsertVehicle = cheapest_insertion_for_block(node_list, id_to_vehicle, vehicleid_to_plan, route_map)
+                    
+                if bestInsertVehicle is None:
+                    print(f"[new_crossver2] reinsert abandon block | insertion failed -> stopping", file=sys.stderr)
+                    break
+                target_route = vehicleid_to_plan[bestInsertVehicle]
+                target_route[bestInsertPos: bestInsertPos] = node_list
+    
+    return all_exhautive   
+
+
 def generate_random_chromosome(initial_vehicleid_to_plan : Dict[str , List[Node]],  route_map: Dict[Tuple, Tuple], id_to_vehicle: Dict[str, Vehicle], Unongoing_super_nodes : Dict[int , Dict[str, Node]]  ,Base_vehicleid_to_plan : Dict[str , List[Node]] , quantity : int):
     ls_node_pair_num = len(Unongoing_super_nodes)
     if ls_node_pair_num == 0:
@@ -2283,3 +2362,73 @@ def decrease_node_num(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: 
     
     #print(time.time() - begin)
     return new_vehicle_to_plan
+
+
+def gold_algorithm_LS(indivisual : Chromosome , is_limited = False):
+    n1 , n2 , n3 , n4, n5 = 0 ,0 ,0 ,0 ,0
+
+    # Keep best snapshot to ensure final committed solution reflects best improvements
+    def _copy_solution(sol: Dict[str, List[Node]]) -> Dict[str, List[Node]]:
+        return {vid: route[:] for vid, route in sol.items()}
+    best_cost = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
+    best_snapshot = _copy_solution(indivisual.solution)
+
+    while True:
+        if config.is_timeout():
+            break
+
+        if new_inter_couple_exchange(indivisual.solution , indivisual.id_to_vehicle , indivisual.route_map , math.inf , is_limited):
+            n1 +=1
+            cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
+            if cur < best_cost:
+                best_cost = cur
+                best_snapshot = _copy_solution(indivisual.solution)
+            continue
+        
+        if config.is_timeout():
+            break
+        
+        if new_block_exchange(indivisual.solution , indivisual.id_to_vehicle , indivisual.route_map, math.inf , is_limited):
+            n2 +=1
+            cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
+            if cur < best_cost:
+                best_cost = cur
+                best_snapshot = _copy_solution(indivisual.solution)
+            continue
+
+        if config.is_timeout():
+            break
+
+        if new_block_relocate(indivisual.solution , indivisual.id_to_vehicle , indivisual.route_map, math.inf , is_limited):
+            n3 +=1
+            cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
+            if cur < best_cost:
+                best_cost = cur
+                best_snapshot = _copy_solution(indivisual.solution)
+            continue
+
+        if config.is_timeout():
+            break
+
+        if new_multi_pd_group_relocate(indivisual.solution , indivisual.id_to_vehicle , indivisual.route_map, math.inf , is_limited):
+            n4 +=1
+            cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
+            if cur < best_cost:
+                best_cost = cur
+                best_snapshot = _copy_solution(indivisual.solution)
+            if config.is_timeout():
+                break
+        else:
+            print(f"PDPairExchange:{n1}; BlockExchange:{n2}; BlockRelocate:{n3}; mPDG:{n4}; cost:{total_cost(indivisual.id_to_vehicle , indivisual.route_map , indivisual.solution ):.2f}"  )
+            n1 , n2 , n3 , n4, n5 = 0 ,0 ,0 ,0 ,0
+            if not improve_ci_path_by_2_opt(indivisual.solution , indivisual.id_to_vehicle , indivisual.route_map , is_limited):
+                indivisual.solution = best_snapshot
+                break
+        
+        break
+
+    # Ensure best snapshot is committed upon exit
+    indivisual.solution = best_snapshot
+    
+    #print(f"PDPairExchange:{n1}; BlockExchange:{n2}; BlockRelocate:{n3}; mPDG:{n4}; cost:{total_cost(indivisual.id_to_vehicle , indivisual.route_map , indivisual.solution ):.2f}" )
+

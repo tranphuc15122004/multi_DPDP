@@ -59,8 +59,9 @@ def GAVND_6(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     best_solution: Chromosome = None
     stagnant_generations = 0
     population.sort(key=lambda x: x.fitness)
-    best_solution = population[0]
+    best_solution =  copy.deepcopy(population[0])
     
+    begin_GA_time = time.time()
     for gen in range(config.NUMBER_OF_GENERATION):
         # Kiểm tra timeout
         begin_gen_time = time.time()
@@ -160,6 +161,8 @@ def GAVND_6(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     final_time = time.time()
     total_runtime = final_time - config.BEGIN_TIME
     print(f"Total runtime: {total_runtime:.2f}s ({total_runtime/60:.1f} minutes)" )
+    print(f"Total GA runtime: {final_time - begin_GA_time:.2f}s ({(final_time - begin_GA_time)/60:.1f} minutes)" )
+    
     
     # Giai doan 2
     unique_population = remove_similar_individuals(population, threshold=0.0)
@@ -169,8 +172,9 @@ def GAVND_6(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     mutate_count = 0
     for c in range (len(unique_population)):
         if mutate_count > int(len(population) * config.MUTATION_RATE) or mutate_count >= len(unique_population):
-            break            
-        adaptive_LS_stategy(unique_population[c] , True , 1)
+            break
+        
+        adaptive_LS_stategy(unique_population[c] , False , 1)
         mutate_count +=1
     
     unique_population.sort(key=lambda x: x.fitness)
@@ -234,6 +238,12 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
         'BlockRelocate': 0.0,
         'mPDG': 0.0,
     }
+
+    # Best snapshot latch to ensure we commit the best solution found during LS
+    def _copy_solution(sol: Dict[str, List[Node]]) -> Dict[str, List[Node]]:
+        return {vid: route[:] for vid, route in sol.items()}
+    best_cost = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
+    best_snapshot = _copy_solution(indivisual.solution)
     
     while not config.is_timeout():
         
@@ -242,6 +252,11 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
             ls_timings[method_names[0]] += time.time() - ls_start
             i += 1
             counters[method_names[0]] += 1
+            # Latch best if improved
+            cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
+            if cur < best_cost:
+                best_cost = cur
+                best_snapshot = _copy_solution(indivisual.solution)
             continue
         
         if config.is_timeout():
@@ -252,6 +267,10 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
             ls_timings[method_names[1]] += time.time() - ls_start
             i += 1
             counters[method_names[1]] += 1
+            cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
+            if cur < best_cost:
+                best_cost = cur
+                best_snapshot = _copy_solution(indivisual.solution)
             continue
 
         ls_timings[method_names[1]] += time.time() - ls_start
@@ -264,6 +283,10 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
             ls_timings[method_names[2]] += time.time() - ls_start
             i += 1
             counters[method_names[2]] += 1
+            cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
+            if cur < best_cost:
+                best_cost = cur
+                best_snapshot = _copy_solution(indivisual.solution)
             continue
 
         ls_timings[method_names[2]] += time.time() - ls_start
@@ -276,6 +299,10 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
             ls_timings[method_names[3]] += time.time() - ls_start
             i += 1
             counters[method_names[3]] += 1
+            cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
+            if cur < best_cost:
+                best_cost = cur
+                best_snapshot = _copy_solution(indivisual.solution)
             continue
 
         ls_timings[method_names[3]] += time.time() - ls_start
@@ -283,8 +310,10 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
         if config.is_timeout():
             break
         
-        indivisual.cant_improved = True
         break
+
+    # Commit the best snapshot found during LS
+    indivisual.solution = best_snapshot
 
     for method_name in methods:
         indivisual.improved_LS_map[method_name] += counters[method_name]

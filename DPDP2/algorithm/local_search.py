@@ -849,11 +849,9 @@ def improve_ci_path_by_2_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_ve
         
         begin_pos = 1 if vehicle.des else 0
         is_route_improved = False
-        original_cost = cost_of_a_route(route_node_list, vehicle, id_to_vehicle, route_map, vehicleid_to_plan)
-        min_cost = original_cost  
+        min_cost = math.inf  
         
         REV : List[List[bool]] = CHECK(route_node_list , begin_pos)
-        min_cost_delta = math.inf
         
         for i in range(begin_pos, route_node_len - 3):
             # Kiểm tra timeout trong vòng lặp ngoài
@@ -889,7 +887,7 @@ def improve_ci_path_by_2_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_ve
                                 print("tried case 1 improved", file= sys.stderr  )
                                 min_cost = cost
                                 best_node_list = temp_route_node_list[:]
-                                is_route_improved = True
+                                
                     elif pos_k <= j:
                         break
                 
@@ -915,7 +913,6 @@ def improve_ci_path_by_2_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_ve
                             print("tried case 2 improved" , file= sys.stderr )
                             min_cost = cost
                             best_node_list = temp_route_node_list[:]
-                            is_route_improved = True
                 
                 if k >= j:
                     continue
@@ -939,14 +936,17 @@ def improve_ci_path_by_2_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_ve
                         print("tried case 4 improved", file= sys.stderr  )
                         min_cost = cost
                         best_node_list = temp_route_node_list[:]
-                        is_route_improved = True
                 
                 #dung som neu tim dc cach dao tot hon
                 if is_route_improved and is_limited:
                     break
             
             if is_route_improved and is_limited:
-                    break
+                break
+        
+        if min_cost < cost0 + config.addDelta:
+            is_improved = True
+            is_route_improved = True
         
         if is_route_improved and best_node_list is not None:
             vehicleid_to_plan[vehicleID] = best_node_list
