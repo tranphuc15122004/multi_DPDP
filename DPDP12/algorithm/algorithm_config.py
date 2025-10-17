@@ -12,6 +12,7 @@ addDelta = 300000.0
 LS_METHODS = ['PDPairExchange', 'BlockExchange', 'BlockRelocate', 'mPDG', '2opt']
 BEGIN_TIME = 0
 ALGO_TIME_LIMIT = 9*60+30
+DELAY_DISPATCH = True
 
 
 def set_begin_time():
@@ -37,12 +38,13 @@ IMPROVED_IN_CROSS = 0
 IMPROVED_IN_MUTATION = 0
 IMPROVED_IN_DIVER = 0
 """Per local search time limit (seconds). Each LS operator should stop when exceeding this budget."""
-LS_MAX_TIME_PER_OP = 3  # seconds (adjustable)
+LS_MAX_TIME_PER_OP = 8  # seconds (adjustable)
 LS_MAX_TIME_IN_SINGLE = 1
 
 # GA defensive guards
 # Max attempts factor for producing offspring per missing child in a generation (used to avoid infinite loops)
 OFFSPRING_ATTEMPTS_FACTOR = 10
+
 
 def adaptive_config(num_orders: int, num_vehicles: int | None = None, time_budget_sec: float | None = None) -> dict:
     """Adapt GA configuration based on current workload.

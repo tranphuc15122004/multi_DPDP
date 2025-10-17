@@ -883,6 +883,7 @@ def improve_ci_path_by_2_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_ve
                                 continue
                             
                             cost = cost_of_a_route(temp_route_node_list, vehicle , id_to_vehicle ,route_map , vehicleid_to_plan)
+                            print(cost)
                             if cost < min_cost:
                                 print("tried case 1 improved", file= sys.stderr  )
                                 min_cost = cost
@@ -908,7 +909,7 @@ def improve_ci_path_by_2_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_ve
                             continue
                         
                         cost = cost_of_a_route(temp_route_node_list, vehicle , id_to_vehicle , route_map , vehicleid_to_plan)
-                        
+                        print(cost)
                         if cost < min_cost:
                             print("tried case 2 improved" , file= sys.stderr )
                             min_cost = cost
@@ -931,7 +932,7 @@ def improve_ci_path_by_2_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_ve
                         continue
                     
                     cost = cost_of_a_route(temp_route_node_list, vehicle , id_to_vehicle , route_map , vehicleid_to_plan)
-                    
+                    print(cost)
                     if cost < min_cost:
                         print("tried case 4 improved", file= sys.stderr  )
                         min_cost = cost
@@ -958,4 +959,5 @@ def improve_ci_path_by_2_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_ve
             print('Timeout at 2opt !!!!!!!!!!' , file= sys.stderr)
             return is_improved
     
+    print(is_improved)
     return is_improved

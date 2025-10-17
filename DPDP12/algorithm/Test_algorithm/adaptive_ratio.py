@@ -323,6 +323,7 @@ def compute_adaptive_ratio_erfc(
     ratio = max(0.0, min(1.0, ratio))
 
     return {
+        'num_orders' : num_orders,
         'mode': 'erfc',
         'raw_prog' : raw_prog,
         'ratio': ratio,

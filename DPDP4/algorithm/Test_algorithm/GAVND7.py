@@ -16,6 +16,8 @@ from algorithm.Test_algorithm.adaptive_ratio import (
     compute_adaptive_ratio_erfc
 )
 
+def _copy_solution(sol: Dict[str, List[Node]]) -> Dict[str, List[Node]]:
+    return {vid: route[:] for vid, route in sol.items()}
 
 CROSSOVER_TYPE_RATIO = 0.0  # Global adaptive ratio between crossover (new_crossver2) and disturbance_opt
 def adaptive_local_configs(num_order: int, num_vehicles: int):
@@ -106,7 +108,8 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
             population.append(child)
         
         population.sort(key= lambda x: x.fitness)
-        population : List[Chromosome] = population[:config.POPULATION_SIZE]
+        new_populution : List[Chromosome] = population[:config.POPULATION_SIZE]
+        population = new_populution
         
         if config.is_timeout():
             break
@@ -128,7 +131,8 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
         
         # Cập nhật best solution
         if best_solution is None or population[0].fitness < best_solution.fitness:
-            best_solution = copy.deepcopy(population[0])
+            new_best_solution = _copy_solution(population[0].solution)
+            best_solution = Chromosome(new_best_solution , route_map , id_to_vehicle)
             stagnant_generations = 0
         else:
             stagnant_generations += 1
@@ -136,9 +140,9 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
         avg = sum(c.fitness for c in population) / len(population)
         
         print(f'Generation {gen+1}: Best = {population[0].fitness:.2f}, '
-              f'Worst = {population[-1].fitness:.2f}, '
-              f'Avg = {avg:.2f}, '
-              f'Time: {time.time() - begin_gen_time}')
+                f'Worst = {population[-1].fitness:.2f}, '
+                f'Avg = {avg:.2f}, '
+                f'Time: {time.time() - begin_gen_time}')
 
         # Điều kiện dừng
         #  
@@ -146,19 +150,13 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
             print("Stopping early due to lack of improvement.")
             break
 
-        # Time check - Điều chỉnh
         gen_end_time = time.time()
         
-        # Tính tổng thời gian đã sử dụng
         elapsed_time = gen_end_time - config.BEGIN_TIME
-        
-        # Ước tính thời gian cần cho generation tiếp theo
-        avg_gen_time = elapsed_time / (gen + 1)
-        estimated_next_gen_time = avg_gen_time
         
         # Kiểm tra timeout
         if elapsed_time  > config.ALGO_TIME_LIMIT:
-            print(f"TimeOut!! Elapsed: {elapsed_time:.1f}s, Estimated next gen: {estimated_next_gen_time:.1f}s")
+            print(f"TimeOut!! Elapsed: {elapsed_time:.1f}s")
             break
     final_time = time.time()
     total_runtime = final_time - config.BEGIN_TIME
@@ -167,18 +165,23 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     
     
     # Giai doan 2
+    population.append(root_solution)
     unique_population = remove_similar_individuals(population, threshold=0.0)
     unique_population.sort(key=lambda x: x.fitness)
-    unique_population.insert(0 , root_solution)
+    unique_population = [ini for ini in unique_population if ini.fitness < best_solution.fitness  + config.addDelta]
     
     
     mutate_count = 0
-    for c in range (len(unique_population)):
+    while not config.is_timeout():
+        
         if mutate_count > int(len(population) * config.MUTATION_RATE) or mutate_count >= len(unique_population):
             break
         
-        adaptive_LS_stategy(unique_population[c] , False , 1)
-        mutate_count +=1
+        if unique_population[mutate_count % len(unique_population)].fitness > unique_population[0].fitness + config.addDelta: break
+        
+        adaptive_LS_stategy(unique_population[mutate_count % len(unique_population)] , False , 1)
+        
+        mutate_count += 1
     
     unique_population.sort(key=lambda x: x.fitness)
     if unique_population[0].fitness < best_solution.fitness: config.IMPROVED_IN_DIVER += 1
@@ -218,14 +221,14 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
     if config.is_timeout():
         return False
     
-    i = 1
+    i = 0
     
     # Dictionary các phương pháp Local Search
     methods = {
-        'PDPairExchange': lambda: new_inter_couple_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf,  is_limited),
-        'BlockExchange': lambda: new_block_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf, is_limited),
-        'BlockRelocate': lambda: new_block_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf, is_limited),
-        'mPDG': lambda: new_multi_pd_group_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf, is_limited)
+        'PDPairExchange': lambda: new_inter_couple_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, config.LS_MAX_TIME_PER_OP,  is_limited),
+        'BlockExchange': lambda: new_block_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, config.LS_MAX_TIME_PER_OP, is_limited),
+        'BlockRelocate': lambda: new_block_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, config.LS_MAX_TIME_PER_OP, is_limited),
+        'mPDG': lambda: new_multi_pd_group_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, config.LS_MAX_TIME_PER_OP, is_limited)
     }
     
     # Counter cho từng phương pháp
@@ -243,12 +246,11 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
     }
 
     # Best snapshot latch to ensure we commit the best solution found during LS
-    def _copy_solution(sol: Dict[str, List[Node]]) -> Dict[str, List[Node]]:
-        return {vid: route[:] for vid, route in sol.items()}
+    
     best_cost = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
     best_snapshot = _copy_solution(indivisual.solution)
     
-    while not config.is_timeout():
+    while i < LS_MAX or  not config.is_timeout():
         
         ls_start = time.time()
         if methods[method_names[0]]():
