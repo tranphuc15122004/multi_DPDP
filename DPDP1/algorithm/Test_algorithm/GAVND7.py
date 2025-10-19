@@ -92,7 +92,7 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
             if random.uniform(0 , 1) < CROSSOVER_TYPE_RATIO:
                 child = new_crossver2(parent1, parent2, Base_vehicleid_to_plan, PDG_map)
             else:
-                child = disturbance_opt(parent1.solution , id_to_vehicle , route_map , 0.5)
+                child = disturbance_opt(parent1.solution , id_to_vehicle , route_map , 0.4)
             
             if child is None:
                 # If crossover repeatedly fails, use a safe fallback individual
@@ -146,7 +146,7 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
 
         # Điều kiện dừng
         #  
-        if stagnant_generations >= 5 or avg == population[0].fitness:
+        if stagnant_generations >= 3 or avg == population[0].fitness:
             print("Stopping early due to lack of improvement.")
             break
 
@@ -169,16 +169,14 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     unique_population = remove_similar_individuals(population, threshold=0.0)
     unique_population.sort(key=lambda x: x.fitness)
     unique_population = [ini for ini in unique_population if ini.fitness < best_solution.fitness  + config.addDelta]
+    if len(unique_population) > len(population) * config.MUTATION_RATE:
+        unique_population = unique_population[:int(len(population) * config.MUTATION_RATE)]
     
     
     mutate_count = 0
     while not config.is_timeout():
-        
-        if mutate_count > int(len(population) * config.MUTATION_RATE) or mutate_count >= len(unique_population):
-            break
-        
-        if unique_population[mutate_count % len(unique_population)].fitness > unique_population[0].fitness + config.addDelta: break
-        
+        if mutate_count >= len(unique_population): break
+                
         adaptive_LS_stategy(unique_population[mutate_count % len(unique_population)] , False , 1)
         
         mutate_count += 1
@@ -225,10 +223,10 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
     
     # Dictionary các phương pháp Local Search
     methods = {
-        'PDPairExchange': lambda: new_inter_couple_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, config.LS_MAX_TIME_PER_OP,  is_limited),
-        'BlockExchange': lambda: new_block_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, config.LS_MAX_TIME_PER_OP, is_limited),
-        'BlockRelocate': lambda: new_block_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, config.LS_MAX_TIME_PER_OP, is_limited),
-        'mPDG': lambda: new_multi_pd_group_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, config.LS_MAX_TIME_PER_OP, is_limited)
+        'PDPairExchange': lambda: new_inter_couple_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf,  is_limited),
+        'BlockExchange': lambda: new_block_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf, is_limited),
+        'BlockRelocate': lambda: new_block_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf, is_limited),
+        'mPDG': lambda: new_multi_pd_group_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf, is_limited)
     }
     
     # Counter cho từng phương pháp
@@ -250,7 +248,7 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
     best_cost = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
     best_snapshot = _copy_solution(indivisual.solution)
     
-    while i < LS_MAX or  not config.is_timeout():
+    while not config.is_timeout():
         
         ls_start = time.time()
         if methods[method_names[0]]():
