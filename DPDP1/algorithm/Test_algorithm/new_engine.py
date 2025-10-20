@@ -50,8 +50,8 @@ def new_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_f
                         route_node_list : List[Node] = []
                         
                         if node_list:
-                            #isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
-                            isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = new_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
+                            isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
+                            #isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = new_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
                         
                         route_node_list = vehicleid_to_plan.get(bestInsertVehicleID , [])
 
@@ -82,8 +82,8 @@ def new_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_f
                     isExhausive = False
                     
                     if node_list:
-                        #isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList =  dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan, route_map)
-                        isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = new_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
+                        isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList =  dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan, route_map)
+                        #isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = new_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
                     route_node_list : List[Node] = vehicleid_to_plan.get(bestInsertVehicleID , [])
                     
                     if isExhausive:
@@ -108,8 +108,8 @@ def new_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_f
                 
                 isExhausive = False
                 if node_list:
-                    #isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
-                    isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = new_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
+                    isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
+                    #isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = new_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
                 route_node_list : List[Node] = vehicleid_to_plan.get(bestInsertVehicleID , [])
                 if isExhausive:
                     route_node_list = bestNodeList[:]
@@ -2632,18 +2632,19 @@ def gold_algorithm_LS(indivisual : Chromosome , is_limited = False):
                 best_snapshot = _copy_solution(indivisual.solution)
             if config.is_timeout():
                 break
-        else:
+        break
+        """ else:
             print(f"PDPairExchange:{n1}; BlockExchange:{n2}; BlockRelocate:{n3}; mPDG:{n4}; cost:{total_cost(indivisual.id_to_vehicle , indivisual.route_map , indivisual.solution ):.2f}"  )
             n1 , n2 , n3 , n4, n5 = 0 ,0 ,0 ,0 ,0
             if not improve_ci_path_by_2_opt(indivisual.solution , indivisual.id_to_vehicle , indivisual.route_map , is_limited):
                 indivisual.solution = best_snapshot
-                break
+                break """
 
 
     # Ensure best snapshot is committed upon exit
     indivisual.solution = best_snapshot
     
-    #print(f"PDPairExchange:{n1}; BlockExchange:{n2}; BlockRelocate:{n3}; mPDG:{n4}; cost:{total_cost(indivisual.id_to_vehicle , indivisual.route_map , indivisual.solution ):.2f}" )
+    print(f"PDPairExchange:{n1}; BlockExchange:{n2}; BlockRelocate:{n3}; mPDG:{n4}; cost:{total_cost(indivisual.id_to_vehicle , indivisual.route_map , indivisual.solution ):.2f}" )
 
 
 
@@ -2935,3 +2936,5 @@ def write_route_json_to_file_with_delay_time(vehicleid_to_plan: Dict[str, list[N
             json.dump(result_json, file, ensure_ascii=False, indent=4)
     except IOError as e:
         print(f"Lỗi khi ghi file JSON: {e}", file = sys.stderr)
+
+

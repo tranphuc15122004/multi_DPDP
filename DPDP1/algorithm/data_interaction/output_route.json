@@ -3,11 +3,11 @@
     "V_2": [],
     "V_3": [
         {
-            "factory_id": "f6faef4b36e743328800b961aced4a2c",
-            "lng": 116.6346,
-            "lat": 40.2301,
+            "factory_id": "5e2e9efa5ade4984bb18af66028bc0c8",
+            "lng": 116.6191,
+            "lat": 40.2128,
             "delivery_item_list": [
-                "0010370001-1"
+                "0221280003-1"
             ],
             "pickup_item_list": [],
             "arrive_time": 0,
@@ -15,19 +15,5 @@
         }
     ],
     "V_4": [],
-    "V_5": [
-        {
-            "factory_id": "3ad35edbd14b4dae8e5808d0b7e82a1a",
-            "lng": 116.6244,
-            "lat": 40.2163,
-            "delivery_item_list": [
-                "0012530002-3",
-                "0012530002-2",
-                "0012530002-1"
-            ],
-            "pickup_item_list": [],
-            "arrive_time": 0,
-            "leave_time": 0
-        }
-    ]
+    "V_5": []
 }

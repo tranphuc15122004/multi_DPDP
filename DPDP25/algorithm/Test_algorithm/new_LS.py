@@ -9,6 +9,72 @@ import algorithm.algorithm_config as config
 from algorithm.engine import *
 from algorithm.local_search import * 
 
+def new_get_UnongoingSuperNode (vehicleid_to_plan: Dict[str , List[Node]] , id_to_vehicle: Dict[str , Vehicle] ) -> Dict[int , Dict[str, Node]] :
+    UnongoingSuperNodes : Dict[int , Dict[str , Node]] = {}
+    
+    NodePairNum = 0 
+    # xet từng kế hoạch di chuyển của phương tiện
+    for vehicleID , vehicle_plan in vehicleid_to_plan.items():
+        vehicle = id_to_vehicle[vehicleID]
+            
+        if vehicle_plan and len(vehicle_plan) > 0:
+            index = 1 if vehicle.des else 0
+            
+            # Để duy trì tính FILO 
+            pickup_node_heap : List[Node] = []
+            p_node_idx_heap : List[int] = []
+            p_and_d_node_map : Dict[str , Node] = {}
+            before_p_factory_id , before_d_factory_id = None , None
+            before_p_node_idx , before_d_node_idx = 0 , 0
+                        
+            # đối với mỗi node của phương tiện
+            for i in range (index , len(vehicle_plan)):
+                curr = vehicle_plan[i]
+                if curr.delivery_item_list  and curr.pickup_item_list :
+                    print ("Exits combine node exception when Local search" , file= sys.stderr)
+                
+                heapTopOrderItemId = pickup_node_heap[0].pickup_item_list[0].id if pickup_node_heap else ""
+                
+                # Nếu node hiện tại là node giao
+                if curr.delivery_item_list:
+                    # Nó là node giao của node nhận đầu tiên trong heap
+                    if curr.delivery_item_list[-1].id == heapTopOrderItemId:
+                        pickup_node_key = f"{vehicleID},{p_node_idx_heap[0]}"
+                        delivery_node_key = f"{vehicleID},{int(i)}"
+                
+                        if len(p_and_d_node_map) >= 2:
+                            if ((pickup_node_heap[0].id != before_p_factory_id) or (p_node_idx_heap[0] + 1 != before_p_node_idx) or (curr.id != before_d_factory_id) or (i - 1 != before_d_node_idx)):
+                                UnongoingSuperNodes[NodePairNum] = p_and_d_node_map
+                                NodePairNum += 1
+                                p_and_d_node_map : Dict[str , Node] = {}
+
+                        p_and_d_node_map[pickup_node_key] = pickup_node_heap[0]
+                        p_and_d_node_map[delivery_node_key] = curr
+
+                        before_p_factory_id = pickup_node_heap[0].id
+                        before_p_node_idx = p_node_idx_heap[0]
+                        before_d_factory_id = curr.id
+                        before_d_node_idx = i
+                        pickup_node_heap.pop(0)
+                        p_node_idx_heap.pop(0)
+                
+                # Nếu node hiện tại là node nhận
+                if curr.pickup_item_list:
+                    pickup_node_heap.insert(0 , curr)
+                    p_node_idx_heap.insert(0 , i)
+                    if p_and_d_node_map:
+                        UnongoingSuperNodes[NodePairNum] = p_and_d_node_map
+                        NodePairNum += 1
+                        p_and_d_node_map : Dict[str , Node] = {}
+            
+            if len(p_and_d_node_map) >= 2:
+                UnongoingSuperNodes[NodePairNum] = p_and_d_node_map
+                NodePairNum += 1
+                p_and_d_node_map : Dict[str , Node] = {}
+                
+
+    return UnongoingSuperNodes
+
 def _route_node_coverage_signature(vehicleid_to_plan: Dict[str, List[Node]]) -> Dict[int, int]:
     """Build a multiset signature of Node object identities across all routes.
     Using object identity is robust for move-only LS operators to detect dup/miss.
@@ -467,7 +533,8 @@ def new_inter_couple_exchange(vehicleid_to_plan: Dict[str , List[Node]], id_to_v
     
     is_improved = False
 
-    dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    #dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
     
     ls_node_pair_num = len(dis_order_super_node)
     
@@ -661,7 +728,8 @@ def new_block_exchange(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle:
     op_start_time = time.time()
     
     is_improved = False
-    dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    #dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
     
     ls_node_pair_num = len(dis_order_super_node)
     if ls_node_pair_num == 0:
@@ -879,7 +947,8 @@ def new_block_relocate(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle:
     op_start_time = time.time()
     
     is_improved = False
-    dis_order_super_node ,_ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    #dis_order_super_node ,_ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
     
     ls_node_pair_num = len(dis_order_super_node)
     if ls_node_pair_num == 0:
@@ -1020,8 +1089,10 @@ def new_multi_pd_group_relocate(vehicleid_to_plan: Dict[str , List[Node]], id_to
         cp_vehicle_id2_planned_route[key] = []
         for node in value:
             cp_vehicle_id2_planned_route[key].append(node)
-    #cp_vehicle_id2_planned_route = copy.deepcopy(vehicleid_to_plan)
-    dis_order_super_node,  _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+
+    #dis_order_super_node,  _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+
     ls_node_pair_num = len(dis_order_super_node)
     if ls_node_pair_num == 0:
         return False

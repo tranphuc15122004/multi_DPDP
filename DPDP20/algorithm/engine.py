@@ -1277,7 +1277,6 @@ def get_UnongoingSuperNode (vehicleid_to_plan: Dict[str , List[Node]] , id_to_ve
                                 while p_and_d_node_map:
                                     temp = dict(list(p_and_d_node_map.items())[:2])
                                     UnongoingSuperNodes[NodePairNum] = temp
-                                    #print(UnongoingSuperNodes, file = sys.stderr)
                                     NodePairNum += 1
                                     for key in temp.keys():
                                         del p_and_d_node_map[key]

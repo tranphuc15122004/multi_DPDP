@@ -145,8 +145,7 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
                 f'Time: {time.time() - begin_gen_time}')
 
         # Điều kiện dừng
-        #  
-        if stagnant_generations >= 3 or avg == population[0].fitness:
+        if stagnant_generations >= 4 or avg == population[0].fitness:
             print("Stopping early due to lack of improvement.")
             break
 
@@ -169,14 +168,16 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     unique_population = remove_similar_individuals(population, threshold=0.0)
     unique_population.sort(key=lambda x: x.fitness)
     unique_population = [ini for ini in unique_population if ini.fitness < best_solution.fitness  + config.addDelta]
-    if len(unique_population) > len(population) * config.MUTATION_RATE:
-        unique_population = unique_population[:int(len(population) * config.MUTATION_RATE)]
     
     
     mutate_count = 0
     while not config.is_timeout():
-        if mutate_count >= len(unique_population): break
-                
+        
+        if mutate_count > int(len(population) * config.MUTATION_RATE) or mutate_count >= len(unique_population):
+            break
+        
+        if unique_population[mutate_count % len(unique_population)].fitness > unique_population[0].fitness + config.addDelta: break
+        
         adaptive_LS_stategy(unique_population[mutate_count % len(unique_population)] , False , 1)
         
         mutate_count += 1
