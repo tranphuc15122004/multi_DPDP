@@ -533,8 +533,17 @@ def new_inter_couple_exchange(vehicleid_to_plan: Dict[str , List[Node]], id_to_v
     
     is_improved = False
 
-    #dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
-    dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    dis_order_super_node = {}
+    if config.USE_ADAPTIVE_ORDER_DISCRIMINATE:
+        if config.CROSSOVER_TYPE_RATIO <= 0:
+            dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+        else:
+            dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+        
+    else:
+        dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    print(len(dis_order_super_node))
+    
     
     ls_node_pair_num = len(dis_order_super_node)
     
@@ -728,8 +737,18 @@ def new_block_exchange(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle:
     op_start_time = time.time()
     
     is_improved = False
-    #dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
-    dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+
+    dis_order_super_node = {}
+    if config.USE_ADAPTIVE_ORDER_DISCRIMINATE:
+        if config.CROSSOVER_TYPE_RATIO <= 0:
+            dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+        else:
+            dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+        
+    else:
+        dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    print(len(dis_order_super_node))
+    
     
     ls_node_pair_num = len(dis_order_super_node)
     if ls_node_pair_num == 0:
@@ -947,8 +966,18 @@ def new_block_relocate(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle:
     op_start_time = time.time()
     
     is_improved = False
-    #dis_order_super_node ,_ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
-    dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    
+    dis_order_super_node = {}
+    if config.USE_ADAPTIVE_ORDER_DISCRIMINATE:
+        if config.CROSSOVER_TYPE_RATIO <= 0:
+            dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+        else:
+            dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+        
+    else:
+        dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    print(len(dis_order_super_node))
+    
     
     ls_node_pair_num = len(dis_order_super_node)
     if ls_node_pair_num == 0:
@@ -1090,8 +1119,16 @@ def new_multi_pd_group_relocate(vehicleid_to_plan: Dict[str , List[Node]], id_to
         for node in value:
             cp_vehicle_id2_planned_route[key].append(node)
 
-    #dis_order_super_node,  _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
-    dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    dis_order_super_node = {}
+    if config.USE_ADAPTIVE_ORDER_DISCRIMINATE:
+        if config.CROSSOVER_TYPE_RATIO <= 0:
+            dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+        else:
+            dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+        
+    else:
+        dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    print(len(dis_order_super_node))
 
     ls_node_pair_num = len(dis_order_super_node)
     if ls_node_pair_num == 0:
@@ -1134,7 +1171,6 @@ def new_multi_pd_group_relocate(vehicleid_to_plan: Dict[str , List[Node]], id_to
             pdg_hash_map : Dict[str , List[Node]] = {k: node_list}
             formal_super_node[idx] = pdg_hash_map
             new_formal_super_node[idx] = pdg_hash_map
-        
         
         route_node_list : List[Node] = cp_vehicle_id2_planned_route.get(vehicle_id , [])
         vehicle = id_to_vehicle.get(vehicle_id)

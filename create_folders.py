@@ -41,5 +41,5 @@ def remove_dpdp_folders(start, end, base_dir=None):
             print(f"Không tồn tại: {folder_path}")
 
 # Ví dụ sử dụng:
-create_dpdp_folders(30)
+create_dpdp_folders(40)
 #remove_dpdp_folders(1, 30)

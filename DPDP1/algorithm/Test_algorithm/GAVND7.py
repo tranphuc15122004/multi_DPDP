@@ -19,10 +19,7 @@ from algorithm.Test_algorithm.adaptive_ratio import (
 def _copy_solution(sol: Dict[str, List[Node]]) -> Dict[str, List[Node]]:
     return {vid: route[:] for vid, route in sol.items()}
 
-CROSSOVER_TYPE_RATIO = 0.0  # Global adaptive ratio between crossover (new_crossver2) and disturbance_opt
 def adaptive_local_configs(num_order: int, num_vehicles: int):
-    """Compute and assign global CROSSOVER_TYPE_RATIO using adaptive module."""
-    global CROSSOVER_TYPE_RATIO
     params = AdaptiveRatioParams(
         threshold_orders=80,
         kww_beta=3,
@@ -36,7 +33,7 @@ def adaptive_local_configs(num_order: int, num_vehicles: int):
     )
     #info = compute_adaptive_ratio(num_orders=num_order, num_vehicles=num_vehicles, p=params)
     info = compute_adaptive_ratio_erfc(num_orders= num_order , num_vehicles=num_vehicles , p = params , center= 0.5 , width= 0.2)
-    CROSSOVER_TYPE_RATIO = info['ratio']
+    config.CROSSOVER_TYPE_RATIO = info['ratio']
     # Return full diagnostics for logging if needed by caller
     return info
 
@@ -89,10 +86,10 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
                     population.append(candidate)
                 continue
             
-            if random.uniform(0 , 1) < CROSSOVER_TYPE_RATIO:
+            if random.uniform(0 , 1) < config.CROSSOVER_TYPE_RATIO:
                 child = new_crossver2(parent1, parent2, Base_vehicleid_to_plan, PDG_map)
             else:
-                child = disturbance_opt(parent1.solution , id_to_vehicle , route_map , 0.4)
+                child = disturbance_opt(parent1.solution , id_to_vehicle , route_map , 0.5)
             
             if child is None:
                 # If crossover repeatedly fails, use a safe fallback individual
@@ -148,7 +145,7 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
         if stagnant_generations >= 4 or avg == population[0].fitness:
             print("Stopping early due to lack of improvement.")
             break
-
+        
         gen_end_time = time.time()
         
         elapsed_time = gen_end_time - config.BEGIN_TIME
@@ -178,7 +175,7 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
         
         if unique_population[mutate_count % len(unique_population)].fitness > unique_population[0].fitness + config.addDelta: break
         
-        adaptive_LS_stategy(unique_population[mutate_count % len(unique_population)] , False , 1)
+        adaptive_LS_stategy(unique_population[mutate_count] , False , 1)
         
         mutate_count += 1
     

@@ -194,6 +194,8 @@ def inter_couple_exchange(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehic
     is_improved = False
 
     dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    #dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    
     
     ls_node_pair_num = len(dis_order_super_node)
     
@@ -370,7 +372,9 @@ def block_exchange(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Dic
         return False
     
     is_improved = False
-    dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    #dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    
     vehicleid_to_delay = delaytime_for_each_node(id_to_vehicle , route_map , vehicleid_to_plan)
     
     ls_node_pair_num = len(dis_order_super_node)
@@ -572,7 +576,9 @@ def block_relocate(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Dic
         return False
     
     is_improved = False
-    dis_order_super_node ,_ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    #dis_order_super_node ,_ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    
     vehicleid_to_delay = delaytime_for_each_node(id_to_vehicle , route_map , vehicleid_to_plan)
     
     ls_node_pair_num = len(dis_order_super_node)
@@ -698,7 +704,9 @@ def multi_pd_group_relocate(vehicleid_to_plan: Dict[str , List[Node]], id_to_veh
         for node in value:
             cp_vehicle_id2_planned_route[key].append(node)
     #cp_vehicle_id2_planned_route = copy.deepcopy(vehicleid_to_plan)
-    dis_order_super_node,  _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    #dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    
     ls_node_pair_num = len(dis_order_super_node)
     if ls_node_pair_num == 0:
         return False

@@ -2590,7 +2590,8 @@ def gold_algorithm_LS(indivisual : Chromosome , is_limited = False):
     while True:
         if config.is_timeout():
             break
-
+        
+        begin = time.time()
         if new_inter_couple_exchange(indivisual.solution , indivisual.id_to_vehicle , indivisual.route_map , math.inf , is_limited):
             n1 +=1
             cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
@@ -2598,10 +2599,12 @@ def gold_algorithm_LS(indivisual : Chromosome , is_limited = False):
                 best_cost = cur
                 best_snapshot = _copy_solution(indivisual.solution)
             continue
+        print(time.time() - begin)
         
         if config.is_timeout():
             break
         
+        begin = time.time()
         if new_block_exchange(indivisual.solution , indivisual.id_to_vehicle , indivisual.route_map, math.inf , is_limited):
             n2 +=1
             cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
@@ -2609,10 +2612,12 @@ def gold_algorithm_LS(indivisual : Chromosome , is_limited = False):
                 best_cost = cur
                 best_snapshot = _copy_solution(indivisual.solution)
             continue
+        print(time.time() - begin)
 
         if config.is_timeout():
             break
 
+        begin  = time.time()
         if new_block_relocate(indivisual.solution , indivisual.id_to_vehicle , indivisual.route_map, math.inf , is_limited):
             n3 +=1
             cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
@@ -2620,10 +2625,14 @@ def gold_algorithm_LS(indivisual : Chromosome , is_limited = False):
                 best_cost = cur
                 best_snapshot = _copy_solution(indivisual.solution)
             continue
+        print(time.time() - begin)
+        
 
         if config.is_timeout():
             break
 
+        begin  = time.time()
+        
         if new_multi_pd_group_relocate(indivisual.solution , indivisual.id_to_vehicle , indivisual.route_map, math.inf , is_limited):
             n4 +=1
             cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
@@ -2632,6 +2641,7 @@ def gold_algorithm_LS(indivisual : Chromosome , is_limited = False):
                 best_snapshot = _copy_solution(indivisual.solution)
             if config.is_timeout():
                 break
+            print(time.time() - begin)
         break
         """ else:
             print(f"PDPairExchange:{n1}; BlockExchange:{n2}; BlockRelocate:{n3}; mPDG:{n4}; cost:{total_cost(indivisual.id_to_vehicle , indivisual.route_map , indivisual.solution ):.2f}"  )
@@ -2640,13 +2650,9 @@ def gold_algorithm_LS(indivisual : Chromosome , is_limited = False):
                 indivisual.solution = best_snapshot
                 break """
 
-
     # Ensure best snapshot is committed upon exit
     indivisual.solution = best_snapshot
-    
-    print(f"PDPairExchange:{n1}; BlockExchange:{n2}; BlockRelocate:{n3}; mPDG:{n4}; cost:{total_cost(indivisual.id_to_vehicle , indivisual.route_map , indivisual.solution ):.2f}" )
-
-
+    print(f"PDPairExchange:{n1}; BlockExchange:{n2}; BlockRelocate:{n3}; mPDG:{n4}; cost:{total_cost(indivisual.id_to_vehicle , indivisual.route_map , indivisual.solution ):.2f}"  )
 
 def Delaydispatch(id_to_vehicle: Dict[str , Vehicle], vehicleid_to_plan: Dict[str, list[Node]] , route_map: Dict[tuple , tuple]):
     vehicle_num = len(id_to_vehicle)

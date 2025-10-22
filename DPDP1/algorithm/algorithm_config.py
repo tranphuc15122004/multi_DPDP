@@ -12,7 +12,9 @@ addDelta = 300000.0
 LS_METHODS = ['PDPairExchange', 'BlockExchange', 'BlockRelocate', 'mPDG', '2opt']
 BEGIN_TIME = 0
 ALGO_TIME_LIMIT = 9*60+30
-DELAY_DISPATCH = True
+DELAY_DISPATCH = False
+CROSSOVER_TYPE_RATIO = 0.0  
+USE_ADAPTIVE_ORDER_DISCRIMINATE = True
 
 
 def set_begin_time():
