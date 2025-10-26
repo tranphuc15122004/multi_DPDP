@@ -42,4 +42,4 @@ def remove_dpdp_folders(start, end, base_dir=None):
 
 # Ví dụ sử dụng:
 create_dpdp_folders(40)
-#remove_dpdp_folders(1, 30)
+#remove_dpdp_folders(1, 40)

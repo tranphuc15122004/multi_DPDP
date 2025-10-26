@@ -66,13 +66,16 @@ def main():
     update_solution_json(id_to_ongoing_items , id_to_unlocated_items , id_to_vehicle , best_chromosome.solution , vehicleid_to_destination , route_map , used_time)
     merge_node(id_to_vehicle , best_chromosome.solution)    
     
-    emer_index =  Delaydispatch(id_to_vehicle , best_chromosome.solution , route_map)
-    get_output_solution(id_to_vehicle , best_chromosome.solution , vehicleid_to_destination)
     
     if not Config.DELAY_DISPATCH:
+        get_output_solution(id_to_vehicle , best_chromosome.solution , vehicleid_to_destination)
+        
         write_destination_json_to_file(vehicleid_to_destination   , input_directory)    
         write_route_json_to_file(best_chromosome.solution  , input_directory) 
     else:
+        emer_index =  Delaydispatch(id_to_vehicle , best_chromosome.solution , route_map)
+        get_output_solution(id_to_vehicle , best_chromosome.solution , vehicleid_to_destination)
+        
         write_destination_json_to_file_with_delay_timme(vehicleid_to_destination  ,emer_index , id_to_vehicle , input_directory)
         write_route_json_to_file_with_delay_time(best_chromosome.solution , emer_index , id_to_vehicle , input_directory)
 

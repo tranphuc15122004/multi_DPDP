@@ -71,7 +71,6 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
             print(f"TimeOut!! Elapsed: {elapsed_time:.1f}s")
             break
         
-        
         # Tạo con (có giới hạn số lần thử để tránh vòng lặp vô hạn ở test nhỏ)
         target_size = config.POPULATION_SIZE * 2
         max_attempts = (getattr(config, 'OFFSPRING_ATTEMPTS_FACTOR', 10) or 10) * max(1, target_size - len(population))

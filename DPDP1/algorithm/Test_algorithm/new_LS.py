@@ -272,8 +272,18 @@ def disturbance_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Di
         new_vehicle_to_plan[VID] = []
         for node in plan:
             new_vehicle_to_plan[VID].append(copy.deepcopy(node))
-            
-    dis_order_super_node,  _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    
+    dis_order_super_node = {}
+    if config.USE_ADAPTIVE_ORDER_DISCRIMINATE:
+        if config.CROSSOVER_TYPE_RATIO <= 0:
+            dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+        else:
+            dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+        
+    else:
+        dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    
+    
     ls_node_pair_num = len(dis_order_super_node)
     if ls_node_pair_num == 0:
         return None
@@ -310,7 +320,7 @@ def disturbance_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Di
     if len(pdg_Map) < 2:
         return None
 
-    num_pairs_to_relocate = max(1, int(len(pdg_Map) * relocate_rate))
+    num_pairs_to_relocate = max(1, int(len(pdg_Map) * relocate_rate) + 1)
     pairs_to_relocate = random.sample(list(pdg_Map.keys()), num_pairs_to_relocate)
     
     # Lưu trữ các cặp node sẽ được gán lại
@@ -542,7 +552,6 @@ def new_inter_couple_exchange(vehicleid_to_plan: Dict[str , List[Node]], id_to_v
         
     else:
         dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
-    print(len(dis_order_super_node))
     
     
     ls_node_pair_num = len(dis_order_super_node)
@@ -747,7 +756,6 @@ def new_block_exchange(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle:
         
     else:
         dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
-    print(len(dis_order_super_node))
     
     
     ls_node_pair_num = len(dis_order_super_node)
@@ -976,7 +984,6 @@ def new_block_relocate(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle:
         
     else:
         dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
-    print(len(dis_order_super_node))
     
     
     ls_node_pair_num = len(dis_order_super_node)
@@ -1128,7 +1135,6 @@ def new_multi_pd_group_relocate(vehicleid_to_plan: Dict[str , List[Node]], id_to
         
     else:
         dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
-    print(len(dis_order_super_node))
 
     ls_node_pair_num = len(dis_order_super_node)
     if ls_node_pair_num == 0:
