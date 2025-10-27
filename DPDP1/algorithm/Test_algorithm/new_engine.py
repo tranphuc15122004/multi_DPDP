@@ -435,7 +435,19 @@ def new_generate_random_chromosome(initial_vehicleid_to_plan : Dict[str , List[N
         return None , None
     
     while len(population) < quantity:
-        new_individual = disturbance_opt(initial_vehicleid_to_plan , id_to_vehicle , route_map , 0.5)
+        #new_individual = disturbance_opt(initial_vehicleid_to_plan , id_to_vehicle , route_map , 0.5)
+        #new_individual = disturbance_2opt_blocks(initial_vehicleid_to_plan , id_to_vehicle , route_map , max_attempts= 2 , cross_rate=0.4)
+        new_individual = disturbance_2opt_blocks_plus(
+                    initial_vehicleid_to_plan,
+                    id_to_vehicle,
+                    route_map,
+                    steps=len(id_to_vehicle) // 2,
+                    cross_rate=0.35,
+                    shuffle_rate=0.35,
+                    double_bridge_rate=0.20,
+                    accept_if_better=False,
+                    allow_worse_delta = config.addDelta,
+                )
         if new_individual:
             population.append(new_individual)
     

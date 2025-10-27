@@ -272,18 +272,8 @@ def disturbance_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Di
         new_vehicle_to_plan[VID] = []
         for node in plan:
             new_vehicle_to_plan[VID].append(copy.deepcopy(node))
-    
-    dis_order_super_node = {}
-    if config.USE_ADAPTIVE_ORDER_DISCRIMINATE:
-        if config.CROSSOVER_TYPE_RATIO <= 0:
-            dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
-        else:
-            dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
-        
-    else:
-        dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
-    
-    
+            
+    dis_order_super_node,  _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
     ls_node_pair_num = len(dis_order_super_node)
     if ls_node_pair_num == 0:
         return None
@@ -320,7 +310,7 @@ def disturbance_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Di
     if len(pdg_Map) < 2:
         return None
 
-    num_pairs_to_relocate = max(1, int(len(pdg_Map) * relocate_rate) + 1)
+    num_pairs_to_relocate = max(1, int(len(pdg_Map) * relocate_rate))
     pairs_to_relocate = random.sample(list(pdg_Map.keys()), num_pairs_to_relocate)
     
     # Lưu trữ các cặp node sẽ được gán lại
@@ -381,6 +371,408 @@ def disturbance_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehicle: Di
     
     #print(time.time() - begin)
     return Chromosome(new_vehicle_to_plan , route_map , id_to_vehicle)
+
+
+def disturbance_2opt_blocks(
+    vehicleid_to_plan: Dict[str, List[Node]],
+    id_to_vehicle: Dict[str, Vehicle],
+    route_map: Dict[tuple, tuple],
+    max_attempts: int = 2,
+    cross_rate: float = 0.3,
+    accept_if_better: bool = True,
+):
+    """Very-fast 2-opt-like disturbance at super-node block level.
+
+    - Build contiguous PD-group blocks per vehicle (start..end indices) from get_UnongoingSuperNode.
+    - With probability `cross_rate`, try one inter-route swap of a single block (block exchange).
+      Otherwise, do an intra-route 2-opt on block order: reverse a block segment [i..j] without
+      reversing inside blocks (so pickup-before-delivery stays valid within each super node).
+    - Accept only if feasible; if `accept_if_better` True, also require cost not worse.
+
+    Designed to be O(route segment) and do just 1-2 attempts, so it's fast on large instances.
+    Returns a new Chromosome (possibly unchanged if no move was accepted).
+    """
+    import random, copy, math, time, sys
+
+    # Shallow copy plan (reuse Node objects)
+    new_plan: Dict[str, List[Node]] = {vid: route[:] for vid, route in vehicleid_to_plan.items()}
+
+    # Build block spans per vehicle
+    dis_order_super_node, _ = get_UnongoingSuperNode(vehicleid_to_plan, id_to_vehicle)
+    spans_by_vid: Dict[str, List[tuple]] = {}
+    for idx, pdg in dis_order_super_node.items():
+        if not pdg:
+            continue
+        positions: List[int] = []
+        vid = None
+        for vpos, node in pdg.items():
+            parts = vpos.split(",")
+            if vid is None:
+                vid = parts[0]
+            positions.append(int(parts[1]))
+        if vid is None or not positions:
+            continue
+        start_idx = min(positions)
+        end_idx = max(positions)
+        lst = spans_by_vid.setdefault(vid, [])
+        lst.append((start_idx, end_idx))
+    for vid, spans in spans_by_vid.items():
+        spans.sort(key=lambda ab: ab[0])
+
+    def route_cost(vid: str, route_list: List[Node]) -> float:
+        vehicle = id_to_vehicle[vid]
+        return cost_of_a_route(route_list, vehicle, id_to_vehicle, route_map, new_plan)
+
+    def feasible(vid: str, route_list: List[Node]) -> bool:
+        vehicle = id_to_vehicle[vid]
+        carry = vehicle.carrying_items if vehicle.des else []
+        return isFeasible(route_list, carry, vehicle.board_capacity)
+
+    def try_inter_swap() -> bool:
+        vids = [v for v, spans in spans_by_vid.items() if spans]
+        if len(vids) < 2:
+            return False
+        v1, v2 = random.sample(vids, 2)
+        spans1 = spans_by_vid[v1]
+        spans2 = spans_by_vid[v2]
+        if not spans1 or not spans2:
+            return False
+        b1 = random.choice(spans1)
+        b2 = random.choice(spans2)
+        s1, e1 = b1
+        s2, e2 = b2
+        r1 = new_plan.get(v1, [])
+        r2 = new_plan.get(v2, [])
+        # Slices
+        seg1 = r1[s1:e1 + 1]
+        seg2 = r2[s2:e2 + 1]
+
+        # Before cost (if needed)
+        if accept_if_better:
+            c1_before = route_cost(v1, r1)
+            c2_before = route_cost(v2, r2)
+
+        # Apply swap
+        new_r1 = r1[:s1] + seg2 + r1[e1 + 1:]
+        new_r2 = r2[:s2] + seg1 + r2[e2 + 1:]
+
+        if not feasible(v1, new_r1) or not feasible(v2, new_r2):
+            return False
+
+        if accept_if_better:
+            c1_after = route_cost(v1, new_r1)
+            c2_after = route_cost(v2, new_r2)
+            if c1_after + c2_after > c1_before + c2_before:
+                return False
+
+        # Commit
+        new_plan[v1] = new_r1
+        new_plan[v2] = new_r2
+        return True
+
+    def try_intra_2opt() -> bool:
+        # choose a vehicle with >= 3 blocks
+        candidates = [v for v, spans in spans_by_vid.items() if len(spans) >= 3]
+        if not candidates:
+            candidates = [v for v, spans in spans_by_vid.items() if len(spans) >= 2]
+        if not candidates:
+            return False
+        vid = random.choice(candidates)
+        spans = spans_by_vid[vid]
+        r = new_plan.get(vid, [])
+        # pick two block indices i<j
+        i, j = sorted(random.sample(range(len(spans)), 2))
+        s, _ = spans[i]
+        _, e = spans[j]
+        # build reversed by blocks: concatenate block slices in reversed block order
+        blocks = spans[i:j + 1]
+        segment_slices = [r[bs:be + 1] for (bs, be) in blocks]
+        new_segment = []
+        for sl in reversed(segment_slices):
+            new_segment.extend(sl)
+        new_r = r[:s] + new_segment + r[e + 1:]
+
+        if not feasible(vid, new_r):
+            return False
+        if accept_if_better:
+            if route_cost(vid, new_r) > route_cost(vid, r):
+                return False
+
+        new_plan[vid] = new_r
+        return True
+
+    # Try a few quick attempts
+    for _ in range(max_attempts):
+        do_cross = (random.random() < cross_rate)
+        ok = try_inter_swap() if do_cross else try_intra_2opt()
+        if ok:
+            break
+
+    return Chromosome(new_plan, route_map, id_to_vehicle)
+
+
+def disturbance_2opt_blocks_plus(
+    vehicleid_to_plan: Dict[str, List[Node]],
+    id_to_vehicle: Dict[str, Vehicle],
+    route_map: Dict[tuple, tuple],
+    steps: int = 3,
+    cross_rate: float = 0.4,
+    shuffle_rate: float = 0.3,
+    double_bridge_rate: float = 0.3,
+    accept_if_better: bool = True,
+    allow_worse_delta: float = 0.0,
+):
+    """Stronger but fast block-level perturbation combining:
+    - Inter-route single block swap (like exchange)
+    - Intra-route 2-opt on block order (reverse a block segment)
+    - Intra-route block shuffle within a window
+    - Intra-route double-bridge on block segments
+
+    Performs up to `steps` accepted moves, each O(segment), with feasibility check and optional
+    cost guard per affected route(s). Returns a new Chromosome (may be unchanged if no move accepted).
+    """
+    import random, math
+
+    # Shallow copy plan (reuse Node objects)
+    new_plan: Dict[str, List[Node]] = {vid: route[:] for vid, route in vehicleid_to_plan.items()}
+
+    # Helper to build PDG block spans from the CURRENT plan
+    def build_spans_from_plan(plan: Dict[str, List[Node]]) -> Dict[str, List[tuple]]:
+        spans: Dict[str, List[tuple]] = {}
+        dis_order_super_node, _ = get_UnongoingSuperNode(plan, id_to_vehicle)
+        for _, pdg in dis_order_super_node.items():
+            if not pdg:
+                continue
+            positions: List[int] = []
+            vid = None
+            for vpos, _node in pdg.items():
+                parts = vpos.split(",")
+                if vid is None:
+                    vid = parts[0]
+                positions.append(int(parts[1]))
+            if vid is None or not positions:
+                continue
+            start_idx = min(positions)
+            end_idx = max(positions)
+            # Defensive clamp against out-of-range
+            route = plan.get(vid, [])
+            if not route:
+                continue
+            start_idx = max(0, min(start_idx, len(route) - 1))
+            end_idx = max(0, min(end_idx, len(route) - 1))
+            if start_idx > end_idx:
+                continue
+            spans.setdefault(vid, []).append((start_idx, end_idx))
+        # Sort and filter
+        for v in list(spans.keys()):
+            spans[v].sort(key=lambda ab: ab[0])
+            spans[v] = [(s, e) for (s, e) in spans[v] if 0 <= s <= e < len(new_plan.get(v, []))]
+            if not spans[v]:
+                spans.pop(v, None)
+        return spans
+
+    # Initial spans based on new_plan (not the original)
+    spans_by_vid: Dict[str, List[tuple]] = build_spans_from_plan(new_plan)
+
+    # Coverage signature before any mutation (for safety)
+    pre_sig = _route_node_coverage_signature(new_plan)
+
+    def route_cost(vid: str, route_list: List[Node]) -> float:
+        vehicle = id_to_vehicle[vid]
+        return cost_of_a_route(route_list, vehicle, id_to_vehicle, route_map, new_plan)
+
+    def feasible(vid: str, route_list: List[Node]) -> bool:
+        vehicle = id_to_vehicle[vid]
+        carry = vehicle.carrying_items if vehicle.des else []
+        return isFeasible(route_list, carry, vehicle.board_capacity)
+
+    def accept_cost(before_list: list[tuple[str, float]], after_list: list[tuple[str, float]]) -> bool:
+        if not accept_if_better:
+            return True
+        before_sum = sum(c for _, c in before_list)
+        after_sum = sum(c for _, c in after_list)
+        return after_sum <= before_sum + allow_worse_delta
+
+    def try_inter_swap() -> bool:
+        vids = [v for v, spans in spans_by_vid.items() if spans]
+        if len(vids) < 2:
+            return False
+        v1, v2 = random.sample(vids, 2)
+        spans1 = spans_by_vid[v1]
+        spans2 = spans_by_vid[v2]
+        if not spans1 or not spans2:
+            return False
+        s1, e1 = random.choice(spans1)
+        s2, e2 = random.choice(spans2)
+        r1 = new_plan.get(v1, [])
+        r2 = new_plan.get(v2, [])
+        seg1 = r1[s1:e1 + 1]
+        seg2 = r2[s2:e2 + 1]
+        before_costs = [(v1, route_cost(v1, r1)), (v2, route_cost(v2, r2))] if accept_if_better else []
+        new_r1 = r1[:s1] + seg2 + r1[e1 + 1:]
+        new_r2 = r2[:s2] + seg1 + r2[e2 + 1:]
+        if not feasible(v1, new_r1) or not feasible(v2, new_r2):
+            return False
+        after_costs = [(v1, route_cost(v1, new_r1)), (v2, route_cost(v2, new_r2))] if accept_if_better else []
+        if accept_cost(before_costs, after_costs):
+            new_plan[v1] = new_r1
+            new_plan[v2] = new_r2
+            # Rebuild spans from current plan to avoid stale indices
+            new_spans = build_spans_from_plan(new_plan)
+            spans_by_vid.clear(); spans_by_vid.update(new_spans)
+            return True
+        return False
+
+    def try_intra_2opt() -> bool:
+        candidates = [v for v, spans in spans_by_vid.items() if len(spans) >= 2]
+        if not candidates:
+            return False
+        vid = random.choice(candidates)
+        spans = spans_by_vid[vid]
+        r = new_plan.get(vid, [])
+        # Require contiguous block coverage between i..j to preserve nodes
+        def pick_contiguous_pair(max_tries: int = 6):
+            for _ in range(max_tries):
+                i, j = sorted(random.sample(range(len(spans)), 2))
+                ok = True
+                for k in range(i, j):
+                    if spans[k][1] + 1 != spans[k + 1][0]:
+                        ok = False
+                        break
+                if ok:
+                    return i, j
+            return None
+        pair = pick_contiguous_pair()
+        if pair is None:
+            return False
+        i, j = pair
+        s = spans[i][0]
+        e = spans[j][1]
+        blocks = spans[i:j + 1]
+        segment_slices = [r[bs:be + 1] for (bs, be) in blocks]
+        new_segment = []
+        for sl in reversed(segment_slices):
+            new_segment.extend(sl)
+        new_r = r[:s] + new_segment + r[e + 1:]
+        if not feasible(vid, new_r):
+            return False
+        if accept_if_better:
+            if route_cost(vid, new_r) > route_cost(vid, r) + allow_worse_delta:
+                return False
+        new_plan[vid] = new_r
+        # Rebuild spans since block boundaries have changed
+        new_spans = build_spans_from_plan(new_plan)
+        spans_by_vid.clear(); spans_by_vid.update(new_spans)
+        return True
+
+    def try_intra_shuffle() -> bool:
+        candidates = [v for v, spans in spans_by_vid.items() if len(spans) >= 3]
+        if not candidates:
+            return False
+        vid = random.choice(candidates)
+        spans = spans_by_vid[vid]
+        r = new_plan.get(vid, [])
+        # choose window size w in [3, min(6, len(spans))] but ensure contiguous blocks
+        def pick_contiguous_window(max_tries: int = 8):
+            w_max = min(6, len(spans))
+            if w_max < 3:
+                return None
+            for _ in range(max_tries):
+                w = random.randint(3, w_max)
+                i = random.randint(0, len(spans) - w)
+                j = i + w - 1
+                ok = True
+                for k in range(i, j):
+                    if spans[k][1] + 1 != spans[k + 1][0]:
+                        ok = False
+                        break
+                if ok:
+                    return i, j
+            return None
+        win = pick_contiguous_window()
+        if win is None:
+            return False
+        i, j = win
+        s = spans[i][0]
+        e = spans[j][1]
+        block_spans = spans[i:j + 1]
+        segs = [r[bs:be + 1] for (bs, be) in block_spans]
+        random.shuffle(segs)
+        new_segment = [node for seg in segs for node in seg]
+        new_r = r[:s] + new_segment + r[e + 1:]
+        if not feasible(vid, new_r):
+            return False
+        if accept_if_better:
+            if route_cost(vid, new_r) > route_cost(vid, r) + allow_worse_delta:
+                return False
+        new_plan[vid] = new_r
+        new_spans = build_spans_from_plan(new_plan)
+        spans_by_vid.clear(); spans_by_vid.update(new_spans)
+        return True
+
+    def try_double_bridge() -> bool:
+        candidates = [v for v, spans in spans_by_vid.items() if len(spans) >= 4]
+        if not candidates:
+            return False
+        vid = random.choice(candidates)
+        spans = spans_by_vid[vid]
+        r = new_plan.get(vid, [])
+        a, b, c, d = sorted(random.sample(range(len(spans)), 4))
+        sA = spans[a][0]
+        eA = spans[a][1]
+        sB = spans[b][0]
+        eB = spans[b][1]
+        sC = spans[c][0]
+        eC = spans[c][1]
+        sD = spans[d][0]
+        eD = spans[d][1]
+        # segments by block boundaries
+        A = r[:sA]
+        S1 = r[sA:eA + 1]
+        M = r[eA + 1:sB]
+        S2 = r[sB:eB + 1]
+        M2 = r[eB + 1:sC]
+        S3 = r[sC:eC + 1]
+        M3 = r[eC + 1:sD]
+        S4 = r[sD:eD + 1]
+        E = r[eD + 1:]
+        # double-bridge style: A + S1 + M + S3 + M2 + S2 + M3 + S4 + E
+        new_r = A + S1 + M + S3 + M2 + S2 + M3 + S4 + E
+        if not feasible(vid, new_r):
+            return False
+        if accept_if_better:
+            if route_cost(vid, new_r) > route_cost(vid, r) + allow_worse_delta:
+                return False
+        new_plan[vid] = new_r
+        new_spans = build_spans_from_plan(new_plan)
+        spans_by_vid.clear(); spans_by_vid.update(new_spans)
+        return True
+
+    # Attempt up to `steps` accepted moves
+    accepted = 0
+    for _ in range(max(1, steps)):
+        # choose operator by multinomial
+        r = random.random()
+        op_done = False
+        if r < cross_rate:
+            op_done = try_inter_swap()
+        elif r < cross_rate + shuffle_rate:
+            op_done = try_intra_shuffle()
+        elif r < cross_rate + shuffle_rate + double_bridge_rate:
+            op_done = try_double_bridge()
+        else:
+            op_done = try_intra_2opt()
+        if op_done:
+            accepted += 1
+        # optional: early stop if no blocks remained or nothing accepted in last attempts
+
+    # Safety: ensure we didn't lose/duplicate nodes
+    post_sig = _route_node_coverage_signature(new_plan)
+    if pre_sig != post_sig:
+        print("[warn] coverage mismatch after disturbance_2opt_blocks_plus; returning original plan", file=sys.stderr)
+        return Chromosome(vehicleid_to_plan, route_map, id_to_vehicle)
+    return Chromosome(new_plan, route_map, id_to_vehicle)
+
 
 def cheapest_insertion_for_block(node_block: List[Node],
                                 id_to_vehicle: Dict[str, Vehicle],

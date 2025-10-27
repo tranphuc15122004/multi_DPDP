@@ -87,8 +87,21 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
             
             if random.uniform(0 , 1) < config.CROSSOVER_TYPE_RATIO:
                 child = new_crossver2(parent1, parent2, Base_vehicleid_to_plan, PDG_map)
-            else:
-                child = disturbance_opt(parent1.solution , id_to_vehicle , route_map , 0.5)
+            else:                
+                #child = disturbance_opt(parent1.solution , id_to_vehicle , route_map , 0.5)
+                # Stronger yet fast perturbation for higher diversity
+                child = disturbance_2opt_blocks_plus(
+                    parent1.solution,
+                    id_to_vehicle,
+                    route_map,
+                    steps=len(id_to_vehicle) //2,
+                    cross_rate=0.35,
+                    shuffle_rate=0.35,
+                    double_bridge_rate=0.20,
+                    accept_if_better=False,
+                    allow_worse_delta = config.addDelta,
+                )
+                
             
             if child is None:
                 # If crossover repeatedly fails, use a safe fallback individual
@@ -163,8 +176,10 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     population.append(root_solution)
     unique_population = remove_similar_individuals(population, threshold=0.0)
     unique_population.sort(key=lambda x: x.fitness)
-    unique_population = [ini for ini in unique_population if ini.fitness < best_solution.fitness  + config.addDelta]
+    print(len(unique_population))
     
+    unique_population = [ini for ini in unique_population if ini.fitness < best_solution.fitness  + config.addDelta]
+    print(len(unique_population))
     
     mutate_count = 0
     while not config.is_timeout():

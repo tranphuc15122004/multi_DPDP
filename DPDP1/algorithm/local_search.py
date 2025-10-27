@@ -193,8 +193,8 @@ def inter_couple_exchange(vehicleid_to_plan: Dict[str , List[Node]], id_to_vehic
     
     is_improved = False
 
-    dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
-    #dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    #dis_order_super_node , _ = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    dis_order_super_node = new_get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
     
     
     ls_node_pair_num = len(dis_order_super_node)
@@ -891,6 +891,7 @@ def improve_ci_path_by_2_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_ve
                                 continue
                             
                             cost = cost_of_a_route(temp_route_node_list, vehicle , id_to_vehicle ,route_map , vehicleid_to_plan)
+                            print(cost)
                             if cost < min_cost:
                                 print("tried case 1 improved", file= sys.stderr  )
                                 min_cost = cost
@@ -916,6 +917,7 @@ def improve_ci_path_by_2_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_ve
                             continue
                         
                         cost = cost_of_a_route(temp_route_node_list, vehicle , id_to_vehicle , route_map , vehicleid_to_plan)
+                        print(cost)
                         if cost < min_cost:
                             print("tried case 2 improved" , file= sys.stderr )
                             min_cost = cost
@@ -938,6 +940,7 @@ def improve_ci_path_by_2_opt(vehicleid_to_plan: Dict[str , List[Node]], id_to_ve
                         continue
                     
                     cost = cost_of_a_route(temp_route_node_list, vehicle , id_to_vehicle , route_map , vehicleid_to_plan)
+                    print(cost)
                     if cost < min_cost:
                         print("tried case 4 improved", file= sys.stderr  )
                         min_cost = cost
