@@ -50,7 +50,7 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
         print(f"Adaptive config failed: {e}", file=sys.stderr)
     
 
-    population, PDG_map = new_generate_random_chromosome(initial_vehicleid_to_plan, route_map, id_to_vehicle, Unongoing_super_nodes, Base_vehicleid_to_plan, 1)
+    population, PDG_map = new_generate_random_chromosome(initial_vehicleid_to_plan, route_map, id_to_vehicle, Unongoing_super_nodes, Base_vehicleid_to_plan, config.POPULATION_SIZE)
     
     if population is None:
         print('Cant initialize the population')
