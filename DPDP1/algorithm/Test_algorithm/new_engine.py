@@ -18,6 +18,7 @@ def new_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_f
     all_exhautive = True
     
     if new_order_itemIDs:
+        # Build mapping cheaply; avoid heavy work until later phases
         orderId_to_Item : Dict[str , list[OrderItem]] = {}
         for new_order_item in new_order_itemIDs:
             new_item = id_to_unlocated_items.get(new_order_item)
@@ -46,29 +47,30 @@ def new_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_f
                         
                         
                         node_list: list[Node] = create_Pickup_Delivery_nodes(tmp_itemList , id_to_factory)
-                        isExhausive = False
-                        route_node_list : List[Node] = []
-                        
-                        if node_list:
+                        if config.is_timeout():
+                            isExhausive = False
+                            route_node_list : List[Node] = []
                             
-                            isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
-                            #isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = new_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
-                        
-                        route_node_list = vehicleid_to_plan.get(bestInsertVehicleID , [])
+                            if node_list and not config.is_timeout():
+                                isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
+                                route_node_list = vehicleid_to_plan.get(bestInsertVehicleID , [])
 
-                        if isExhausive:
-                            route_node_list = bestNodeList[:]
+                            if isExhausive:
+                                route_node_list = bestNodeList[:]
+                            else:
+                                all_exhautive = False
+                                if route_node_list is None:
+                                    route_node_list = []
+                                
+                                new_order_pickup_node = node_list[0]
+                                new_order_delivery_node = node_list[1]
+                                
+                                route_node_list.insert(bestInsertPosI, new_order_pickup_node)
+                                route_node_list.insert(bestInsertPosJ, new_order_delivery_node)
+                            vehicleid_to_plan[bestInsertVehicleID] = route_node_list
                         else:
-                            all_exhautive = False
-                            if route_node_list is None:
-                                route_node_list = []
-                            
-                            new_order_pickup_node = node_list[0]
-                            new_order_delivery_node = node_list[1]
-                            
-                            route_node_list.insert(bestInsertPosI, new_order_pickup_node)
-                            route_node_list.insert(bestInsertPosJ, new_order_delivery_node)
-                        vehicleid_to_plan[bestInsertVehicleID] = route_node_list
+                            if node_list:
+                                random_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan)
                         
                         tmp_itemList.clear()
                         tmp_demand = 0
@@ -80,13 +82,43 @@ def new_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_f
                         if len(plan) >= 6: all_exhautive = False
                     
                     node_list: list[Node] = create_Pickup_Delivery_nodes(tmp_itemList , id_to_factory)
+                    if config.is_timeout():
+                        isExhausive = False
+                        
+                        if node_list and not config.is_timeout():
+                            isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList =  dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan, route_map)
+                            #isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = new_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
+                        route_node_list : List[Node] = vehicleid_to_plan.get(bestInsertVehicleID , [])
+                        
+                        if isExhausive:
+                            route_node_list = bestNodeList[:]
+                        else:
+                            all_exhautive = False
+                            
+                            if route_node_list is None:
+                                route_node_list = []
+                            
+                            new_order_pickup_node = node_list[0]
+                            new_order_delivery_node = node_list[1]
+                            
+                            route_node_list.insert(bestInsertPosI, new_order_pickup_node)
+                            route_node_list.insert(bestInsertPosJ, new_order_delivery_node)
+                        vehicleid_to_plan[bestInsertVehicleID] = route_node_list
+                    else:
+                        if node_list:
+                            random_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan)
+            else:
+                for plan in vehicleid_to_plan.values():
+                    if len(plan) >= 6: all_exhautive = False
+                
+                node_list: list[Node] = create_Pickup_Delivery_nodes(orderID_items , id_to_factory)
+                
+                if config.is_timeout():
                     isExhausive = False
-                    
-                    if node_list:
-                        isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList =  dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan, route_map)
+                    if node_list and not config.is_timeout():
+                        isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
                         #isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = new_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
                     route_node_list : List[Node] = vehicleid_to_plan.get(bestInsertVehicleID , [])
-                    
                     if isExhausive:
                         route_node_list = bestNodeList[:]
                     else:
@@ -101,31 +133,9 @@ def new_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_f
                         route_node_list.insert(bestInsertPosI, new_order_pickup_node)
                         route_node_list.insert(bestInsertPosJ, new_order_delivery_node)
                     vehicleid_to_plan[bestInsertVehicleID] = route_node_list
-            else:
-                for plan in vehicleid_to_plan.values():
-                    if len(plan) >= 6: all_exhautive = False
-                
-                node_list: list[Node] = create_Pickup_Delivery_nodes(orderID_items , id_to_factory)
-                
-                isExhausive = False
-                if node_list:
-                    isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
-                    #isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = new_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
-                route_node_list : List[Node] = vehicleid_to_plan.get(bestInsertVehicleID , [])
-                if isExhausive:
-                    route_node_list = bestNodeList[:]
                 else:
-                    all_exhautive = False
-                    
-                    if route_node_list is None:
-                        route_node_list = []
-                    
-                    new_order_pickup_node = node_list[0]
-                    new_order_delivery_node = node_list[1]
-                    
-                    route_node_list.insert(bestInsertPosI, new_order_pickup_node)
-                    route_node_list.insert(bestInsertPosJ, new_order_delivery_node)
-                vehicleid_to_plan[bestInsertVehicleID] = route_node_list
+                    if node_list:
+                        random_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan)
     
     return all_exhautive            
 
@@ -1951,6 +1961,15 @@ def find_best_block(blockmap1: Dict[str, List[Node]],
     return best[1]
 
 def new_crossver2(parent1: Chromosome , parent2: Chromosome , Base_vehicleid_to_plan : Dict[str , List[Node]] , PDG_map: Dict[str , List[Node]] , static_single_pass: bool = False):
+    """
+    Time-bounded crossover that selects PD blocks from two parents and inserts into a child.
+    The function adapts its internal effort to remaining global time and enforces a local
+    time budget to avoid exceeding the simulator's timeout.
+
+    Fallbacks:
+    - If remaining time is too low, switch to static_single_pass (one-shot heuristic).
+    - If time is critically low, return a baseline child seeded from Base_vehicleid_to_plan.
+    """
     begin = time.time()
     
     # Cac super node
@@ -1974,16 +1993,36 @@ def new_crossver2(parent1: Chromosome , parent2: Chromosome , Base_vehicleid_to_
     blockmap_parent2 = extract_block_from_solution(parent2.solution , parent2.id_to_vehicle)
 
 
-    # ========= Khởi tạo biến điều khiển vòng lặp =========
+    # ========= Khởi tạo biến điều khiển vòng lặp & ngân sách thời gian =========
     DEBUG = False  # set True to enable verbose logging
     start_time = time.time()
     iteration = 0
     stagnation = 0  # số vòng không thu thêm signature mới
     total_blocks_target = len(new_PDG_map) if new_PDG_map else 0
+    # Tính thời gian còn lại toàn cục và đặt ngân sách cục bộ an toàn
+    try:
+        elapsed_global = time.time() - getattr(config, 'BEGIN_TIME', start_time)
+        algo_limit = getattr(config, 'ALGO_TIME_LIMIT', 600)
+        safety_margin = getattr(config, 'CROSSOVER_SAFETY_MARGIN', 0.5)
+        rem_global = max(0.0, algo_limit - elapsed_global - safety_margin)
+    except Exception:
+        rem_global = 10.0
+
+    # Ngân sách tối đa cho riêng crossover (cấu hình được), kẹp bởi thời gian còn lại
+    default_budget = getattr(config, 'CROSSOVER_TIME_BUDGET', 10.0)
+    TIME_BUDGET_SEC = max(0.0, min(default_budget, rem_global))
+
+    # Nếu thời gian còn lại rất ít, chuyển sang chế độ one-shot hoặc trả baseline
+    if rem_global <= 0.15:
+        # Trả về baseline nhanh để không vượt timeout
+        return Chromosome(Base_vehicleid_to_plan, parent1.route_map, parent1.id_to_vehicle)
+    if rem_global <= 1.5:
+        static_single_pass = True
+
     # Tham số dừng (có thể điều chỉnh / đưa ra ngoài nếu cần tinh chỉnh sau)
-    MAX_ITER = max(5, 2 * total_blocks_target) if total_blocks_target > 0 else 20
+    # Giới hạn số vòng theo kích thước bài toán và thời gian còn lại
+    MAX_ITER = max(3, min(2 * max(1, total_blocks_target), int(10 + 10 * TIME_BUDGET_SEC)))
     MAX_NO_GAIN = 5          # số vòng liên tiếp không có gain mới thì dừng
-    TIME_BUDGET_SEC = 15   # ngân sách thời gian cho riêng crossover này
     MIN_GAIN_PER_BLOCK = 1   # yêu cầu tối thiểu signature mới / vòng
 
     # Ghi lại lý do dừng cuối cùng (debug)
@@ -2046,6 +2085,8 @@ def new_crossver2(parent1: Chromosome , parent2: Chromosome , Base_vehicleid_to_
 
     # Optional FAST PATH: compute scores once and insert in a single ordered pass
     if static_single_pass:
+        # Điều chỉnh kích thước tiền lọc dựa trên thời gian còn lại
+        PF_K = max(50, min(PREFILTER_K, int(200 + 300 * TIME_BUDGET_SEC)))
         # 1) Compute scores once
         score_map_p1 = block_scoring_func(blockmap_parent1, parent1.solution, parent2.solution, parent1.route_map)
         score_map_p2 = block_scoring_func(blockmap_parent2, parent1.solution, parent2.solution, parent1.route_map)
@@ -2072,9 +2113,9 @@ def new_crossver2(parent1: Chromosome , parent2: Chromosome , Base_vehicleid_to_
                 candidates.append(("P2", k, nodes, d, t, dem))
 
         # Prefilter by demand desc then (d+t) asc to shrink candidate set
-        if len(candidates) > PREFILTER_K:
+        if len(candidates) > PF_K:
             candidates.sort(key=lambda x: (-x[5], (x[3] + x[4])))
-            candidates = candidates[:PREFILTER_K]
+            candidates = candidates[:PF_K]
 
         # 3) Compute skyline front once
         def skyline_front(items):
@@ -2267,6 +2308,12 @@ def new_crossver2(parent1: Chromosome , parent2: Chromosome , Base_vehicleid_to_
 
             prev_block = best_block
             iteration += 1
+            # Check ngân sách cục bộ sau mỗi lần chèn
+            if (time.time() - start_time) >= TIME_BUDGET_SEC:
+                last_stop_reason = 'time-budget'
+                if DEBUG:
+                    print(f"[new_crossver2] time budget reached -> stopping", file=sys.stderr)
+                break
         except Exception as e:
             last_stop_reason = 'exception'
             if DEBUG:

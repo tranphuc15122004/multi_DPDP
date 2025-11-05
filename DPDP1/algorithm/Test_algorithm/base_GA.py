@@ -38,6 +38,8 @@ def adaptive_local_configs(num_order: int, num_vehicles: int):
     return info
 
 
+    
+
 def GA(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, Tuple], 
             id_to_vehicle: Dict[str, Vehicle], Unongoing_super_nodes: Dict[int, Dict[str, Node]], 
             Base_vehicleid_to_plan: Dict[str, List[Node]]) -> Chromosome:
@@ -60,6 +62,9 @@ def GA(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, 
     best_solution =  copy.deepcopy(population[0])
     
     begin_GA_time = time.time()
+
+    # Use only the provided config.is_timeout() to control timeouts
+
     for gen in range(config.NUMBER_OF_GENERATION):
         # Kiểm tra timeout
         begin_gen_time = time.time()
@@ -82,18 +87,18 @@ def GA(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, 
                     population.append(candidate)
                 continue
             
-            if random.uniform(0 , 1) < config.CROSSOVER_TYPE_RATIO:
-                child = new_crossver2(parent1, parent2, Base_vehicleid_to_plan, PDG_map)
-            else:                
-                child = disturbance_opt(parent1.solution , id_to_vehicle , route_map , 0.5)
+            # Call time-bounded crossover (self-budgeting)
+            child = new_crossver2(parent1, parent2, Base_vehicleid_to_plan, PDG_map)
             
             if child is None:
                 # If crossover repeatedly fails, use a safe fallback individual
                 if attempts >= max_attempts:
                     # Fallback: clone a random elite and apply a light LS step to diversify
                     base = copy.deepcopy(random.choice(population)) if population else copy.deepcopy(population[0])
-                    with contextlib.suppress(Exception):
-                        randon_1_LS(base, True, 1)
+                    # Only attempt LS if there is still time
+                    if not config.is_timeout():
+                        with contextlib.suppress(Exception):
+                            randon_1_LS(base, True, 1)
                     population.append(base)
                     # Reset attempts for the next child
                     attempts = 0
@@ -103,10 +108,7 @@ def GA(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, 
         population.sort(key= lambda x: x.fitness)
         new_populution : List[Chromosome] = population[:config.POPULATION_SIZE]
         population = new_populution
-        
-        if config.is_timeout():
-            break
-        
+
         population.sort(key= lambda x: x.fitness)
         population = population[:config.POPULATION_SIZE]
         if population[0].fitness < best_solution.fitness: config.IMPROVED_IN_CROSS += 1
@@ -114,7 +116,10 @@ def GA(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, 
         mutate_count = 0
         for c in range (len(population)):
             if mutate_count > int(len(population) * config.MUTATION_RATE):
-                break            
+                break
+            if config.is_timeout():
+                break
+            # Apply a single LS step per individual (already time-bounded inside)
             randon_1_LS(population[c] , True , 1)
             mutate_count +=1
         
@@ -148,7 +153,7 @@ def GA(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, 
         elapsed_time = gen_end_time - config.BEGIN_TIME
         
         # Kiểm tra timeout
-        if elapsed_time  > config.ALGO_TIME_LIMIT:
+        if config.is_timeout():
             print(f"TimeOut!! Elapsed: {elapsed_time:.1f}s")
             break
     final_time = time.time()
