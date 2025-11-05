@@ -50,6 +50,7 @@ def new_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_f
                         route_node_list : List[Node] = []
                         
                         if node_list:
+                            
                             isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
                             #isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = new_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
                         
@@ -163,7 +164,7 @@ def worse_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to
                         
                         node_list: list[Node] = create_Pickup_Delivery_nodes(tmp_itemList , id_to_factory)
                         
-                        if node_list:
+                        """ if node_list:
                             bestInsertPos, bestInsertVehicle = fast_cheapest_insertion_for_block(
                                 node_list, id_to_vehicle, vehicleid_to_plan, route_map
                             )
@@ -172,7 +173,10 @@ def worse_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to
                             print(f"[new_crossver2] reinsert abandon block | insertion failed -> stopping", file=sys.stderr)
                             break
                         target_route = vehicleid_to_plan[bestInsertVehicle]
-                        target_route[bestInsertPos: bestInsertPos] = node_list
+                        target_route[bestInsertPos: bestInsertPos] = node_list """
+                        
+                        if node_list:
+                            random_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan)
                         
                         tmp_itemList.clear()
                         tmp_demand = 0
@@ -184,7 +188,7 @@ def worse_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to
                         if len(plan) >= 6: all_exhautive = False
                     
                     node_list: list[Node] = create_Pickup_Delivery_nodes(tmp_itemList , id_to_factory)
-                    if node_list:
+                    """ if node_list:
                         bestInsertPos, bestInsertVehicle = fast_cheapest_insertion_for_block(
                             node_list, id_to_vehicle, vehicleid_to_plan, route_map
                         )
@@ -193,13 +197,15 @@ def worse_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to
                         print(f"[new_crossver2] reinsert abandon block | insertion failed -> stopping", file=sys.stderr)
                         break
                     target_route = vehicleid_to_plan[bestInsertVehicle]
-                    target_route[bestInsertPos: bestInsertPos] = node_list
+                    target_route[bestInsertPos: bestInsertPos] = node_list """
+                    if node_list:
+                        random_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan)
             else:
                 for plan in vehicleid_to_plan.values():
                     if len(plan) >= 6: all_exhautive = False
                 
                 node_list: list[Node] = create_Pickup_Delivery_nodes(orderID_items , id_to_factory)
-                if node_list:
+                """ if node_list:
                     bestInsertPos, bestInsertVehicle = fast_cheapest_insertion_for_block(
                         node_list, id_to_vehicle, vehicleid_to_plan, route_map
                     )
@@ -208,7 +214,9 @@ def worse_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to
                     print(f"[new_crossver2] reinsert abandon block | insertion failed -> stopping", file=sys.stderr)
                     break
                 target_route = vehicleid_to_plan[bestInsertVehicle]
-                target_route[bestInsertPos: bestInsertPos] = node_list
+                target_route[bestInsertPos: bestInsertPos] = node_list """
+                if node_list:
+                    random_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan)
     
     return all_exhautive   
 
@@ -435,19 +443,19 @@ def new_generate_random_chromosome(initial_vehicleid_to_plan : Dict[str , List[N
         return None , None
     
     while len(population) < quantity:
-        #new_individual = disturbance_opt(initial_vehicleid_to_plan , id_to_vehicle , route_map , 0.5)
+        new_individual = disturbance_opt(initial_vehicleid_to_plan , id_to_vehicle , route_map , 0.5)
         #new_individual = disturbance_2opt_blocks(initial_vehicleid_to_plan , id_to_vehicle , route_map , max_attempts= 2 , cross_rate=0.4)
-        new_individual = disturbance_2opt_blocks_plus(
+        """ new_individual = disturbance_2opt_blocks_plus(
                     initial_vehicleid_to_plan,
                     id_to_vehicle,
                     route_map,
-                    steps=len(id_to_vehicle) // 2,
+                    steps=max(5 , len(id_to_vehicle) // 2),
                     cross_rate=0.35,
                     shuffle_rate=0.35,
                     double_bridge_rate=0.20,
                     accept_if_better=False,
                     allow_worse_delta = config.addDelta,
-                )
+                ) """
         if new_individual:
             population.append(new_individual)
     
@@ -869,9 +877,9 @@ def new_dispatch_nodePair(node_list: list[Node]  , id_to_vehicle: Dict[str , Veh
     minCostValue = math.inf
 
     # Tunables
-    PREFILTER_VEH_K = min(50 , len(id_to_vehicle))
+    PREFILTER_VEH_K = min(5, len(id_to_vehicle)//2)
     TOP_CAND_PER_VEH = 10
-
+    
     def dist_ids(a: Optional[str], b: Optional[str]) -> float:
         if not a or not b:
             return math.inf

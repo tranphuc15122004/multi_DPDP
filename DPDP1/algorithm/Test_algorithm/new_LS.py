@@ -764,7 +764,6 @@ def disturbance_2opt_blocks_plus(
             op_done = try_intra_2opt()
         if op_done:
             accepted += 1
-        # optional: early stop if no blocks remained or nothing accepted in last attempts
 
     # Safety: ensure we didn't lose/duplicate nodes
     post_sig = _route_node_coverage_signature(new_plan)

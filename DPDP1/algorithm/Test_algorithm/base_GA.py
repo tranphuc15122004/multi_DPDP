@@ -38,16 +38,16 @@ def adaptive_local_configs(num_order: int, num_vehicles: int):
     return info
 
 
-def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, Tuple], 
+def GA(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, Tuple], 
             id_to_vehicle: Dict[str, Vehicle], Unongoing_super_nodes: Dict[int, Dict[str, Node]], 
             Base_vehicleid_to_plan: Dict[str, List[Node]]) -> Chromosome:
     
-    try:
+    """ try:
         current_orders = max(0, len(Unongoing_super_nodes))
         applied_params = adaptive_local_configs(current_orders, num_vehicles=len(id_to_vehicle))
         print(f"Adaptive config applied: {applied_params}")
     except Exception as e:
-        print(f"Adaptive config failed: {e}", file=sys.stderr)
+        print(f"Adaptive config failed: {e}", file=sys.stderr) """
     
     population, PDG_map = new_generate_random_chromosome(initial_vehicleid_to_plan, route_map, id_to_vehicle, Unongoing_super_nodes, Base_vehicleid_to_plan, config.POPULATION_SIZE)
     
@@ -58,8 +58,6 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     stagnant_generations = 0
     population.sort(key=lambda x: x.fitness)
     best_solution =  copy.deepcopy(population[0])
-    
-    root_solution = copy.deepcopy(population[0])
     
     begin_GA_time = time.time()
     for gen in range(config.NUMBER_OF_GENERATION):
@@ -141,7 +139,7 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
 
         # Điều kiện dừng
         #  
-        if stagnant_generations >= 4 or avg == population[0].fitness :
+        if stagnant_generations >= 5 :
             print("Stopping early due to lack of improvement.")
             break
         
@@ -157,32 +155,6 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     total_runtime = final_time - config.BEGIN_TIME
     print(f"Total runtime: {total_runtime:.2f}s ({total_runtime/60:.1f} minutes)" )
     print(f"Total GA runtime: {final_time - begin_GA_time:.2f}s ({(final_time - begin_GA_time)/60:.1f} minutes)" )
-    
-    
-    # Giai doan 2
-    population.append(root_solution)
-    unique_population = remove_similar_individuals(population, threshold=0.0)
-    unique_population.sort(key=lambda x: x.fitness)
-    print(len(unique_population))
-    
-    unique_population = [ini for ini in unique_population if ini.fitness < best_solution.fitness  + config.addDelta]
-    print(len(unique_population))
-    
-    mutate_count = 0
-    while not config.is_timeout():
-        
-        if mutate_count > int(len(population) * config.MUTATION_RATE) or mutate_count >= len(unique_population):
-            break
-        
-        if unique_population[mutate_count % len(unique_population)].fitness > unique_population[0].fitness + config.addDelta: break
-        
-        adaptive_LS_stategy(unique_population[mutate_count] , False , 1)
-        
-        mutate_count += 1
-    
-    unique_population.sort(key=lambda x: x.fitness)
-    if unique_population[0].fitness < best_solution.fitness: config.IMPROVED_IN_DIVER += 1
-    best_solution = unique_population[0]
     
     return best_solution
 
@@ -212,116 +184,4 @@ def select_parents(population: List[Chromosome]) -> Tuple[Chromosome, Chromosome
     p1 = tournament_selection()
     p2 = tournament_selection()
     return p1, p2
-
-
-def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
-    if config.is_timeout():
-        return False
-    
-    i = 0
-    
-    # Dictionary các phương pháp Local Search
-    methods = {
-        'PDPairExchange': lambda: new_inter_couple_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf,  is_limited),
-        'BlockExchange': lambda: new_block_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf, is_limited),
-        'BlockRelocate': lambda: new_block_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf, is_limited),
-        'mPDG': lambda: new_multi_pd_group_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf, is_limited)
-    }
-    
-    # Counter cho từng phương pháp
-    counters = {name: 0 for name in methods}
-    
-    # Lấy thứ tự adaptive
-    method_names = get_adaptive_order(indivisual , methods , mode=mode)
-    
-    #  Track local search timings per method
-    ls_timings = {
-        'PDPairExchange': 0.0,
-        'BlockExchange': 0.0,
-        'BlockRelocate': 0.0,
-        'mPDG': 0.0,
-    }
-
-    # Best snapshot latch to ensure we commit the best solution found during LS
-    
-    best_cost = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
-    best_snapshot = _copy_solution(indivisual.solution)
-    
-    while not config.is_timeout():
-        
-        ls_start = time.time()
-        if methods[method_names[0]]():
-            ls_timings[method_names[0]] += time.time() - ls_start
-            i += 1
-            counters[method_names[0]] += 1
-            # Latch best if improved
-            cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
-            if cur < best_cost:
-                best_cost = cur
-                best_snapshot = _copy_solution(indivisual.solution)
-            continue
-        
-        if config.is_timeout():
-            break
-        
-        ls_start = time.time()
-        if methods[method_names[1]]():
-            ls_timings[method_names[1]] += time.time() - ls_start
-            i += 1
-            counters[method_names[1]] += 1
-            cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
-            if cur < best_cost:
-                best_cost = cur
-                best_snapshot = _copy_solution(indivisual.solution)
-            continue
-
-        ls_timings[method_names[1]] += time.time() - ls_start
-        
-        if config.is_timeout():
-            break
-        
-        ls_start = time.time()
-        if methods[method_names[2]]():
-            ls_timings[method_names[2]] += time.time() - ls_start
-            i += 1
-            counters[method_names[2]] += 1
-            cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
-            if cur < best_cost:
-                best_cost = cur
-                best_snapshot = _copy_solution(indivisual.solution)
-            continue
-
-        ls_timings[method_names[2]] += time.time() - ls_start
-        
-        if config.is_timeout():
-            break
-        
-        ls_start = time.time()
-        if methods[method_names[3]]():
-            ls_timings[method_names[3]] += time.time() - ls_start
-            i += 1
-            counters[method_names[3]] += 1
-            cur = total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution)
-            if cur < best_cost:
-                best_cost = cur
-                best_snapshot = _copy_solution(indivisual.solution)
-            continue
-
-        ls_timings[method_names[3]] += time.time() - ls_start
-        
-        if config.is_timeout():
-            break
-        
-        break
-
-    # Commit the best snapshot found during LS
-    indivisual.solution = best_snapshot
-
-    for method_name in methods:
-        indivisual.improved_LS_map[method_name] += counters[method_name]
-    
-    #  Enhanced logging with detailed timing information
-    total_ls_time = sum(ls_timings.values())
-    timing_details = " | ".join([f"{name}:{counters[name]}({ls_timings[name]:.3f}s)" for name in method_names])
-    print(f"LS: {timing_details} | TotalTime:{total_ls_time:.3f}s | Cost:{total_cost(indivisual.id_to_vehicle, indivisual.route_map, indivisual.solution):.2f}")
 

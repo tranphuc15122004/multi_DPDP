@@ -13,10 +13,9 @@ LS_METHODS = ['PDPairExchange', 'BlockExchange', 'BlockRelocate', 'mPDG', '2opt'
 BEGIN_TIME = 0
 ALGO_TIME_LIMIT = 10*60
 DELAY_DISPATCH = False
-CROSSOVER_TYPE_RATIO = 0.0  
+CROSSOVER_TYPE_RATIO = 1.0  
 USE_ADAPTIVE_ORDER_DISCRIMINATE = True
 WAITING_WEIGHT = 0
-
 
 def set_begin_time():
     """Set the start time for algorithm execution"""
