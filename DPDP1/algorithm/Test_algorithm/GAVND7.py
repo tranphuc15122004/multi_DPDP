@@ -49,6 +49,7 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     except Exception as e:
         print(f"Adaptive config failed: {e}", file=sys.stderr)
     
+
     population, PDG_map = new_generate_random_chromosome(initial_vehicleid_to_plan, route_map, id_to_vehicle, Unongoing_super_nodes, Base_vehicleid_to_plan, config.POPULATION_SIZE)
     
     if population is None:
@@ -58,9 +59,7 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     stagnant_generations = 0
     population.sort(key=lambda x: x.fitness)
     best_solution =  copy.deepcopy(population[0])
-    
-    root_solution = copy.deepcopy(population[0])
-    
+        
     begin_GA_time = time.time()
     for gen in range(config.NUMBER_OF_GENERATION):
         # Kiểm tra timeout
@@ -69,6 +68,7 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
             elapsed_time = time.time() - config.BEGIN_TIME
             print(f"TimeOut!! Elapsed: {elapsed_time:.1f}s")
             break
+        
         
         # Tạo con (có giới hạn số lần thử để tránh vòng lặp vô hạn ở test nhỏ)
         target_size = config.POPULATION_SIZE * 2
@@ -88,6 +88,19 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
                 child = new_crossver2(parent1, parent2, Base_vehicleid_to_plan, PDG_map)
             else:                
                 child = disturbance_opt(parent1.solution , id_to_vehicle , route_map , 0.5)
+                #Stronger yet fast perturbation for higher diversity
+                """ child = disturbance_2opt_blocks_plus(
+                    parent1.solution,
+                    id_to_vehicle,
+                    route_map,
+                    steps=max(5 , len(id_to_vehicle)),
+                    cross_rate=0.35,
+                    shuffle_rate=0.35,
+                    double_bridge_rate=0.20,
+                    accept_if_better=False,
+                    allow_worse_delta = config.addDelta,
+                ) """
+                
             
             if child is None:
                 # If crossover repeatedly fails, use a safe fallback individual
@@ -160,7 +173,7 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     
     
     # Giai doan 2
-    population.append(root_solution)
+    #population.append(root_solution)
     unique_population = remove_similar_individuals(population, threshold=0.0)
     unique_population.sort(key=lambda x: x.fitness)
     print(len(unique_population))

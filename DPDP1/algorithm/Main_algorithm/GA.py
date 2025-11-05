@@ -469,7 +469,7 @@ def new_crossover(parent1: Chromosome , parent2: Chromosome , PDG_map : Dict[str
                     # Random dispatch
                     random_dispatch_nodePair(node_list, parent1.id_to_vehicle, child_solution_1)
             
-            print('Cập nhật super node còn thiếu' , file= sys.stderr)
+            #print('Cập nhật super node còn thiếu' , file= sys.stderr)
             
     # Kiem tra lai và thêm các node còn thiếu solution 2      
     for key, value in check_valid_2.items():
@@ -507,7 +507,7 @@ def new_crossover(parent1: Chromosome , parent2: Chromosome , PDG_map : Dict[str
                     # Random dispatch
                     random_dispatch_nodePair(node_list, parent2.id_to_vehicle, child_solution_2)
             
-            print('Cập nhật super node còn thiếu' , file= sys.stderr)
+            #print('Cập nhật super node còn thiếu' , file= sys.stderr)
     
     #child_1.fitness = child_1.evaluate_fitness()
     #child_2.fitness = child_2.evaluate_fitness()

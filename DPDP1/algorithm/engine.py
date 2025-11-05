@@ -129,7 +129,7 @@ def restore_scene_with_single_node(vehicleid_to_plan: Dict[str , List[Node]], id
         completeOrderItems = ""
         routeBefore = ""
         delta_t = "0000-0010"
-        
+    
     new_order_itemIDs = newOrderItems.split()
     
     return new_order_itemIDs

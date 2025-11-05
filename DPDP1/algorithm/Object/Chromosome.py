@@ -83,6 +83,13 @@ def mutate_solution(indivisual : Chromosome , is_limited = False , is_1LS : bool
 
 
 def crossover_solutions(parent1: Chromosome , parent2: Chromosome , PDG_map : Dict[str , List[Node]]):
+    # Early timeout guard: return the better parent to keep GA stable
+    if config.is_timeout():
+        try:
+            return parent1 if parent1.fitness <= parent2.fitness else parent2
+        except Exception:
+            return parent1
+
     Overtime1 = calculate_delaytime_each_vehicle(parent1)
     Overtime2 = calculate_delaytime_each_vehicle(parent2)
 
@@ -107,6 +114,11 @@ def crossover_solutions(parent1: Chromosome , parent2: Chromosome , PDG_map : Di
     
     # Thêm đầy đủ các tuyến đường vào lời giải con (có thể gây thừa hoặc thiếu các unongoing super node)
     while len(added_route_check) != len(parent1.id_to_vehicle):
+        if config.is_timeout():
+            try:
+                return parent1 if parent1.fitness <= parent2.fitness else parent2
+            except Exception:
+                return parent1
         Topitem =  Overtime[0]
         del Overtime[0]
         vehicleID = Topitem[0].split('P')[0]
@@ -146,16 +158,21 @@ def crossover_solutions(parent1: Chromosome , parent2: Chromosome , PDG_map : Di
                     if check_valid[key] > 1:
                         first_itemID_of_redundant_supernode = key.split('_')[-1]
                         redundant.append(first_itemID_of_redundant_supernode)
-                        print(f"Redundant nodes: {redundant}" , file= sys.stderr)
+                        #print(f"Redundant nodes: {redundant}" , file= sys.stderr)
 
                         # Xóa node giao của super node thừa
                         del_index.append(i)
-                        print('Đã xóa 1 super node thừa' , file= sys.stderr)
+                        #print('Đã xóa 1 super node thừa' , file= sys.stderr)
         for i in del_index:
             child_solution[vehicleID].pop(i)
 
     # Kiem tra lai solution        
     for key, value in check_valid.items():
+        if config.is_timeout():
+            try:
+                return parent1 if parent1.fitness <= parent2.fitness else parent2
+            except Exception:
+                return parent1
         if value == 0:
             if random.uniform(0 , 1) < 0.5:
                 # truong hop bi thieu 1 super node thi gan theo chien luoc CI vao solution hien tai
@@ -164,6 +181,11 @@ def crossover_solutions(parent1: Chromosome , parent2: Chromosome , PDG_map : Di
                 route_node_list : List[Node] = []
                 
                 if node_list:
+                    if config.is_timeout():
+                        try:
+                            return parent1 if parent1.fitness <= parent2.fitness else parent2
+                        except Exception:
+                            return parent1
                     isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = dispatch_nodePair(node_list , parent1.id_to_vehicle , child_solution , parent1.route_map)
                     
                 route_node_list = child_solution.get(bestInsertVehicleID , [])
@@ -188,10 +210,20 @@ def crossover_solutions(parent1: Chromosome , parent2: Chromosome , PDG_map : Di
                     child_solution[selected_vehicleID].extend(node_list)
                 else:
                     # Random dispatch
+                    if config.is_timeout():
+                        try:
+                            return parent1 if parent1.fitness <= parent2.fitness else parent2
+                        except Exception:
+                            return parent1
                     random_dispatch_nodePair(node_list, parent1.id_to_vehicle, child_solution)
             
-            print('Cập nhật super node còn thiếu' , file= sys.stderr)
+            #print('Cập nhật super node còn thiếu' , file= sys.stderr)
     
+    if config.is_timeout():
+        try:
+            return parent1 if parent1.fitness <= parent2.fitness else parent2
+        except Exception:
+            return parent1
     sorted_child_solution = sorted(child_solution.items() ,  key=lambda x: int(x[0].split('_')[1]))
     child_solution.clear()
     child_solution.update(sorted_child_solution)

@@ -7,64 +7,76 @@ from algorithm.engine import *
 import copy
 from algorithm.Test_algorithm.new_engine import *
 from algorithm.Test_algorithm.new_LS import *
+from algorithm.Test_algorithm.MA_engine import *
 import contextlib
 import math
-from algorithm.Test_algorithm.adaptive_ratio import (
-    AdaptiveRatioParams,
-    compute_adaptive_ratio,
-    params_from_config,
-    compute_adaptive_ratio_erfc
-)
+
 
 def _copy_solution(sol: Dict[str, List[Node]]) -> Dict[str, List[Node]]:
     return {vid: route[:] for vid, route in sol.items()}
 
-def adaptive_local_configs(num_order: int, num_vehicles: int):
-    params = AdaptiveRatioParams(
-        threshold_orders=80,
-        kww_beta=3,
-        kww_tau_factor=10.0,
-        min_ratio=0.0,
-        max_ratio=1.0,
-        vehicle_influence=0.0,
-        pivot_fraction=0.5,
-        logistic_slope=10,
-        early_shape=0.7,
-    )
-    #info = compute_adaptive_ratio(num_orders=num_order, num_vehicles=num_vehicles, p=params)
-    info = compute_adaptive_ratio_erfc(num_orders= num_order , num_vehicles=num_vehicles , p = params , center= 0.5 , width= 0.2)
-    config.CROSSOVER_TYPE_RATIO = info['ratio']
-    # Return full diagnostics for logging if needed by caller
-    return info
 
 
+def Memetic_algorithm(Base_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, Tuple], id_to_vehicle: Dict[str, Vehicle], orderID_to_nodelist : Dict[str , List[List[Node]]]) -> Chromosome:
     
-
-def GA(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, Tuple], 
-            id_to_vehicle: Dict[str, Vehicle], Unongoing_super_nodes: Dict[int, Dict[str, Node]], 
-            Base_vehicleid_to_plan: Dict[str, List[Node]]) -> Chromosome:
-    
-    """ try:
-        current_orders = max(0, len(Unongoing_super_nodes))
-        applied_params = adaptive_local_configs(current_orders, num_vehicles=len(id_to_vehicle))
-        print(f"Adaptive config applied: {applied_params}")
-    except Exception as e:
-        print(f"Adaptive config failed: {e}", file=sys.stderr) """
-    
-    population, PDG_map = new_generate_random_chromosome(initial_vehicleid_to_plan, route_map, id_to_vehicle, Unongoing_super_nodes, Base_vehicleid_to_plan, config.POPULATION_SIZE)
-    
+    population = Population_initialization(Base_vehicleid_to_plan , route_map , id_to_vehicle , orderID_to_nodelist , 20)
     if population is None:
         print('Cant initialize the population')
         return None
-    best_solution: Chromosome = None
+    
+    if len(population) != 20: 
+        print(' ERROR: Quan the dc khoi tao khong du 20 ca the')
+        return None
+    
+    population.sort(key= lambda x: x.fitness)
+    
+    avg = sum(c.fitness for c in population) / len(population)
+        
+    print(f'Pre GA Generation : Best = {population[0].fitness:.2f}, '
+            f'Worst = {population[-1].fitness:.2f}, '
+            f'Avg = {avg:.2f}, ')
+    
+    
     stagnant_generations = 0
     population.sort(key=lambda x: x.fitness)
-    best_solution =  copy.deepcopy(population[0])
+    best_solution: Chromosome = copy.deepcopy(population[0])
+    
+    Unongoing_super_nodes , _ = get_UnongoingSuperNode(population[0].solution , id_to_vehicle)
+    PDG_map : Dict[str , List[Node]] = {}
+    
+    # tao Dict cac super node
+    for idx, pdg in Unongoing_super_nodes.items():
+        pickup_node = None
+        delivery_node = None
+        node_list: List[Node] = []
+        pos_i = 0
+        pos_j = 0
+        d_num = len(pdg) // 2
+        index = 0
+
+        if pdg:
+            vehicleID = ''
+            for v_and_pos_str, node in (pdg.items()):
+                vehicleID = v_and_pos_str.split(",")[0]
+                if index % 2 == 0:
+                    pos_i = int(v_and_pos_str.split(",")[1])
+                    pickup_node = node
+                    node_list.insert(0, pickup_node)
+                    index += 1
+                else:
+                    pos_j = int(v_and_pos_str.split(",")[1])
+                    delivery_node = node
+                    node_list.append(delivery_node)
+                    index += 1
+                    pos_j = int(pos_j - d_num + 1)
+            
+            k : str = f"{vehicleID},{int(pos_i)}+{int(pos_j)}"
+            PDG_map[k] = node_list
+    if len(PDG_map) < 2:
+        return None
+    
     
     begin_GA_time = time.time()
-
-    # Use only the provided config.is_timeout() to control timeouts
-
     for gen in range(config.NUMBER_OF_GENERATION):
         # Kiểm tra timeout
         begin_gen_time = time.time()
@@ -74,7 +86,7 @@ def GA(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, 
             break
         
         # Tạo con (có giới hạn số lần thử để tránh vòng lặp vô hạn ở test nhỏ)
-        target_size = config.POPULATION_SIZE * 2
+        target_size = 20 * 2
         max_attempts = (getattr(config, 'OFFSPRING_ATTEMPTS_FACTOR', 10) or 10) * max(1, target_size - len(population))
         attempts = 0
         while len(population) < target_size and not config.is_timeout():
@@ -87,44 +99,22 @@ def GA(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, 
                     population.append(candidate)
                 continue
             
-            # Call time-bounded crossover (self-budgeting)
-            child = new_crossver2(parent1, parent2, Base_vehicleid_to_plan, PDG_map)
+            child = parent1.crossover(parent2 , PDG_map)
             
             if child is None:
-                # If crossover repeatedly fails, use a safe fallback individual
-                if attempts >= max_attempts:
-                    # Fallback: clone a random elite and apply a light LS step to diversify
-                    base = copy.deepcopy(random.choice(population)) if population else copy.deepcopy(population[0])
-                    # Only attempt LS if there is still time
-                    if not config.is_timeout():
-                        with contextlib.suppress(Exception):
-                            randon_1_LS(base, True, 1)
-                    population.append(base)
-                    # Reset attempts for the next child
-                    attempts = 0
                 continue
+            
+            Local_search_MA(child , PDG_map)
+            
             population.append(child)
         
         population.sort(key= lambda x: x.fitness)
         new_populution : List[Chromosome] = population[:config.POPULATION_SIZE]
         population = new_populution
-
+        
         population.sort(key= lambda x: x.fitness)
         population = population[:config.POPULATION_SIZE]
         if population[0].fitness < best_solution.fitness: config.IMPROVED_IN_CROSS += 1
-        
-        mutate_count = 0
-        for c in range (len(population)):
-            if mutate_count > int(len(population) * config.MUTATION_RATE):
-                break
-            if config.is_timeout():
-                break
-            # Apply a single LS step per individual (already time-bounded inside)
-            randon_1_LS(population[c] , True , 1)
-            mutate_count +=1
-        
-        population.sort(key=lambda x: x.fitness)
-        if population[0].fitness < best_solution.fitness: config.IMPROVED_IN_MUTATION += 1
         
         
         # Cập nhật best solution
@@ -144,8 +134,11 @@ def GA(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, 
 
         # Điều kiện dừng
         #  
-        if stagnant_generations >= 5 :
+        if stagnant_generations >= 10 :
             print("Stopping early due to lack of improvement.")
+            break
+        
+        if config.is_timeout():
             break
         
         gen_end_time = time.time()
@@ -153,7 +146,7 @@ def GA(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, 
         elapsed_time = gen_end_time - config.BEGIN_TIME
         
         # Kiểm tra timeout
-        if config.is_timeout():
+        if elapsed_time  > config.ALGO_TIME_LIMIT:
             print(f"TimeOut!! Elapsed: {elapsed_time:.1f}s")
             break
     final_time = time.time()
@@ -162,6 +155,8 @@ def GA(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tuple, 
     print(f"Total GA runtime: {final_time - begin_GA_time:.2f}s ({(final_time - begin_GA_time)/60:.1f} minutes)" )
     
     return best_solution
+
+
 
 def select_parents(population: List[Chromosome]) -> Tuple[Chromosome, Chromosome]:
     if config.is_timeout():
@@ -189,4 +184,3 @@ def select_parents(population: List[Chromosome]) -> Tuple[Chromosome, Chromosome
     p1 = tournament_selection()
     p2 = tournament_selection()
     return p1, p2
-

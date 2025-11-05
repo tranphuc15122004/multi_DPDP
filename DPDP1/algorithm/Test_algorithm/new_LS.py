@@ -750,6 +750,22 @@ def disturbance_2opt_blocks_plus(
 
     # Attempt up to `steps` accepted moves
     accepted = 0
+
+    """ while accepted < steps:
+        # choose operator by multinomial
+        r = random.random()
+        op_done = False
+        if r < cross_rate:
+            op_done = try_inter_swap()
+        elif r < cross_rate + shuffle_rate:
+            op_done = try_intra_shuffle()
+        elif r < cross_rate + shuffle_rate + double_bridge_rate:
+            op_done = try_double_bridge()
+        else:
+            op_done = try_intra_2opt()
+        if op_done:
+            accepted += 1 """
+
     for _ in range(max(1, steps)):
         # choose operator by multinomial
         r = random.random()
