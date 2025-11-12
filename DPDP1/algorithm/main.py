@@ -7,8 +7,7 @@ from algorithm.engine import *
 from algorithm.Test_algorithm.new_engine import *
 from algorithm.Test_algorithm.new_LS import *
 from algorithm.Test_algorithm.GAVND7 import GAVND_7
-from algorithm.Test_algorithm.MA import Memetic_algorithm
-from algorithm.Test_algorithm.MA_engine import *
+from algorithm.Test_algorithm.base_GA import GA
 import algorithm.algorithm_config as Config
 from src.conf.configs import Configs
 import time
@@ -33,23 +32,30 @@ def main():
     #Thuat toan
     print()
     
-    #dispatch_new_orders(vehicleid_to_plan , id_to_factory , route_map , id_to_vehicle , id_to_unlocated_items , new_order_itemIDs)
-    
-    Pre_Unongoing_super_nodes , Base_vehicleid_to_plan = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
-    
-    orderId_to_nodelist =  Pre_population_initialization(Base_vehicleid_to_plan , Pre_Unongoing_super_nodes , id_to_factory , route_map , id_to_vehicle , id_to_unlocated_items , new_order_itemIDs)
-    
-    copy_base_vehicleid_to_plan = copy.deepcopy(Base_vehicleid_to_plan)
-    best_chromosome : Chromosome = Memetic_algorithm(copy_base_vehicleid_to_plan , route_map , id_to_vehicle , orderId_to_nodelist )
-    if best_chromosome is None:
+    """ if over24hours(id_to_vehicle , new_order_itemIDs):
+        redispatch_process(id_to_vehicle , route_map , vehicleid_to_plan , id_to_factory , id_to_unlocated_items)
+    else:
         dispatch_new_orders(vehicleid_to_plan , id_to_factory , route_map , id_to_vehicle , id_to_unlocated_items , new_order_itemIDs)
+     """
+    worse_dispatch_new_orders(vehicleid_to_plan , id_to_factory , route_map , id_to_vehicle , id_to_unlocated_items , new_order_itemIDs)
+    
+    Unongoing_super_nodes , Base_vehicleid_to_plan = get_UnongoingSuperNode(vehicleid_to_plan , id_to_vehicle)
+    
+    best_chromosome = Chromosome(vehicleid_to_plan , route_map , id_to_vehicle)
+    
+    copy_vehicleid_to_plan = copy.deepcopy(vehicleid_to_plan)
+    best_chromosome : Chromosome = GA(copy_vehicleid_to_plan , route_map , id_to_vehicle , Unongoing_super_nodes , Base_vehicleid_to_plan)
+    if best_chromosome is None or best_chromosome.fitness > total_cost(id_to_vehicle , route_map , vehicleid_to_plan):
         best_chromosome = Chromosome(vehicleid_to_plan , route_map , id_to_vehicle)
     
     
     print()
+    print('The solution initialized by Cheapest Insertion:')
+    print(get_route_after(vehicleid_to_plan , {}))
+    print(f'The fitness value before EA: {total_cost(id_to_vehicle , route_map , vehicleid_to_plan)}')
     
     print(get_route_after(best_chromosome.solution , {}))
-    print(f'The fitness value after MA: {best_chromosome.fitness}')
+    print(f'The fitness value after EA: {best_chromosome.fitness}')
     print()
     
     #Ket thuc thuat toan

@@ -9,11 +9,11 @@ Delta1 = 10000.0
 SLACK_TIME_THRESHOLD = 10000
 debugPeriod = "0010-0020"
 addDelta = 400000.0
-LS_METHODS = ['PDPairExchange', 'BlockExchange', 'BlockRelocate', 'mPDG', '2opt']
+LS_METHODS = ['PDPairExchange', 'BlockExchange', 'BlockRelocate', 'mPDG', 'MA']
 BEGIN_TIME = 0
 ALGO_TIME_LIMIT = 9*60+30
 DELAY_DISPATCH = False
-CROSSOVER_TYPE_RATIO = 0.0  
+CROSSOVER_TYPE_RATIO = 1.0  
 USE_ADAPTIVE_ORDER_DISCRIMINATE = True
 WAITING_WEIGHT = 0
 
@@ -35,7 +35,7 @@ def get_remaining_time() -> float:
 POPULATION_SIZE = 40
 NUMBER_OF_GENERATION = 20
 MUTATION_RATE = 0.25
-LS_MAX = 20
+LS_MAX = 1
 IMPROVED_IN_CROSS = 0
 IMPROVED_IN_MUTATION = 0
 IMPROVED_IN_DIVER = 0

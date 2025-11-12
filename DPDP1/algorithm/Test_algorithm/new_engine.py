@@ -110,7 +110,7 @@ def new_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to_f
                 isExhausive = False
                 if node_list:
                     isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
-                    isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = new_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
+                    #isExhausive , bestInsertVehicleID, bestInsertPosI, bestInsertPosJ , bestNodeList = new_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan , route_map)
                 route_node_list : List[Node] = vehicleid_to_plan.get(bestInsertVehicleID , [])
                 if isExhausive:
                     route_node_list = bestNodeList[:]
@@ -164,7 +164,7 @@ def worse_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to
                         
                         node_list: list[Node] = create_Pickup_Delivery_nodes(tmp_itemList , id_to_factory)
                         
-                        if node_list:
+                        """ if node_list:
                             bestInsertPos, bestInsertVehicle = fast_cheapest_insertion_for_block(
                                 node_list, id_to_vehicle, vehicleid_to_plan, route_map
                             )
@@ -173,7 +173,10 @@ def worse_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to
                             print(f"[new_crossver2] reinsert abandon block | insertion failed -> stopping", file=sys.stderr)
                             break
                         target_route = vehicleid_to_plan[bestInsertVehicle]
-                        target_route[bestInsertPos: bestInsertPos] = node_list
+                        target_route[bestInsertPos: bestInsertPos] = node_list """
+                        
+                        if node_list:
+                            random_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan)
                         
                         tmp_itemList.clear()
                         tmp_demand = 0
@@ -185,7 +188,7 @@ def worse_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to
                         if len(plan) >= 6: all_exhautive = False
                     
                     node_list: list[Node] = create_Pickup_Delivery_nodes(tmp_itemList , id_to_factory)
-                    if node_list:
+                    """ if node_list:
                         bestInsertPos, bestInsertVehicle = fast_cheapest_insertion_for_block(
                             node_list, id_to_vehicle, vehicleid_to_plan, route_map
                         )
@@ -194,13 +197,15 @@ def worse_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to
                         print(f"[new_crossver2] reinsert abandon block | insertion failed -> stopping", file=sys.stderr)
                         break
                     target_route = vehicleid_to_plan[bestInsertVehicle]
-                    target_route[bestInsertPos: bestInsertPos] = node_list
+                    target_route[bestInsertPos: bestInsertPos] = node_list """
+                    if node_list:
+                        random_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan)
             else:
                 for plan in vehicleid_to_plan.values():
                     if len(plan) >= 6: all_exhautive = False
                 
                 node_list: list[Node] = create_Pickup_Delivery_nodes(orderID_items , id_to_factory)
-                if node_list:
+                """ if node_list:
                     bestInsertPos, bestInsertVehicle = fast_cheapest_insertion_for_block(
                         node_list, id_to_vehicle, vehicleid_to_plan, route_map
                     )
@@ -209,7 +214,9 @@ def worse_dispatch_new_orders(vehicleid_to_plan: Dict[str , list[Node]] ,  id_to
                     print(f"[new_crossver2] reinsert abandon block | insertion failed -> stopping", file=sys.stderr)
                     break
                 target_route = vehicleid_to_plan[bestInsertVehicle]
-                target_route[bestInsertPos: bestInsertPos] = node_list
+                target_route[bestInsertPos: bestInsertPos] = node_list """
+                if node_list:
+                    random_dispatch_nodePair(node_list , id_to_vehicle , vehicleid_to_plan)
     
     return all_exhautive   
 
@@ -398,6 +405,9 @@ def new_generate_random_chromosome(initial_vehicleid_to_plan : Dict[str , List[N
 
     #Quan the
     population : List[Chromosome] = []
+    number_of_node = 0
+    for plan in initial_vehicleid_to_plan.values():
+        number_of_node += len(plan)
     
     pdg_Map : Dict[str , List[Node]] = {}
     
@@ -610,7 +620,7 @@ def get_adaptive_order(indivisual: Chromosome ,methods : Dict , mode= 1) -> List
     ordered_methods = [method[0] for method in sorted_methods]
     return ordered_methods
 
-def randon_1_LS(indivisual: Chromosome , is_limited = False , mode = 0):
+def randon_1_LS(indivisual: Chromosome  , PDG_map: Dict[str, List[Node]], is_limited = False , mode = 0):
     if config.is_timeout():
         return False
     

@@ -31,6 +31,7 @@ def adaptive_local_configs(num_order: int, num_vehicles: int):
         logistic_slope=10,
         early_shape=0.7,
     )
+    
     #info = compute_adaptive_ratio(num_orders=num_order, num_vehicles=num_vehicles, p=params)
     info = compute_adaptive_ratio_erfc(num_orders= num_order , num_vehicles=num_vehicles , p = params , center= 0.5 , width= 0.2)
     config.CROSSOVER_TYPE_RATIO = info['ratio']
@@ -49,7 +50,6 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     except Exception as e:
         print(f"Adaptive config failed: {e}", file=sys.stderr)
     
-
     population, PDG_map = new_generate_random_chromosome(initial_vehicleid_to_plan, route_map, id_to_vehicle, Unongoing_super_nodes, Base_vehicleid_to_plan, config.POPULATION_SIZE)
     
     if population is None:
@@ -69,7 +69,6 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
             print(f"TimeOut!! Elapsed: {elapsed_time:.1f}s")
             break
         
-        
         # Tạo con (có giới hạn số lần thử để tránh vòng lặp vô hạn ở test nhỏ)
         target_size = config.POPULATION_SIZE * 2
         max_attempts = (getattr(config, 'OFFSPRING_ATTEMPTS_FACTOR', 10) or 10) * max(1, target_size - len(population))
@@ -88,19 +87,6 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
                 child = new_crossver2(parent1, parent2, Base_vehicleid_to_plan, PDG_map)
             else:                
                 child = disturbance_opt(parent1.solution , id_to_vehicle , route_map , 0.5)
-                #Stronger yet fast perturbation for higher diversity
-                """ child = disturbance_2opt_blocks_plus(
-                    parent1.solution,
-                    id_to_vehicle,
-                    route_map,
-                    steps=max(5 , len(id_to_vehicle)),
-                    cross_rate=0.35,
-                    shuffle_rate=0.35,
-                    double_bridge_rate=0.20,
-                    accept_if_better=False,
-                    allow_worse_delta = config.addDelta,
-                ) """
-                
             
             if child is None:
                 # If crossover repeatedly fails, use a safe fallback individual
@@ -130,7 +116,7 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
         for c in range (len(population)):
             if mutate_count > int(len(population) * config.MUTATION_RATE):
                 break            
-            randon_1_LS(population[c] , True , 1)
+            randon_1_LS(population[c] , PDG_map , True , 1)
             mutate_count +=1
         
         population.sort(key=lambda x: x.fitness)
@@ -173,7 +159,6 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
     
     
     # Giai doan 2
-    #population.append(root_solution)
     unique_population = remove_similar_individuals(population, threshold=0.0)
     unique_population.sort(key=lambda x: x.fitness)
     print(len(unique_population))
@@ -189,7 +174,7 @@ def GAVND_7(initial_vehicleid_to_plan: Dict[str, List[Node]], route_map: Dict[Tu
         
         if unique_population[mutate_count % len(unique_population)].fitness > unique_population[0].fitness + config.addDelta: break
         
-        adaptive_LS_stategy(unique_population[mutate_count] , False , 1)
+        adaptive_LS_stategy(unique_population[mutate_count] , PDG_map , False )
         
         mutate_count += 1
     
@@ -227,7 +212,7 @@ def select_parents(population: List[Chromosome]) -> Tuple[Chromosome, Chromosome
     return p1, p2
 
 
-def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
+def adaptive_LS_stategy(indivisual: Chromosome, PDG_map : Dict[str , List[Node]],  is_limited=True ):
     if config.is_timeout():
         return False
     
@@ -238,14 +223,14 @@ def adaptive_LS_stategy(indivisual: Chromosome, is_limited=True , mode = 1 ):
         'PDPairExchange': lambda: new_inter_couple_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf,  is_limited),
         'BlockExchange': lambda: new_block_exchange(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf, is_limited),
         'BlockRelocate': lambda: new_block_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf, is_limited),
-        'mPDG': lambda: new_multi_pd_group_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf, is_limited)
+        'mPDG': lambda: new_multi_pd_group_relocate(indivisual.solution, indivisual.id_to_vehicle, indivisual.route_map, math.inf, is_limited),
     }
     
     # Counter cho từng phương pháp
     counters = {name: 0 for name in methods}
     
     # Lấy thứ tự adaptive
-    method_names = get_adaptive_order(indivisual , methods , mode=mode)
+    method_names = get_adaptive_order(indivisual , methods )
     
     #  Track local search timings per method
     ls_timings = {
